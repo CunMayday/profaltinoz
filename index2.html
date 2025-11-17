@@ -47,12 +47,26 @@
         scroll-behavior: smooth;
       }
       body {
-        background: #050505;
         min-height: 100vh;
+        background-color: #0f1b2b;
+        background-image:
+          radial-gradient(circle at 20% 22%, rgba(194, 142, 14, 0.4), transparent 52%),
+          radial-gradient(circle at 78% 10%, rgba(255, 255, 255, 0.2), transparent 46%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+          radial-gradient(circle at 25% 35%, rgba(194, 142, 14, 0.3) 0.6px, transparent 0.85px),
+          radial-gradient(circle at 65% 70%, rgba(255, 255, 255, 0.35) 0.6px, transparent 0.85px),
+          linear-gradient(150deg, #203149, #0a0f18 70%);
+        background-size: 150% 150%, 200% 200%, 120px 120px, 120px 120px, 70px 70px, 80px 80px, 100% 100%;
+        background-attachment: fixed;
       }
       .aurora-bg {
-        background-image: var(--aurora, radial-gradient(circle at 10% 20%, rgba(206, 184, 136, 0.35), transparent 45%));
-        filter: blur(120px);
+        background-image:
+          radial-gradient(circle at 30% 35%, rgba(194, 142, 14, 0.25), transparent 45%),
+          radial-gradient(circle at 70% 20%, rgba(120, 180, 255, 0.18), transparent 50%);
+        filter: blur(90px);
+        mix-blend-mode: screen;
+        opacity: 0.35;
       }
       .glass {
         backdrop-filter: blur(24px);
@@ -100,7 +114,7 @@
       }
     </style>
   </head>
-  <body class="font-body text-white bg-nebula relative">
+  <body class="font-body text-white relative">
     <div class="grain"></div>
     <div class="aurora-bg pointer-events-none absolute inset-0"></div>
 

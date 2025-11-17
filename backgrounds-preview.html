@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Concepts Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        background: #030303;
+        color: #f7f2e9;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      header {
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 0.3em;
+        letter-spacing: 0.35em;
+        font-size: clamp(1.6rem, 2vw, 2.25rem);
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0;
+        color: #d1c7ad;
+      }
+      .grid {
+        display: grid;
+        gap: 32px;
+      }
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      .card {
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        isolation: isolate;
+      }
+      .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 45%);
+        opacity: 0.3;
+        mix-blend-mode: screen;
+      }
+      .label {
+        position: relative;
+        z-index: 2;
+        backdrop-filter: blur(16px);
+        background: rgba(10, 10, 10, 0.4);
+        padding: 24px;
+      }
+      .label h2 {
+        margin: 0 0 0.5em 0;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+      .label span {
+        display: block;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+      }
+      /* Purdue Blueprint Grid */
+      .bg-blueprint {
+        background-image:
+          radial-gradient(circle at 7% 12%, rgba(194, 142, 14, 0.2) 0.8px, transparent 1px),
+          radial-gradient(circle at 80% 60%, rgba(194, 142, 14, 0.12) 0.8px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(145deg, #0b0b0b, #040404 65%, #000000);
+        background-size:
+          120px 120px,
+          120px 120px,
+          40px 40px,
+          40px 40px,
+          100% 100%;
+        position: relative;
+      }
+      .bg-blueprint::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 8px,
+            rgba(194, 142, 14, 0.03) 9px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 8px,
+            rgba(194, 142, 14, 0.03) 9px
+          );
+        mix-blend-mode: screen;
+        opacity: 0.4;
+        z-index: 0;
+      }
+      /* Marbled paper */
+      .bg-marbled {
+        background:
+          linear-gradient(120deg, rgba(194, 142, 14, 0.18), transparent 70%),
+          linear-gradient(300deg, rgba(110, 60, 200, 0.1), transparent 60%),
+          url('https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=1600&q=80') center/cover;
+        filter: saturate(1.1) contrast(1.05);
+      }
+      .bg-marbled::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(60deg, rgba(255, 214, 137, 0.35), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+      }
+      /* Aurora mesh */
+      .bg-aurora {
+        background:
+          conic-gradient(from 220deg at 30% 15%, rgba(194, 142, 14, 0.32), transparent 65%),
+          conic-gradient(from 60deg at 75% 65%, rgba(110, 200, 255, 0.32), transparent 55%),
+          radial-gradient(circle at 20% 80%, rgba(255, 120, 150, 0.2), transparent 45%),
+          linear-gradient(135deg, #050912, #020305 70%);
+      }
+      .bg-aurora::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/1/14/White_Noise_Texture.jpg');
+        opacity: 0.07;
+        mix-blend-mode: soft-light;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p>Visual compare for</p>
+      <h1>Textured Backdrops</h1>
+      <p>Select one option below to update both landing pages.</p>
+    </header>
+    <section class="grid">
+      <article class="card bg-blueprint">
+        <div class="label">
+          <h2>Purdue Blueprint Grid</h2>
+          <span>High-tech, precise, and subtle enough to let glass cards pop. Soft dots and grid lines create depth cues the blur can refract.</span>
+        </div>
+      </article>
+      <article class="card bg-marbled">
+        <div class="label">
+          <h2>Marbled Paper + Veins</h2>
+          <span>Luxurious academic vibe. Organic swirls and golden streaks highlight the frosted effect while staying on-brand.</span>
+        </div>
+      </article>
+      <article class="card bg-aurora">
+        <div class="label">
+          <h2>Aurora Mesh & Embossed Noise</h2>
+          <span>Futuristic ribbons and embossed noise produce animated light bands for a dramatic glassmorphism showcase.</span>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>
