@@ -21,10 +21,18 @@
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: #373A36;
-            background-image: url('assets/background.svg');
-            background-attachment: fixed;
-            background-size: cover;
+        }
+        .bg-animated {
+            background: linear-gradient(-45deg, #C28E0E, #CEB888, #9D968D, #373A36);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
@@ -57,11 +65,13 @@
     }
     </script>
 </head>
-<body class="text-white">
+<body class="text-dark-gray">
+
+    <div class="bg-animated fixed top-0 left-0 w-full h-full z-[-1]"></div>
 
     <header class="fixed top-0 left-0 right-0 z-50 glassmorphism">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-xl font-bold text-white">Professor Altinoz</a>
+            <a href="#hero" class="text-xl font-bold text-purdue-black">Professor Altinoz</a>
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#awards" class="hover:text-campus-gold font-medium">Awards</a>
                 <a href="#focus" class="hover:text-campus-gold font-medium">Focus</a>
@@ -70,7 +80,7 @@
                 <a href="#contact" class="bg-campus-gold text-white py-2 px-4 rounded-full hover:bg-opacity-80 transition">Contact</a>
             </div>
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white">
+                <button id="mobile-menu-button" class="text-purdue-black">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -87,16 +97,16 @@
     <main>
         <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
             <div>
-                <h1 class="text-5xl md:text-7xl font-bold uppercase text-white" data-aos="fade-down">CUNEYT ALTINOZ</h1>
+                <h1 class="text-5xl md:text-7xl font-bold uppercase text-purdue-black" data-aos="fade-down">CUNEYT ALTINOZ</h1>
                 <div class="mt-4 p-4 glassmorphism inline-block rounded-xl" data-aos="fade-up">
-                    <p class="text-xl md:text-2xl text-white font-semibold">Professor at Purdue University Global</p>
+                    <p class="text-xl md:text-2xl text-purdue-black font-semibold">Professor at Purdue University Global</p>
                 </div>
                 <div class="mt-8 space-x-4" data-aos="fade-up" data-aos-delay="100">
                     <a href="#contact" class="bg-campus-gold text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-opacity-80 transition transform hover:scale-105">Get in Touch</a>
-                    <a href="#awards" class="border-2 border-white text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-white hover:text-purdue-black transition transform hover:scale-105">Learn More</a>
+                    <a href="#awards" class="border-2 border-campus-gold text-campus-gold py-3 px-8 rounded-full text-lg font-semibold hover:bg-campus-gold hover:text-white transition transform hover:scale-105">Learn More</a>
                 </div>
                 <div class="mt-12 p-6 glassmorphism rounded-xl max-w-2xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
-                    <h3 class="text-xl font-bold text-white">Welcome students. You are in good hands!</h3>
+                    <h3 class="text-xl font-bold text-purdue-black">Welcome students. You are in good hands!</h3>
                     <div class="flex flex-wrap justify-center gap-8 mt-4">
                         <div>
                             <p class="text-3xl font-bold text-campus-gold">16+</p>
@@ -117,13 +127,13 @@
 
         <section id="awards" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Awards & Recognition</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 text-purdue-black" data-aos="fade-up">Awards & Recognition</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Award 1 -->
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="star" class="w-10 h-10"></i></div>
                         <p class="font-bold text-lg">2025</p>
-                        <h3 class="text-xl font-bold text-white">Innovative Online Use of Technology</h3>
+                        <h3 class="text-xl font-bold text-purdue-black">Innovative Online Use of Technology</h3>
                         <p class="text-sm">Purdue University Online</p>
                         <p class="mt-2 text-sm">Recognized for custom AI assistants helping graduate students</p>
                     </div>
@@ -131,7 +141,7 @@
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="award" class="w-10 h-10"></i></div>
                         <p class="font-bold text-lg">2023</p>
-                        <h3 class="text-xl font-bold text-white">Excellence in Online Course Design and Delivery</h3>
+                        <h3 class="text-xl font-bold text-purdue-black">Excellence in Online Course Design and Delivery</h3>
                         <p class="text-sm">Purdue University Online</p>
                         <p class="mt-2 text-sm">Student-centric design of GB 513 Business Analytics</p>
                     </div>
@@ -139,7 +149,7 @@
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="award" class="w-10 h-10"></i></div>
                         <p class="font-bold text-lg">2021</p>
-                        <h3 class="text-xl font-bold text-white">ACBSP Teaching Excellence Award</h3>
+                        <h3 class="text-xl font-bold text-purdue-black">ACBSP Teaching Excellence Award</h3>
                         <p class="text-sm">ACBSP</p>
                         <p class="mt-2 text-sm">One of 7 winners in the United States</p>
                     </div>
@@ -147,18 +157,18 @@
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="star" class="w-10 h-10"></i></div>
                         <p class="font-bold text-lg">2016</p>
-                        <h3 class="text-xl font-bold text-white">School of Business Professor of the Year</h3>
+                        <h3 class="text-xl font-bold text-purdue-black">School of Business Professor of the Year</h3>
                         <p class="text-sm">Purdue University Global</p>
                     </div>
                 </div>
-                <h3 class="text-3xl font-bold text-center mt-16 mb-8 text-white" data-aos="fade-up">Leadership Roles</h3>
+                <h3 class="text-3xl font-bold text-center mt-16 mb-8 text-purdue-black" data-aos="fade-up">Leadership Roles</h3>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-right">
-                        <h4 class="text-xl font-bold text-white">Program Development</h4>
+                        <h4 class="text-xl font-bold text-purdue-black">Program Development</h4>
                         <p>Faculty lead in developing the Doctorate in Business Administration program</p>
                     </div>
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-left">
-                        <h4 class="text-xl font-bold text-white">Faculty Advisor</h4>
+                        <h4 class="text-xl font-bold text-purdue-black">Faculty Advisor</h4>
                         <p>Delta Mu Delta Honor Society</p>
                     </div>
                 </div>
@@ -167,21 +177,21 @@
 
         <section id="focus" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Current Focus</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 text-purdue-black" data-aos="fade-up">Current Focus</h2>
                 <div class="text-center mb-12" data-aos="fade-in">
-                    <h3 class="text-3xl font-bold text-white">AI Systems for Education</h3>
+                    <h3 class="text-3xl font-bold text-purdue-black">AI Systems for Education</h3>
                     <p class="mt-2 max-w-2xl mx-auto">Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Project 1 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h4 class="text-xl font-bold text-white">Research Methodology Selector</h4>
+                        <h4 class="text-xl font-bold text-purdue-black">Research Methodology Selector</h4>
                         <p class="mt-2">Interactive tool for DBA students to identify appropriate research methodologies</p>
                         <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="mt-4 inline-block bg-campus-gold text-white py-2 px-4 rounded-full hover:bg-opacity-80 transition">View Project</a>
                     </div>
                     <!-- Project 2 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="text-xl font-bold text-white">Analytics Case Study</h4>
+                        <h4 class="text-xl font-bold text-purdue-black">Analytics Case Study</h4>
                         <p class="mt-2">Comprehensive case study example demonstrating business analytics applications</p>
                         <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="mt-4 inline-block bg-campus-gold text-white py-2 px-4 rounded-full hover:bg-opacity-80 transition">View Project</a>
                     </div>
@@ -197,12 +207,12 @@
 
         <section id="education" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Education</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 text-purdue-black" data-aos="fade-up">Education</h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Degree 1 -->
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="award" class="w-10 h-10"></i></div>
-                        <p class="text-2xl font-bold text-white">PhD</p>
+                        <p class="text-2xl font-bold text-purdue-black">PhD</p>
                         <p>North Carolina State University</p>
                         <p>Raleigh, NC</p>
                         <p class="text-sm mt-2">2001</p>
@@ -210,7 +220,7 @@
                     <!-- Degree 2 -->
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="award" class="w-10 h-10"></i></div>
-                        <p class="text-2xl font-bold text-white">MBA</p>
+                        <p class="text-2xl font-bold text-purdue-black">MBA</p>
                         <p>Georgia Institute of Technology</p>
                         <p>Atlanta, GA</p>
                         <p class="text-sm mt-2">1996</p>
@@ -218,7 +228,7 @@
                     <!-- Degree 3 -->
                     <div class="glassmorphism p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="text-campus-gold mx-auto mb-4 w-12 h-12 flex items-center justify-center"><i data-feather="award" class="w-10 h-10"></i></div>
-                        <p class="text-2xl font-bold text-white">BS - Industrial Engineering</p>
+                        <p class="text-2xl font-bold text-purdue-black">BS - Industrial Engineering</p>
                         <p>North Carolina State University</p>
                         <p>Raleigh, NC</p>
                         <p class="text-sm mt-2">1994</p>
@@ -229,11 +239,11 @@
 
         <section id="experience" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white" data-aos="fade-up">Experience</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 text-purdue-black" data-aos="fade-up">Experience</h2>
                 <div class="space-y-8 max-w-4xl mx-auto">
                     <!-- Position 1 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Professor</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Professor</h3>
                         <p class="font-semibold">Purdue University Global (2009 - Present)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Faculty lead in charge of developing the new Doctorate in Business Administration program</li>
@@ -242,7 +252,7 @@
                     </div>
                     <!-- Position 2 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Assistant Professor</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Assistant Professor</h3>
                         <p class="font-semibold">East Carolina University (2003 - 2008)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Marketing and Supply Chain Management department, College of Business</li>
@@ -253,7 +263,7 @@
                     </div>
                     <!-- Position 3 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Post-doctoral Research Fellow</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Post-doctoral Research Fellow</h3>
                         <p class="font-semibold">North Carolina State University (2001 - 2003)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Created fuzzy logic based decision support system for supplier selection</li>
@@ -262,7 +272,7 @@
                     </div>
                     <!-- Position 4 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Research Assistant</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Research Assistant</h3>
                         <p class="font-semibold">North Carolina State University (1997 - 2001)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Conducted research regarding decision support systems</li>
@@ -271,7 +281,7 @@
                     </div>
                      <!-- Position 5 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Consultant</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Consultant</h3>
                         <p class="font-semibold">CIBA Vision, Atlanta GA (1995 - 1997)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Consulted regarding inventory control issues</li>
@@ -280,7 +290,7 @@
                     </div>
                     <!-- Position 6 -->
                     <div class="glassmorphism p-6 rounded-lg" data-aos="fade-up">
-                        <h3 class="text-2xl font-bold text-white">Operations Analyst</h3>
+                        <h3 class="text-2xl font-bold text-purdue-black">Operations Analyst</h3>
                         <p class="font-semibold">IBM, Atlanta GA (1995)</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
                             <li>Analyzed service operations and developed measurement tools</li>
@@ -293,7 +303,7 @@
 
         <section id="contact" class="py-20">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-8 text-white" data-aos="fade-up">Let's Connect</h2>
+                <h2 class="text-4xl font-bold mb-8 text-purdue-black" data-aos="fade-up">Let's Connect</h2>
                 <div class="glassmorphism p-8 rounded-lg inline-block" data-aos="zoom-in">
                     <p class="text-xl">Email</p>
                     <a href="mailto:caltinoz@purdueglobal.edu" class="text-2xl font-bold text-campus-gold hover:underline">caltinoz@purdueglobal.edu</a>
@@ -304,15 +314,15 @@
                     </div>
                 </div>
                 <div class="mt-12 max-w-3xl mx-auto" data-aos="fade-up">
-                    <h3 class="text-2xl font-bold mb-4 text-white">Areas of Expertise</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-purdue-black">Areas of Expertise</h3>
                     <div class="flex flex-wrap justify-center gap-3">
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Business Administration</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">AI in Education</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Decision Support Systems</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Inventory Control</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Industrial Engineering</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Online Education</span>
-                        <span class="bg-athletic-gold/50 text-white rounded-full px-4 py-2 text-sm font-semibold">Educational Technology</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Business Administration</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">AI in Education</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Decision Support Systems</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Inventory Control</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Industrial Engineering</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Online Education</span>
+                        <span class="bg-athletic-gold/50 text-dark-gray rounded-full px-4 py-2 text-sm font-semibold">Educational Technology</span>
                     </div>
                 </div>
                 <p class="mt-12 text-xl" data-aos="fade-up">Open to Collaboration & Research Opportunities</p>
@@ -321,7 +331,7 @@
     </main>
 
     <footer class="py-10 text-center">
-        <p class="text-white">&copy; 2025 Cuneyt Altinoz. Built with glassmorphism vibes.</p>
+        <p class="text-purdue-black">&copy; 2025 Cuneyt Altinoz. Built with glassmorphism vibes.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
