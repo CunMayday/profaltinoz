@@ -120,13 +120,18 @@
       }
 
       .glass {
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        background: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(194, 142, 14, 0.3);
+        backdrop-filter: blur(24px) saturate(180%) brightness(0.95);
+        -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(0.95);
+        background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.75) 0%,
+          rgba(250, 250, 250, 0.65) 50%,
+          rgba(255, 255, 255, 0.7) 100%);
+        border: 1px solid rgba(194, 142, 14, 0.4);
         box-shadow:
-          0 8px 32px 0 rgba(194, 142, 14, 0.1),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+          0 8px 32px 0 rgba(0, 0, 0, 0.08),
+          0 2px 8px 0 rgba(194, 142, 14, 0.12),
+          inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+          inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
         /* Force hardware acceleration and maintain effects during scroll */
         transform: translateZ(0);
@@ -135,22 +140,32 @@
       }
 
       .glass:hover {
-        background: rgba(255, 255, 255, 0.5);
-        border-color: rgba(194, 142, 14, 0.5);
+        background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.85) 0%,
+          rgba(250, 250, 250, 0.75) 50%,
+          rgba(255, 255, 255, 0.8) 100%);
+        border-color: rgba(194, 142, 14, 0.6);
         transform: translateY(-2px) translateZ(0);
         box-shadow:
-          0 12px 48px 0 rgba(194, 142, 14, 0.2),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+          0 12px 48px 0 rgba(0, 0, 0, 0.12),
+          0 4px 12px 0 rgba(194, 142, 14, 0.2),
+          inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+          inset 0 -1px 1px 0 rgba(0, 0, 0, 0.06);
       }
 
       .glass-thick {
-        backdrop-filter: blur(25px) saturate(200%);
-        -webkit-backdrop-filter: blur(25px) saturate(200%);
-        background: rgba(255, 255, 255, 0.5);
-        border: 1px solid rgba(194, 142, 14, 0.4);
+        backdrop-filter: blur(28px) saturate(200%) brightness(0.92);
+        -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(0.92);
+        background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.85) 0%,
+          rgba(245, 240, 235, 0.8) 50%,
+          rgba(255, 255, 255, 0.8) 100%);
+        border: 1px solid rgba(194, 142, 14, 0.5);
         box-shadow:
-          0 8px 32px 0 rgba(194, 142, 14, 0.15),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+          0 12px 40px 0 rgba(0, 0, 0, 0.1),
+          0 4px 12px 0 rgba(194, 142, 14, 0.15),
+          inset 0 2px 2px 0 rgba(255, 255, 255, 0.95),
+          inset 0 -2px 2px 0 rgba(0, 0, 0, 0.06);
         transition: all 0.3s ease;
         /* Force hardware acceleration and maintain effects during scroll */
         transform: translateZ(0);
@@ -159,12 +174,17 @@
       }
 
       .glass-thick:hover {
-        background: rgba(255, 255, 255, 0.6);
-        border-color: rgba(194, 142, 14, 0.6);
+        background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(245, 240, 235, 0.85) 50%,
+          rgba(255, 255, 255, 0.85) 100%);
+        border-color: rgba(194, 142, 14, 0.7);
         transform: translateY(-3px) translateZ(0);
         box-shadow:
-          0 16px 56px 0 rgba(194, 142, 14, 0.25),
-          inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+          0 16px 56px 0 rgba(0, 0, 0, 0.14),
+          0 6px 16px 0 rgba(194, 142, 14, 0.25),
+          inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+          inset 0 -2px 2px 0 rgba(0, 0, 0, 0.07);
       }
 
       .grain {
