@@ -130,6 +130,10 @@
           0 8px 32px 0 rgba(0, 0, 0, 0.37),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
+        /* Force hardware acceleration and maintain effects during scroll */
+        transform: translateZ(0);
+        will-change: backdrop-filter;
+        -webkit-transform: translateZ(0);
       }
 
       .glass:hover {
@@ -137,7 +141,7 @@
           rgba(255, 255, 255, 0.15) 0%,
           rgba(255, 255, 255, 0.08) 100%);
         border-color: rgba(194, 142, 14, 0.4);
-        transform: translateY(-2px);
+        transform: translateY(-2px) translateZ(0);
         box-shadow:
           0 12px 48px 0 rgba(194, 142, 14, 0.2),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
@@ -155,6 +159,10 @@
           0 8px 32px 0 rgba(194, 142, 14, 0.25),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
         transition: all 0.3s ease;
+        /* Force hardware acceleration and maintain effects during scroll */
+        transform: translateZ(0);
+        will-change: backdrop-filter;
+        -webkit-transform: translateZ(0);
       }
 
       .glass-thick:hover {
@@ -163,7 +171,7 @@
           rgba(206, 184, 136, 0.12) 50%,
           rgba(255, 255, 255, 0.15) 100%);
         border-color: rgba(194, 142, 14, 0.5);
-        transform: translateY(-3px);
+        transform: translateY(-3px) translateZ(0);
         box-shadow:
           0 16px 56px 0 rgba(194, 142, 14, 0.35),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
