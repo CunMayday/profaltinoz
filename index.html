@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Cuneyt Altinoz - Professor &amp; Supply Chain Expert</title>
+    <title>Dr. Cuneyt Altinoz - Professor & Supply Chain Expert</title>
     <meta
       name="description"
-      content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in business administration, AI in education, and decision support systems."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in supply chain management, business administration, and decision support systems."
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,27 +14,43 @@
         theme: {
           extend: {
             fontFamily: {
-              display: ['Montserrat', 'sans-serif'],
-              body: ['Space Grotesk', 'sans-serif'],
+              display: ["Montserrat", "sans-serif"],
+              body: ["Space Grotesk", "sans-serif"],
+              mono: ["Space Mono", "monospace"],
             },
             colors: {
-              campus: '#C28E0E',
-              athletic: '#CEB888',
-              purdueBlack: '#000000',
-              purdueGray: '#9D968D',
-              purdueDark: '#373A36',
+              campusGold: "#C28E0E",
+              athleticGold: "#CEB888",
+              purdueBlack: "#000000",
+              purdueGray: "#9D968D",
+              purdueDark: "#373A36",
             },
             boxShadow: {
-              glass: '0 20px 45px rgba(0, 0, 0, 0.35)',
-              neon: '0 0 30px rgba(194, 142, 14, 0.75)',
+              neon: "0 10px 40px rgba(206, 184, 136, 0.5)",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
             },
           },
         },
       };
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      html {
+      :root {
         scroll-behavior: smooth;
+        background-color: #050505;
       }
       body {
         min-height: 100vh;
@@ -56,463 +66,440 @@
         background-size: 160% 160%, 200% 200%, 110px 110px, 110px 110px, 70px 70px, 80px 80px, 100% 100%;
         background-attachment: fixed;
       }
-      .glass-panel {
-        backdrop-filter: blur(20px);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+      .glass {
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.15);
       }
-      .glass-card {
-        backdrop-filter: blur(30px);
-        background: rgba(255, 255, 255, 0.1);
+      .glass-strong {
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
-      .noise {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/14/White_Noise_Texture.jpg');
-        opacity: 0.04;
-        mix-blend-mode: screen;
+      .nav-blur {
+        background: rgba(5, 5, 5, 0.7);
+        backdrop-filter: blur(24px);
       }
-      .reveal {
+      .fade-up {
         opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        transition: all 0.8s ease;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
-      .reveal.active {
+      .fade-up.in-view {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
       }
-      @keyframes pulseGlow {
-        0% {
-          box-shadow: 0 0 15px rgba(194, 142, 14, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 35px rgba(194, 142, 14, 0.8);
-        }
-        100% {
-          box-shadow: 0 0 15px rgba(194, 142, 14, 0.3);
-        }
+      .section-divider {
+        position: relative;
+      }
+      .section-divider::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #c28e0e, transparent);
       }
     </style>
   </head>
-  <body class="font-body text-white antialiased">
-    <div class="noise"></div>
-    <header class="fixed top-0 left-0 right-0 z-40">
-      <div
-        class="glass-panel mx-auto mt-6 flex w-[94%] max-w-6xl items-center justify-between rounded-3xl px-6 py-4 text-sm"
-      >
-        <div class="font-display text-lg tracking-[0.3em] text-athletic">Dr. Cuneyt Altinoz</div>
-        <nav class="hidden gap-6 text-sm uppercase text-athletic/90 md:flex">
-          <a class="hover:text-white" href="#hero">Home</a>
-          <a class="hover:text-white" href="#awards">Awards</a>
-          <a class="hover:text-white" href="#focus">Focus</a>
-          <a class="hover:text-white" href="#education">Education</a>
-          <a class="hover:text-white" href="#experience">Experience</a>
-          <a class="hover:text-white" href="#contact">Contact</a>
+  <body class="text-white font-body">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="w-96 h-96 bg-campusGold/20 blur-[180px] rounded-full absolute -top-40 -left-10"></div>
+      <div class="w-[32rem] h-[32rem] bg-athleticGold/20 blur-[200px] rounded-full absolute top-10 right-0"></div>
+      <div class="w-[28rem] h-[28rem] bg-purdueGray/20 blur-[180px] rounded-full absolute bottom-0 left-20"></div>
+    </div>
+    <header class="fixed top-0 w-full z-40 nav-blur border-b border-white/10">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+        <a href="#hero" class="font-display text-lg tracking-[0.2em]">Professor Altinoz</a>
+        <nav class="hidden md:flex gap-6 text-sm uppercase tracking-[0.2em] font-semibold">
+          <a href="#hero" class="hover:text-campusGold transition">Home</a>
+          <a href="#awards" class="hover:text-campusGold transition">Awards</a>
+          <a href="#focus" class="hover:text-campusGold transition">Focus</a>
+          <a href="#education" class="hover:text-campusGold transition">Education</a>
+          <a href="#experience" class="hover:text-campusGold transition">Experience</a>
+          <a href="#contact" class="hover:text-campusGold transition">Contact</a>
         </nav>
-        <button id="menuBtn" class="md:hidden">
-          <span class="sr-only">Toggle menu</span>
-          <svg class="h-6 w-6 text-athletic" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="menu-btn" class="md:hidden flex flex-col gap-1.5">
+          <span class="w-6 h-0.5 bg-white"></span>
+          <span class="w-6 h-0.5 bg-white"></span>
+          <span class="w-6 h-0.5 bg-white"></span>
         </button>
       </div>
-      <div id="mobileNav" class="glass-panel mx-auto mt-2 hidden w-[90%] max-w-6xl flex-col gap-3 rounded-3xl px-6 py-4 text-center text-athletic md:hidden">
-        <a class="hover:text-white" href="#hero">Home</a>
-        <a class="hover:text-white" href="#awards">Awards</a>
-        <a class="hover:text-white" href="#focus">Focus</a>
-        <a class="hover:text-white" href="#education">Education</a>
-        <a class="hover:text-white" href="#experience">Experience</a>
-        <a class="hover:text-white" href="#contact">Contact</a>
+      <div id="mobile-nav" class="md:hidden hidden flex-col gap-4 px-6 pb-6 text-sm uppercase tracking-[0.2em]">
+        <a href="#hero" class="hover:text-campusGold transition">Home</a>
+        <a href="#awards" class="hover:text-campusGold transition">Awards</a>
+        <a href="#focus" class="hover:text-campusGold transition">Focus</a>
+        <a href="#education" class="hover:text-campusGold transition">Education</a>
+        <a href="#experience" class="hover:text-campusGold transition">Experience</a>
+        <a href="#contact" class="hover:text-campusGold transition">Contact</a>
       </div>
     </header>
 
-    <main class="relative mx-auto flex max-w-6xl flex-col gap-20 px-6 pt-36 pb-24">
-      <!-- Hero -->
-      <section id="hero" class="reveal grid gap-10 lg:grid-cols-[2fr,1fr]">
-        <div class="glass-panel rounded-3xl p-10">
-          <p class="mb-3 text-sm uppercase tracking-[0.5em] text-athletic">Professor Altinoz</p>
-          <h1 class="font-display text-5xl leading-tight tracking-[0.35em] text-white sm:text-6xl">
-            CUNEYT<br />ALTINOZ
-          </h1>
-          <div class="mt-6 inline-flex rounded-full bg-white/10 px-5 py-2 text-sm text-athletic">
-            Professor at Purdue University Global
-          </div>
-          <p class="mt-6 max-w-2xl text-lg text-white/80">
-            Award-winning educator blending business administration, AI in education, and decision support systems to create transformative academic experiences.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              class="rounded-full bg-campus px-6 py-3 font-semibold text-black shadow-neon transition hover:scale-105"
-            >
-              Get in Touch
-            </a>
-            <a
-              href="#awards"
-              class="rounded-full border border-athletic px-6 py-3 font-semibold text-athletic transition hover:bg-white/10"
-            >
-              Learn More
-            </a>
-          </div>
-        </div>
-        <div class="space-y-6">
-          <div class="glass-card rounded-3xl p-6 shadow-glass">
-            <p class="text-lg font-semibold text-athletic">Welcome students. You are in good hands!</p>
-            <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm">
+    <main class="relative z-10">
+      <section id="hero" class="min-h-screen pt-28 pb-20 px-6 flex items-center">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+          <div class="space-y-10 fade-up">
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Dr. Cuneyt Altinoz</p>
+            <div>
+              <h1 class="font-display text-6xl md:text-8xl leading-tight">
+                <span class="block">CUNEYT</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-campusGold via-athleticGold to-white">ALTINOZ</span>
+              </h1>
+              <div class="glass inline-flex px-6 py-3 mt-6 rounded-full text-athleticGold uppercase tracking-[0.4em] text-xs">
+                Professor at Purdue University Global
+              </div>
+            </div>
+            <p class="text-lg text-white/70 max-w-2xl">
+              Award-winning professor, program architect, and AI-in-education visionary delivering transformative learning experiences for global business leaders.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-campusGold to-athleticGold text-black font-semibold shadow-neon">Get in Touch</a>
+              <a href="#awards" class="px-8 py-3 rounded-full border border-white/30 text-white hover:border-athleticGold/80 transition">Learn More</a>
+            </div>
+            <div class="glass rounded-3xl p-6 grid sm:grid-cols-3 gap-6">
               <div>
-                <p class="text-4xl font-bold text-white">16+</p>
-                <p class="text-athletic/80">Years at Purdue</p>
+                <p class="text-3xl font-bold text-athleticGold">16+</p>
+                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Years at Purdue</p>
               </div>
               <div>
-                <p class="text-4xl font-bold text-white">3</p>
-                <p class="text-athletic/80">Advanced Degrees</p>
+                <p class="text-3xl font-bold text-athleticGold">3</p>
+                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Advanced Degrees</p>
               </div>
               <div>
-                <p class="text-4xl font-bold text-white">5+</p>
-                <p class="text-athletic/80">Major Awards</p>
+                <p class="text-3xl font-bold text-athleticGold">5+</p>
+                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Major Awards</p>
               </div>
             </div>
           </div>
-          <div class="glass-card rounded-3xl p-6">
-            <p class="text-sm uppercase tracking-[0.4em] text-athletic">Brand Essence</p>
-            <p class="mt-3 text-lg text-white/80">
-              Leadership in program development • AI evangelist • Student-first pedagogy • Industrial engineering rigor.
+          <div class="glass-strong rounded-[2.5rem] p-10 relative overflow-hidden fade-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold mb-6">Welcome students</p>
+            <h2 class="font-display text-3xl mb-4">You are in good hands!</h2>
+            <p class="text-white/70 mb-10">
+              Bridging business strategy, analytics, and AI with immersive storytelling and meticulously crafted curricula.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🌟</div>
+                <div>
+                  <p class="font-semibold">Innovator</p>
+                  <p class="text-white/70 text-sm">Custom AI assistants empower graduate scholars.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🎓</div>
+                <div>
+                  <p class="font-semibold">Mentor</p>
+                  <p class="text-white/70 text-sm">Guiding DBA cohorts to purposeful research.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🚀</div>
+                <div>
+                  <p class="font-semibold">Visionary</p>
+                  <p class="text-white/70 text-sm">Leading-edge applications of AI in education.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="awards" class="section-divider pt-28 pb-20 px-6">
+        <div class="max-w-6xl mx-auto space-y-16">
+          <div class="text-center space-y-4 fade-up">
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Recognition</p>
+            <h2 class="font-display text-4xl md:text-5xl">Awards & Recognition</h2>
+            <p class="text-white/70 max-w-3xl mx-auto">
+              Honoring excellence in online education, innovative technology integration, and transformational leadership.
             </p>
           </div>
-        </div>
-      </section>
-
-      <!-- Awards -->
-      <section id="awards" class="reveal">
-        <div class="glass-panel rounded-3xl p-10">
-          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Highlights</p>
-              <h2 class="mt-2 font-display text-4xl text-white">Awards &amp; Recognition</h2>
-            </div>
-            <div class="flex flex-wrap gap-3 text-sm text-white/80">
-              <span class="rounded-full border border-white/30 px-4 py-2">Innovative Pedagogy</span>
-              <span class="rounded-full border border-white/30 px-4 py-2">AI Leadership</span>
-              <span class="rounded-full border border-white/30 px-4 py-2">Program Excellence</span>
-            </div>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-2">
-            <!-- Award cards -->
-            <article class="glass-card rounded-3xl p-6 transition hover:-translate-y-2 hover:bg-white/15">
-              <div class="flex items-center justify-between text-sm text-athletic">
-                <span>2025</span>
-                <span>⭐ Innovative Technology</span>
+          <div class="grid md:grid-cols-2 gap-6 fade-up">
+            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2025</p>
+                  <h3 class="text-2xl font-display">Innovative Online Use of Technology</h3>
+                  <p class="text-white/70">Purdue University Online</p>
+                </div>
+                <div class="text-3xl">⭐</div>
               </div>
-              <h3 class="mt-3 font-display text-2xl">Innovative Online Use of Technology</h3>
-              <p class="mt-2 text-white/80">Purdue University Online</p>
-              <p class="mt-4 text-sm text-white/70">
-                Recognized for custom AI assistants helping graduate students.
-              </p>
+              <p class="text-white/80">Recognized for custom AI assistants helping graduate students.</p>
             </article>
-            <article class="glass-card rounded-3xl p-6 transition hover:-translate-y-2 hover:bg-white/15">
-              <div class="flex items-center justify-between text-sm text-athletic">
-                <span>2023</span>
-                <span>🏆 Course Design</span>
+            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2023</p>
+                  <h3 class="text-2xl font-display">Excellence in Online Course Design and Delivery</h3>
+                  <p class="text-white/70">Purdue University Online</p>
+                </div>
+                <div class="text-3xl">🏆</div>
               </div>
-              <h3 class="mt-3 font-display text-2xl">Excellence in Online Course Design and Delivery</h3>
-              <p class="mt-2 text-white/80">Purdue University Online</p>
-              <p class="mt-4 text-sm text-white/70">
-                Student-centric design of GB 513 Business Analytics.
-              </p>
+              <p class="text-white/80">Student-centric design of GB 513 Business Analytics.</p>
             </article>
-            <article class="glass-card rounded-3xl p-6 transition hover:-translate-y-2 hover:bg-white/15">
-              <div class="flex items-center justify-between text-sm text-athletic">
-                <span>2021</span>
-                <span>🏆 ACBSP</span>
+            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2021</p>
+                  <h3 class="text-2xl font-display">ACBSP Teaching Excellence Award</h3>
+                  <p class="text-white/70">ACBSP</p>
+                </div>
+                <div class="text-3xl">🏆</div>
               </div>
-              <h3 class="mt-3 font-display text-2xl">ACBSP Teaching Excellence Award</h3>
-              <p class="mt-2 text-white/80">ACBSP</p>
-              <p class="mt-4 text-sm text-white/70">
-                One of seven winners in the United States.
-              </p>
+              <p class="text-white/80">One of seven winners in the United States.</p>
             </article>
-            <article class="glass-card rounded-3xl p-6 transition hover:-translate-y-2 hover:bg-white/15">
-              <div class="flex items-center justify-between text-sm text-athletic">
-                <span>2016</span>
-                <span>⭐ Excellence</span>
+            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2016</p>
+                  <h3 class="text-2xl font-display">School of Business Professor of the Year</h3>
+                  <p class="text-white/70">Purdue University Global</p>
+                </div>
+                <div class="text-3xl">⭐</div>
               </div>
-              <h3 class="mt-3 font-display text-2xl">School of Business Professor of the Year</h3>
-              <p class="mt-2 text-white/80">Purdue University Global</p>
-              <p class="mt-4 text-sm text-white/70">
-                Recognized for outstanding teaching excellence.
-              </p>
+              <p class="text-white/80">Celebrating outstanding mentorship and leadership.</p>
             </article>
           </div>
-          <div class="mt-12 grid gap-6 md:grid-cols-2">
-            <div class="glass-card rounded-3xl p-6">
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Leadership Roles</p>
-              <h3 class="mt-4 text-2xl font-semibold">Program Development</h3>
-              <p class="mt-2 text-white/80">Faculty lead - Doctorate in Business Administration program.</p>
-            </div>
-            <div class="glass-card rounded-3xl p-6">
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Leadership Roles</p>
-              <h3 class="mt-4 text-2xl font-semibold">Faculty Advisor</h3>
-              <p class="mt-2 text-white/80">Delta Mu Delta Honor Society.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Focus -->
-      <section id="focus" class="reveal">
-        <div class="glass-panel rounded-3xl p-10">
-          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Current Projects</p>
-              <h2 class="mt-2 font-display text-4xl text-white">Current Focus</h2>
-              <p class="mt-3 max-w-2xl text-white/80">
-                AI Systems for Education — evaluating how Gems, GPTs, and AI-assisted webapps accelerate student support and research for DBA candidates.
-              </p>
-            </div>
-            <div class="rounded-3xl border border-white/20 px-6 py-4 text-sm text-white/70">
-              Exploration of human + AI collaboration for tailored learning journeys.
-            </div>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <article class="glass-card rounded-3xl p-6">
-              <h3 class="font-display text-2xl text-athletic">Research Methodology Selector</h3>
-              <p class="mt-4 text-sm text-white/70">
-                Interactive tool for DBA students to identify appropriate research methodologies.
-              </p>
-              <a
-                href="https://cunmayday.github.io/webtests/methods.html"
-                target="_blank"
-                rel="noopener"
-                class="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2 text-sm text-athletic transition hover:bg-athletic hover:text-black"
-              >
-                View Project
-                <span aria-hidden="true">↗</span>
-              </a>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <h3 class="font-display text-2xl text-athletic">Analytics Case Study</h3>
-              <p class="mt-4 text-sm text-white/70">
-                Comprehensive case study example demonstrating business analytics applications.
-              </p>
-              <a
-                href="https://cunmayday.github.io/webtests/caseada.html"
-                target="_blank"
-                rel="noopener"
-                class="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2 text-sm text-athletic transition hover:bg-athletic hover:text-black"
-              >
-                View Project
-                <span aria-hidden="true">↗</span>
-              </a>
-            </article>
-            <article class="rounded-3xl p-6" style="background-color: #9D968D; color: #000">
-              <h3 class="font-display text-2xl">AI Use Cases Catalog</h3>
-              <p class="mt-4 text-sm">
-                Curated collection of AI applications and use cases in education.
-              </p>
-              <a
-                href="https://usecases.vercel.app/index.html"
-                target="_blank"
-                rel="noopener"
-                class="mt-6 inline-flex items-center gap-2 rounded-full border border-black px-5 py-2 text-sm font-semibold transition hover:bg-black hover:text-white"
-              >
-                View Project
-                <span aria-hidden="true">↗</span>
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education" class="reveal">
-        <div class="glass-panel rounded-3xl p-10">
-          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Academic Roots</p>
-              <h2 class="mt-2 font-display text-4xl">Education</h2>
-            </div>
-            <div class="text-white/70">PhD • MBA • BS - Industrial Engineering</div>
-          </div>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <article class="glass-card rounded-3xl p-6">
-              <p class="text-sm text-athletic">1997-2001</p>
-              <h3 class="mt-2 font-display text-2xl">PhD</h3>
-              <p class="text-white/80">North Carolina State University</p>
-              <p class="text-sm text-white/70">Raleigh, NC</p>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <p class="text-sm text-athletic">1994-1996</p>
-              <h3 class="mt-2 font-display text-2xl">MBA</h3>
-              <p class="text-white/80">Georgia Institute of Technology</p>
-              <p class="text-sm text-white/70">Atlanta, GA</p>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <p class="text-sm text-athletic">1990-1994</p>
-              <h3 class="mt-2 font-display text-2xl">BS - Industrial Engineering</h3>
-              <p class="text-white/80">North Carolina State University</p>
-              <p class="text-sm text-white/70">Raleigh, NC</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="reveal">
-        <div class="glass-panel rounded-3xl p-10">
-          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Career Journey</p>
-              <h2 class="mt-2 font-display text-4xl">Experience</h2>
-            </div>
-            <div class="text-white/70">Industry + Academia = Hybrid Insight</div>
-          </div>
-          <div class="mt-10 space-y-6">
-            <!-- Experience cards -->
-            <article class="glass-card rounded-3xl p-6">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-athletic">
-                <span>Purdue University Global</span>
-                <span>2009 - Present</span>
-              </div>
-              <h3 class="mt-3 font-display text-2xl">Professor</h3>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-                <li>Faculty lead for the Doctorate in Business Administration program.</li>
-                <li>2025 Innovative Online Use of Technology award recipient.</li>
-                <li>2023 Excellence in Online Course Design award recipient.</li>
-                <li>2021 ACBSP Teaching Excellence Award, one of seven U.S. winners.</li>
-                <li>2016 School of Business Professor of the Year.</li>
-                <li>Faculty advisor for Delta Mu Delta Honor Society.</li>
-              </ul>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-athletic">
-                <span>North Carolina State University</span>
-                <span>2001 - 2003</span>
-              </div>
-              <h3 class="mt-3 font-display text-2xl">Post-doctoral Research Fellow</h3>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-                <li>Created fuzzy logic decision support system for supplier selection.</li>
-              </ul>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-athletic">
-                <span>North Carolina State University</span>
-                <span>1997 - 2001</span>
-              </div>
-              <h3 class="mt-3 font-display text-2xl">Research Assistant</h3>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-                <li>Advanced decision support systems and organizational performance research.</li>
-                <li>Executed simulations, workflow analyses, and fuzzy logic experimentation.</li>
-                <li>Developed two software programs leading to patent and business opportunities.</li>
-              </ul>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-athletic">
-                <span>CIBA Vision, Atlanta GA</span>
-                <span>1995 - 1997</span>
-              </div>
-              <h3 class="mt-3 font-display text-2xl">Consultant</h3>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-                <li>Architected inventory control methodologies and software tools.</li>
-                <li>Expanded analytics work to additional product lines.</li>
-                <li>Analyzed shipping warehouse efficiency.</li>
-              </ul>
-            </article>
-            <article class="glass-card rounded-3xl p-6">
-              <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-athletic">
-                <span>IBM, Atlanta GA</span>
-                <span>1995</span>
-              </div>
-              <h3 class="mt-3 font-display text-2xl">Operations Analyst</h3>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-                <li>Developed service operations measurement and cost analysis tools.</li>
-                <li>Created new queries, performance forecasts, and analytical reports.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="reveal">
-        <div class="glass-panel rounded-3xl p-10">
-          <div class="grid gap-10 lg:grid-cols-[1.5fr,1fr]">
-            <div>
-              <p class="text-sm uppercase tracking-[0.4em] text-athletic">Let's Connect</p>
-              <h2 class="mt-2 font-display text-4xl">Open to Collaboration &amp; Research Opportunities</h2>
-              <p class="mt-4 max-w-xl text-white/80">
-                Reach out for partnerships in business administration, AI in education, and future-forward curricula design.
-              </p>
-              <div class="mt-8 space-y-4">
-                <a
-                  href="mailto:caltinoz@purdueglobal.edu"
-                  class="flex items-center justify-between rounded-3xl bg-campus/90 px-6 py-4 text-black shadow-neon transition hover:scale-[1.02]"
-                >
-                  <span class="font-semibold">Email</span>
-                  <span>caltinoz@purdueglobal.edu</span>
-                </a>
-                <div class="glass-card rounded-3xl p-6">
-                  <p class="text-sm uppercase tracking-[0.4em] text-athletic">Areas of Expertise</p>
-                  <div class="mt-4 flex flex-wrap gap-3 text-xs">
-                    <span class="rounded-full bg-white/10 px-4 py-2">Business Administration</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">AI in Education</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">Decision Support Systems</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">Inventory Control</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">Industrial Engineering</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">Online Education</span>
-                    <span class="rounded-full bg-white/10 px-4 py-2">Educational Technology</span>
+          <div class="glass-strong rounded-[2.5rem] p-10 fade-up">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+              <div class="w-20 h-20 rounded-3xl bg-white/5 flex items-center justify-center text-4xl">👥</div>
+              <div class="space-y-3">
+                <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Leadership Roles</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Program Development</p>
+                    <p class="text-xl font-display">Faculty lead - Doctorate in Business Administration program</p>
+                  </div>
+                  <div>
+                    <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Faculty Advisor</p>
+                    <p class="text-xl font-display">Delta Mu Delta Honor Society</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="space-y-6">
-              <div class="glass-card rounded-3xl p-6">
-                <p class="text-sm uppercase tracking-[0.4em] text-athletic">Social Links</p>
-                <div class="mt-4 space-y-3 text-sm text-white/80">
-                  <a class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3" href="#">LinkedIn<span>↗</span></a>
-                  <a class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3" href="#">Twitter<span>↗</span></a>
-                  <a class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3" href="#">GitHub<span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="focus" class="pt-28 pb-20 px-6">
+        <div class="max-w-6xl mx-auto space-y-12">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 fade-up">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Current Focus</p>
+              <h2 class="font-display text-4xl md:text-5xl">AI Systems for Education</h2>
+            </div>
+            <p class="text-white/70 md:max-w-xl">
+              Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <article class="glass rounded-3xl p-6 flex flex-col">
+              <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Research Methodology Selector</p>
+              <p class="text-white/80 flex-1">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+              <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="mt-6 inline-flex items-center gap-2 text-athleticGold font-semibold">View Project<span>↗</span></a>
+            </article>
+            <article class="glass rounded-3xl p-6 flex flex-col">
+              <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Analytics Case Study</p>
+              <p class="text-white/80 flex-1">Comprehensive case study example demonstrating business analytics applications.</p>
+              <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="mt-6 inline-flex items-center gap-2 text-athleticGold font-semibold">View Project<span>↗</span></a>
+            </article>
+            <article class="rounded-3xl p-6 flex flex-col" style="background-color: #9D968D; color: #050505;">
+              <p class="uppercase tracking-[0.4em] text-xs mb-4">AI Use Cases Catalog</p>
+              <p class="flex-1 text-black/80">Curated collection of AI applications and use cases in education.</p>
+              <a href="https://usecases.vercel.app/index.html" target="_blank" class="mt-6 inline-flex items-center gap-2 font-semibold text-black">View Project<span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="pt-28 pb-20 px-6">
+        <div class="max-w-6xl mx-auto space-y-10">
+          <div class="text-center space-y-4 fade-up">
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Scholarship</p>
+            <h2 class="font-display text-4xl md:text-5xl">Education</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <article class="glass rounded-3xl p-6">
+              <p class="text-athleticGold font-semibold">1997-2001</p>
+              <h3 class="text-2xl font-display">PhD</h3>
+              <p class="text-white/80">North Carolina State University</p>
+              <p class="text-white/60">Raleigh, NC</p>
+            </article>
+            <article class="glass rounded-3xl p-6">
+              <p class="text-athleticGold font-semibold">1994-1996</p>
+              <h3 class="text-2xl font-display">MBA</h3>
+              <p class="text-white/80">Georgia Institute of Technology</p>
+              <p class="text-white/60">Atlanta, GA</p>
+            </article>
+            <article class="glass rounded-3xl p-6">
+              <p class="text-athleticGold font-semibold">1990-1994</p>
+              <h3 class="text-2xl font-display">BS - Industrial Engineering</h3>
+              <p class="text-white/80">North Carolina State University</p>
+              <p class="text-white/60">Raleigh, NC</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="pt-28 pb-24 px-6">
+        <div class="max-w-6xl mx-auto space-y-10">
+          <div class="text-center space-y-4 fade-up">
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Journey</p>
+            <h2 class="font-display text-4xl md:text-5xl">Experience</h2>
+          </div>
+          <div class="space-y-6 fade-up">
+            <article class="glass rounded-3xl p-8">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2009 - Present</p>
+                  <h3 class="text-2xl font-display">Professor — Purdue University Global</h3>
+                </div>
+                <span class="px-4 py-1 rounded-full bg-white/10 text-xs uppercase tracking-[0.4em]">Faculty Lead</span>
+              </div>
+              <ul class="list-disc list-inside text-white/75 space-y-2">
+                <li>Developing the Doctorate in Business Administration program.</li>
+                <li>Recipient of 2025 Innovative Online Use of Technology award.</li>
+                <li>Recipient of 2023 Excellence in Online Course Design and Delivery.</li>
+                <li>Recipient of 2021 ACBSP Teaching Excellence Award.</li>
+                <li>2016 School of Business Professor of the Year.</li>
+                <li>Faculty advisor for Delta Mu Delta Honor Society.</li>
+              </ul>
+            </article>
+            <article class="glass rounded-3xl p-8">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">2001 - 2003</p>
+                  <h3 class="text-2xl font-display">Post-doctoral Research Fellow — North Carolina State University</h3>
                 </div>
               </div>
-              <div class="glass-card rounded-3xl p-6">
-                <p class="text-sm uppercase tracking-[0.4em] text-athletic">Collaboration Notice</p>
-                <p class="mt-4 text-white/80">
-                  Seeking bold partners ready to fuse AI, analytics, and pedagogical excellence for next-gen students.
-                </p>
+              <ul class="list-disc list-inside text-white/75 space-y-2">
+                <li>Created fuzzy logic decision support system for supplier selection.</li>
+              </ul>
+            </article>
+            <article class="glass rounded-3xl p-8">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">1997 - 2001</p>
+                  <h3 class="text-2xl font-display">Research Assistant — North Carolina State University</h3>
+                </div>
+              </div>
+              <ul class="list-disc list-inside text-white/75 space-y-2">
+                <li>Research on decision support systems and performance measurement.</li>
+                <li>Simulation and workflow analysis of business processes.</li>
+                <li>Support for business decisions using fuzzy logic.</li>
+                <li>Developed software, enabling patent and business opportunities.</li>
+              </ul>
+            </article>
+            <article class="glass rounded-3xl p-8">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">1995 - 1997</p>
+                  <h3 class="text-2xl font-display">Consultant — CIBA Vision, Atlanta GA</h3>
+                </div>
+              </div>
+              <ul class="list-disc list-inside text-white/75 space-y-2">
+                <li>Advised on inventory control and methodology development.</li>
+                <li>Delivered software tools and target levels.</li>
+                <li>Expanded solutions to additional product lines and logistics.</li>
+              </ul>
+            </article>
+            <article class="glass rounded-3xl p-8">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <p class="text-athleticGold font-semibold">1995</p>
+                  <h3 class="text-2xl font-display">Operations Analyst — IBM, Atlanta GA</h3>
+                </div>
+              </div>
+              <ul class="list-disc list-inside text-white/75 space-y-2">
+                <li>Analyzed service operations and developed measurement tools.</li>
+                <li>Built cost analysis tools, forecasts, and data queries.</li>
+                <li>Produced reports and performance forecasts.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="pt-28 pb-20 px-6">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+          <div class="glass-strong rounded-[2.5rem] p-10 space-y-10 fade-up">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Let's Connect</p>
+              <h2 class="font-display text-4xl">Open to Collaboration & Research Opportunities</h2>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Email</p>
+                <a href="mailto:caltinoz@purdueglobal.edu" class="text-2xl font-display text-athleticGold">caltinoz@purdueglobal.edu</a>
+              </div>
+              <div>
+                <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-2">Social</p>
+                <div class="flex gap-4">
+                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">LinkedIn</a>
+                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">Twitter</a>
+                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">GitHub</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Areas of Expertise</p>
+                <div class="flex flex-wrap gap-3">
+                  <span class="glass px-4 py-2 rounded-full text-sm">Business Administration</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">AI in Education</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">Decision Support Systems</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">Inventory Control</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">Industrial Engineering</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">Online Education</span>
+                  <span class="glass px-4 py-2 rounded-full text-sm">Educational Technology</span>
+                </div>
               </div>
             </div>
           </div>
-          <footer class="mt-12 border-t border-white/10 pt-6 text-sm text-white/60">
-            © 2025 Cuneyt Altinoz. Built with glassmorphism dreams.
-          </footer>
+          <div class="glass rounded-3xl p-8 space-y-6 fade-up">
+            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Stay Curious</p>
+            <p class="text-white/80">
+              Reach out for speaking engagements, AI collaborations, or co-designing immersive learning experiences that meet Purdue's standards of excellence.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">✉️</div>
+                <p class="text-white/70">Response within 2 business days.</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">🧠</div>
+                <p class="text-white/70">Collaborating with scholars & innovators worldwide.</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <footer class="text-center mt-16 text-white/60 text-sm">
+          © 2025 Cuneyt Altinoz. Built with luminous glassmorphism energy.
+        </footer>
       </section>
     </main>
 
     <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileNav = document.getElementById("mobile-nav");
+      menuBtn.addEventListener("click", () => {
+        mobileNav.classList.toggle("hidden");
+      });
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('active');
+              entry.target.classList.add("in-view");
             }
           });
         },
         { threshold: 0.2 }
       );
 
-      document.querySelectorAll('.reveal').forEach((section) => observer.observe(section));
-
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileNav = document.getElementById('mobileNav');
-      menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('hidden');
-        mobileNav.classList.toggle('flex');
-      });
+      document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
