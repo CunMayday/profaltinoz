@@ -61,11 +61,6 @@
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.18);
       }
-      .glass-panel--solid {
-        background: linear-gradient(135deg, rgba(5, 9, 18, 0.95), rgba(22, 33, 48, 0.88));
-        border-color: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.55);
-      }
       .glass-card {
         backdrop-filter: blur(30px);
         background: rgba(255, 255, 255, 0.1);
@@ -91,10 +86,6 @@
         opacity: 1;
         transform: translateY(0) scale(1);
       }
-      .hero-title,
-      .hero-summary {
-        text-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
-      }
       @keyframes pulseGlow {
         0% {
           box-shadow: 0 0 15px rgba(194, 142, 14, 0.3);
@@ -112,31 +103,31 @@
     <div class="noise"></div>
     <header class="fixed top-0 left-0 right-0 z-40">
       <div
-        class="glass-panel glass-panel--solid mx-auto mt-6 flex w-[94%] max-w-6xl items-center justify-between rounded-3xl px-6 py-4 text-sm"
+        class="glass-panel mx-auto mt-6 flex w-[94%] max-w-6xl items-center justify-between rounded-3xl px-6 py-4 text-sm"
       >
-        <div class="font-display text-lg tracking-[0.3em] text-white drop-shadow-lg">Dr. Cuneyt Altinoz</div>
-        <nav class="hidden gap-6 text-sm uppercase text-white/90 drop-shadow md:flex">
-          <a class="hover:text-campus" href="#hero">Home</a>
-          <a class="hover:text-campus" href="#awards">Awards</a>
-          <a class="hover:text-campus" href="#focus">Focus</a>
-          <a class="hover:text-campus" href="#education">Education</a>
-          <a class="hover:text-campus" href="#experience">Experience</a>
-          <a class="hover:text-campus" href="#contact">Contact</a>
+        <div class="font-display text-lg tracking-[0.3em] text-athletic">Dr. Cuneyt Altinoz</div>
+        <nav class="hidden gap-6 text-sm uppercase text-athletic/90 md:flex">
+          <a class="hover:text-white" href="#hero">Home</a>
+          <a class="hover:text-white" href="#awards">Awards</a>
+          <a class="hover:text-white" href="#focus">Focus</a>
+          <a class="hover:text-white" href="#education">Education</a>
+          <a class="hover:text-white" href="#experience">Experience</a>
+          <a class="hover:text-white" href="#contact">Contact</a>
         </nav>
         <button id="menuBtn" class="md:hidden">
           <span class="sr-only">Toggle menu</span>
-          <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="h-6 w-6 text-athletic" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-      <div id="mobileNav" class="glass-panel glass-panel--solid mx-auto mt-2 hidden w-[90%] max-w-6xl flex-col gap-3 rounded-3xl px-6 py-4 text-center text-white/90 drop-shadow md:hidden">
-        <a class="hover:text-campus" href="#hero">Home</a>
-        <a class="hover:text-campus" href="#awards">Awards</a>
-        <a class="hover:text-campus" href="#focus">Focus</a>
-        <a class="hover:text-campus" href="#education">Education</a>
-        <a class="hover:text-campus" href="#experience">Experience</a>
-        <a class="hover:text-campus" href="#contact">Contact</a>
+      <div id="mobileNav" class="glass-panel mx-auto mt-2 hidden w-[90%] max-w-6xl flex-col gap-3 rounded-3xl px-6 py-4 text-center text-athletic md:hidden">
+        <a class="hover:text-white" href="#hero">Home</a>
+        <a class="hover:text-white" href="#awards">Awards</a>
+        <a class="hover:text-white" href="#focus">Focus</a>
+        <a class="hover:text-white" href="#education">Education</a>
+        <a class="hover:text-white" href="#experience">Experience</a>
+        <a class="hover:text-white" href="#contact">Contact</a>
       </div>
     </header>
 
@@ -144,14 +135,14 @@
       <!-- Hero -->
       <section id="hero" class="reveal grid gap-10 lg:grid-cols-[2fr,1fr]">
         <div class="glass-panel rounded-3xl p-10">
-          <p class="hero-summary mb-3 text-sm uppercase tracking-[0.5em] text-athletic">Professor Altinoz</p>
-          <h1 class="hero-title font-display text-5xl leading-tight tracking-[0.35em] text-white sm:text-6xl">
+          <p class="mb-3 text-sm uppercase tracking-[0.5em] text-athletic">Professor Altinoz</p>
+          <h1 class="font-display text-5xl leading-tight tracking-[0.35em] text-white sm:text-6xl">
             CUNEYT<br />ALTINOZ
           </h1>
           <div class="mt-6 inline-flex rounded-full bg-white/10 px-5 py-2 text-sm text-athletic">
             Professor at Purdue University Global
           </div>
-          <p class="hero-summary mt-6 max-w-2xl text-lg text-white/90">
+          <p class="mt-6 max-w-2xl text-lg text-white/80">
             Award-winning educator blending business administration, AI in education, and decision support systems to create transformative academic experiences.
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
