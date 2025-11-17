@@ -43,9 +43,18 @@
         scroll-behavior: smooth;
       }
       body {
-        background: radial-gradient(circle at top, rgba(194, 142, 14, 0.35), rgba(0, 0, 0, 0.9)),
-          url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=80') center/cover fixed;
         min-height: 100vh;
+        background-color: #101b2d;
+        background-image:
+          radial-gradient(circle at 18% 22%, rgba(194, 142, 14, 0.45), transparent 52%),
+          radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.18), transparent 46%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+          radial-gradient(circle at 20% 30%, rgba(194, 142, 14, 0.35) 0.6px, transparent 0.8px),
+          radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.35) 0.6px, transparent 0.8px),
+          linear-gradient(145deg, #1f2c40, #0c111a 70%);
+        background-size: 160% 160%, 200% 200%, 110px 110px, 110px 110px, 70px 70px, 80px 80px, 100% 100%;
+        background-attachment: fixed;
       }
       .glass-panel {
         backdrop-filter: blur(20px);
