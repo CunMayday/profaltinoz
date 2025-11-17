@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git revert:*)",
+      "Bash(git pull:*)",
+      "Bash(git push)",
+      "Bash(for commit in 99d58ba 0123961 2c039d0 b3ecf82 3ad97d7 e5fdb7f)",
+      "Bash(do echo '=== Commit: $commit ===')",
+      "Bash(done)",
+      "Bash(index.html)",
+      "Bash(index2.html)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

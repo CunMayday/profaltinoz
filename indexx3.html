@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Altinoz Website</title>
+  <meta name="description" content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in supply chain management, business administration, and decision support systems." />
+  <meta name="keywords" content="Professor, Purdue University Global, Business Administration, AI in Education, Supply Chain Management, Decision Support Systems, Educational Technology, Online Education, Industrial Engineering" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --gold: #C28E0E;
+      --gold-soft: #CEB888;
+      --black: #000000;
+      --gray: #9D968D;
+      --dark: #373A36;
+      --off: #F3E9D2;
+      --red: #D1495B;
+      --blue: #1F6FEB;
+      --yellow: #F2C94C;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; background: var(--off); color: var(--black); }
+    .title-font { font-family: 'Montserrat', 'Space Grotesk', sans-serif; letter-spacing: 0.08em; }
+    .mono { font-family: 'Space Mono', monospace; }
+    .grain { background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.12) 1px, transparent 0); background-size: 6px 6px; mix-blend-mode: multiply; }
+    .shape { position: absolute; z-index: 0; opacity: 0.9; }
+    .card-glow { box-shadow: 14px 14px 0 var(--black); }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.82); }
+    .nav-backdrop { backdrop-filter: blur(12px); background: rgba(243,233,210,0.8); }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+  <div class="fixed inset-0 pointer-events-none" aria-hidden="true">
+    <div class="shape w-40 h-40 bg-[var(--blue)] top-6 left-4"></div>
+    <div class="shape w-52 h-52 bg-[var(--yellow)] top-24 right-6 rotate-6"></div>
+    <div class="shape w-64 h-10 bg-[var(--black)] bottom-24 left-10"></div>
+    <div class="shape w-24 h-24 bg-[var(--red)] bottom-10 right-10 rounded-full"></div>
+    <div class="shape w-[520px] h-[520px] rounded-full border-8 border-[var(--black)] opacity-20 -left-40 top-52"></div>
+  </div>
+
+  <header class="sticky top-0 z-40 border-b-4 border-[var(--black)] nav-backdrop">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[var(--gold)] border-4 border-[var(--black)]"></div>
+        <div class="text-lg sm:text-xl font-extrabold title-font uppercase">Dr. Cuneyt Altinoz</div>
+      </div>
+      <button id="nav-toggle" class="lg:hidden p-2 border-2 border-[var(--black)] bg-white" aria-label="Toggle navigation">
+        <div class="w-6 h-0.5 bg-[var(--black)] mb-1"></div>
+        <div class="w-6 h-0.5 bg-[var(--black)] mb-1"></div>
+        <div class="w-6 h-0.5 bg-[var(--black)]"></div>
+      </button>
+      <nav id="nav-menu" class="hidden lg:flex gap-4 font-semibold title-font uppercase tracking-[0.12em]">
+        <a href="#hero" class="hover:text-[var(--blue)]">Home</a>
+        <a href="#awards" class="hover:text-[var(--blue)]">Awards</a>
+        <a href="#focus" class="hover:text-[var(--blue)]">Focus</a>
+        <a href="#education" class="hover:text-[var(--blue)]">Education</a>
+        <a href="#experience" class="hover:text-[var(--blue)]">Experience</a>
+        <a href="#contact" class="hover:text-[var(--blue)]">Contact</a>
+      </nav>
+    </div>
+    <div id="nav-drawer" class="lg:hidden hidden border-t-4 border-[var(--black)] bg-[var(--off)] px-4 pb-4 space-y-2 title-font uppercase tracking-[0.12em]">
+      <a href="#hero" class="block py-2">Home</a>
+      <a href="#awards" class="block py-2">Awards</a>
+      <a href="#focus" class="block py-2">Focus</a>
+      <a href="#education" class="block py-2">Education</a>
+      <a href="#experience" class="block py-2">Experience</a>
+      <a href="#contact" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Hero -->
+    <section id="hero" class="min-h-screen grid lg:grid-cols-12 gap-10 items-center pt-16 pb-24">
+      <div class="lg:col-span-7 space-y-8">
+        <div class="inline-flex items-center gap-3 px-5 py-2 bg-[var(--black)] text-white title-font text-xs uppercase tracking-[0.2em]">Bauhaus Redux</div>
+        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black title-font leading-tight">
+          CUNEYT ALTINOZ
+        </h1>
+        <div class="bg-white border-4 border-[var(--black)] inline-block px-6 py-4 text-lg font-semibold shadow-[12px_12px_0_#000]">
+          Professor at Purdue University Global
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="px-6 py-3 bg-[var(--gold)] border-4 border-[var(--black)] title-font tracking-[0.12em] uppercase shadow-[10px_10px_0_#000] transition-transform hover:-translate-y-1">Get in Touch</a>
+          <a href="#awards" class="px-6 py-3 bg-white border-4 border-[var(--black)] title-font tracking-[0.12em] uppercase shadow-[10px_10px_0_#000] transition-transform hover:-translate-y-1">Learn More</a>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-3">
+          <div class="col-span-2 bg-[var(--blue)] text-white p-6 border-4 border-[var(--black)] shadow-[10px_10px_0_#000]">
+            <div class="title-font text-sm uppercase tracking-[0.18em]">Welcome students. You are in good hands!</div>
+          </div>
+          <div class="bg-white p-5 border-4 border-[var(--black)] shadow-[10px_10px_0_#000]">
+            <div class="text-3xl font-black title-font">16+</div>
+            <p class="mono text-xs">Years at Purdue Global</p>
+          </div>
+          <div class="bg-white p-5 border-4 border-[var(--black)] shadow-[10px_10px_0_#000]">
+            <div class="text-3xl font-black title-font">22</div>
+            <p class="mono text-xs">Years Teaching</p>
+          </div>
+          <div class="bg-[var(--gold)] p-5 border-4 border-[var(--black)] shadow-[10px_10px_0_#000]">
+            <div class="text-3xl font-black title-font">4</div>
+            <p class="mono text-xs">Major Awards</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative" aria-hidden="true">
+        <div class="absolute -top-10 -left-10 w-40 h-40 border-8 border-[var(--black)]"></div>
+        <div class="absolute top-12 right-2 w-24 h-24 bg-[var(--blue)]"></div>
+        <div class="absolute bottom-10 left-4 w-32 h-4 bg-[var(--black)]"></div>
+        <div class="bg-white border-8 border-[var(--black)] p-10 shadow-[22px_22px_0_#000]">
+          <div class="title-font text-xl mb-6">Primary Message</div>
+          <p class="text-lg leading-relaxed">Dr. Cuneyt Altinoz is an award-winning professor at Purdue University Global with expertise in business administration, AI in education, and decision support systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="py-20 space-y-10">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 bg-[var(--red)] border-4 border-[var(--black)] rounded-full"></div>
+        <div>
+          <p class="title-font uppercase text-xs tracking-[0.18em]">Section 02</p>
+          <h2 class="text-4xl sm:text-5xl font-black title-font">Awards & Recognition</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass border-4 border-[var(--black)] p-6 card-glow" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl font-black title-font">2025</span>
+            <span class="mono text-sm">Star</span>
+          </div>
+          <h3 class="text-xl font-bold title-font">Innovative Online Use of Technology</h3>
+          <p class="text-sm text-[var(--dark)] mb-2">Purdue University Online</p>
+          <p class="text-base">Recognized for custom AI assistants helping graduate students.</p>
+        </div>
+        <div class="glass border-4 border-[var(--black)] p-6 card-glow bg-[var(--gold-soft)]" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl font-black title-font">2023</span>
+            <span class="mono text-sm">Trophy</span>
+          </div>
+          <h3 class="text-xl font-bold title-font">Excellence in Online Course Design and Delivery</h3>
+          <p class="text-sm text-[var(--dark)] mb-2">Purdue University Online</p>
+          <p class="text-base">Student-centric design of GB 513 Business Analytics.</p>
+        </div>
+        <div class="glass border-4 border-[var(--black)] p-6 card-glow" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl font-black title-font">2021</span>
+            <span class="mono text-sm">Trophy</span>
+          </div>
+          <h3 class="text-xl font-bold title-font">ACBSP Teaching Excellence Award</h3>
+          <p class="text-sm text-[var(--dark)] mb-2">ACBSP</p>
+          <p class="text-base">One of 7 winners in the United States.</p>
+        </div>
+        <div class="glass border-4 border-[var(--black)] p-6 card-glow bg-[var(--yellow)]" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl font-black title-font">2016</span>
+            <span class="mono text-sm">Star</span>
+          </div>
+          <h3 class="text-xl font-bold title-font">School of Business Professor of the Year</h3>
+          <p class="text-sm text-[var(--dark)] mb-2">Purdue University Global</p>
+          <p class="text-base">Celebrating dedication to students and curriculum.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="bg-white border-8 border-[var(--black)] p-6 shadow-[20px_20px_0_#000]" data-animate>
+          <h3 class="text-3xl font-black title-font mb-3">Leadership Roles</h3>
+          <div class="space-y-3">
+            <div>
+              <p class="title-font text-sm uppercase tracking-[0.2em]">Program Development</p>
+              <p>Faculty lead in developing the Doctorate in Business Administration program.</p>
+            </div>
+            <div>
+              <p class="title-font text-sm uppercase tracking-[0.2em]">Faculty Advisor</p>
+              <p>Delta Mu Delta Honor Society.</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative" aria-hidden="true">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--black)]"></div>
+          <div class="absolute top-10 left-6 w-24 h-24 bg-[var(--blue)]"></div>
+          <div class="absolute bottom-0 left-0 w-44 h-8 bg-[var(--red)]"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus -->
+    <section id="focus" class="py-20">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <p class="title-font uppercase text-xs tracking-[0.18em]">Section 03</p>
+          <h2 class="text-4xl sm:text-5xl font-black title-font">Current Focus</h2>
+        </div>
+        <div class="w-20 h-20 bg-[var(--blue)] border-4 border-[var(--black)] rounded-full"></div>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        <div class="lg:col-span-1 bg-white border-8 border-[var(--black)] p-8 shadow-[16px_16px_0_#000] space-y-4" data-animate>
+          <p class="title-font text-sm uppercase tracking-[0.2em]">AI Systems for Education</p>
+          <h3 class="text-3xl font-black title-font">Evaluation of AI systems for education</h3>
+          <p class="text-base">Exploring Gems, GPTs, and AI-assisted webapps to elevate learning outcomes.</p>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-3 gap-6">
+          <div class="glass border-4 border-[var(--black)] p-6 card-glow" data-animate>
+            <p class="text-sm title-font uppercase tracking-[0.18em]">Project 01</p>
+            <h4 class="text-xl font-bold title-font mb-2">Research Methodology Selector</h4>
+            <p class="text-sm mb-4">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+            <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="inline-block px-4 py-2 border-4 border-[var(--black)] bg-[var(--gold)] title-font uppercase tracking-[0.12em] shadow-[8px_8px_0_#000]">View Project</a>
+          </div>
+          <div class="glass border-4 border-[var(--black)] p-6 card-glow bg-[var(--gold-soft)]" data-animate>
+            <p class="text-sm title-font uppercase tracking-[0.18em]">Project 02</p>
+            <h4 class="text-xl font-bold title-font mb-2">Analytics Case Study</h4>
+            <p class="text-sm mb-4">Comprehensive case study example demonstrating business analytics applications.</p>
+            <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="inline-block px-4 py-2 border-4 border-[var(--black)] bg-white title-font uppercase tracking-[0.12em] shadow-[8px_8px_0_#000]">View Project</a>
+          </div>
+          <div class="glass border-4 border-[var(--black)] p-6 card-glow bg-[var(--gray)]" data-animate>
+            <p class="text-sm title-font uppercase tracking-[0.18em]">Project 03</p>
+            <h4 class="text-xl font-bold title-font mb-2">AI Use Cases Catalog</h4>
+            <p class="text-sm mb-4">Curated collection of AI applications and use cases in education.</p>
+            <a href="https://usecases.vercel.app/index.html" target="_blank" class="inline-block px-4 py-2 border-4 border-[var(--black)] bg-[var(--blue)] text-white title-font uppercase tracking-[0.12em] shadow-[8px_8px_0_#000]">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-20 space-y-8">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-20 bg-[var(--black)]"></div>
+        <div>
+          <p class="title-font uppercase text-xs tracking-[0.18em]">Section 04</p>
+          <h2 class="text-4xl sm:text-5xl font-black title-font">Education</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border-[6px] border-[var(--black)] p-6 shadow-[12px_12px_0_#000]" data-animate>
+          <p class="title-font text-sm uppercase tracking-[0.2em]">2001</p>
+          <h3 class="text-2xl font-black title-font">PhD</h3>
+          <p class="text-sm text-[var(--dark)]">North Carolina State University — Raleigh, NC (1997-2001)</p>
+        </div>
+        <div class="bg-[var(--gold-soft)] border-[6px] border-[var(--black)] p-6 shadow-[12px_12px_0_#000]" data-animate>
+          <p class="title-font text-sm uppercase tracking-[0.2em]">1996</p>
+          <h3 class="text-2xl font-black title-font">MBA</h3>
+          <p class="text-sm text-[var(--dark)]">Georgia Institute of Technology — Atlanta, GA (1994-1996)</p>
+        </div>
+        <div class="bg-white border-[6px] border-[var(--black)] p-6 shadow-[12px_12px_0_#000]" data-animate>
+          <p class="title-font text-sm uppercase tracking-[0.2em]">1994</p>
+          <h3 class="text-2xl font-black title-font">BS - Industrial Engineering</h3>
+          <p class="text-sm text-[var(--dark)]">North Carolina State University — Raleigh, NC (1990-1994)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 space-y-8">
+      <div class="flex items-center gap-4">
+        <div class="w-24 h-4 bg-[var(--red)]"></div>
+        <div>
+          <p class="title-font uppercase text-xs tracking-[0.18em]">Section 05</p>
+          <h2 class="text-4xl sm:text-5xl font-black title-font">Experience</h2>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Professor</h3>
+            <span class="mono text-sm">2009 - Present</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">Purdue University Global</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Faculty lead developing the Doctorate in Business Administration program.</li>
+            <li>Course lead for GB 513 Business Statistics, GB 700 Doctoral Studies in Business and GB 701 Business Statistics.</li>
+          </ul>
+        </div>
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow bg-[var(--yellow)]" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Assistant Professor</h3>
+            <span class="mono text-sm">2003 - 2008</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">East Carolina University</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Teaching MBA and undergraduate courses in operations management, business decision modeling, supply chain management.</li>
+            <li>Led establishment of a new online supply chain program; created SCM courses and concentration program.</li>
+          </ul>
+        </div>
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Post-doctoral Research Fellow</h3>
+            <span class="mono text-sm">2001 - 2003</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">North Carolina State University</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Created fuzzy logic based decision support system for supplier selection.</li>
+            <li>Filed for 2 patents for building linguistic decision rules.</li>
+          </ul>
+        </div>
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow bg-[var(--gold-soft)]" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Research Assistant</h3>
+            <span class="mono text-sm">1997 - 2001</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">North Carolina State University</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Research in decision support systems, organizational performance measurement, coordination simulations.</li>
+            <li>Developed software programs enabling opportunities for patents and business ventures.</li>
+          </ul>
+        </div>
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Consultant</h3>
+            <span class="mono text-sm">1995 - 1997</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">CIBA Vision, Atlanta GA</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Developed and implemented methodology for effective inventory control with software tools.</li>
+            <li>Expanded methodology to additional product lines; improved shipping warehouse efficiency.</li>
+          </ul>
+        </div>
+        <div class="glass border-[6px] border-[var(--black)] p-6 card-glow bg-[var(--yellow)]" data-animate>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-2xl font-black title-font">Operations Analyst</h3>
+            <span class="mono text-sm">1995</span>
+          </div>
+          <p class="text-sm text-[var(--dark)]">IBM, Atlanta GA</p>
+          <ul class="list-disc list-inside text-sm mt-3 space-y-1">
+            <li>Analyzed service operations and developed measurement and cost-analysis tools.</li>
+            <li>Created new queries and performance forecasts for decision-making.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-12 h-12 bg-[var(--blue)] border-4 border-[var(--black)]"></div>
+        <div>
+          <p class="title-font uppercase text-xs tracking-[0.18em]">Section 06</p>
+          <h2 class="text-4xl sm:text-5xl font-black title-font">Let's Connect</h2>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2 bg-white border-8 border-[var(--black)] p-8 shadow-[18px_18px_0_#000] space-y-6" data-animate>
+          <div>
+            <p class="title-font text-sm uppercase tracking-[0.18em]">Email</p>
+            <a href="mailto:caltinoz@purdueglobal.edu" class="text-2xl font-bold text-[var(--black)] underline">caltinoz@purdueglobal.edu</a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <p class="title-font text-sm uppercase tracking-[0.18em]">Social</p>
+              <div class="flex gap-3 mt-2">
+                <a href="#" class="px-3 py-2 border-4 border-[var(--black)] bg-[var(--gold)] title-font text-xs uppercase tracking-[0.1em] shadow-[6px_6px_0_#000]">LinkedIn</a>
+                <a href="#" class="px-3 py-2 border-4 border-[var(--black)] bg-white title-font text-xs uppercase tracking-[0.1em] shadow-[6px_6px_0_#000]">Twitter</a>
+                <a href="#" class="px-3 py-2 border-4 border-[var(--black)] bg-[var(--blue)] text-white title-font text-xs uppercase tracking-[0.1em] shadow-[6px_6px_0_#000]">GitHub</a>
+              </div>
+            </div>
+            <div>
+              <p class="title-font text-sm uppercase tracking-[0.18em]">Collaboration</p>
+              <p class="text-lg font-semibold">Open to Collaboration & Research Opportunities</p>
+            </div>
+          </div>
+          <div>
+            <p class="title-font text-sm uppercase tracking-[0.18em]">Areas of Expertise</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-3 py-1 bg-[var(--yellow)] border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Business Administration</span>
+              <span class="px-3 py-1 bg-[var(--gold-soft)] border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">AI in Education</span>
+              <span class="px-3 py-1 bg-white border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Decision Support Systems</span>
+              <span class="px-3 py-1 bg-[var(--blue)] text-white border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Inventory Control</span>
+              <span class="px-3 py-1 bg-white border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Industrial Engineering</span>
+              <span class="px-3 py-1 bg-[var(--gold)] border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Online Education</span>
+              <span class="px-3 py-1 bg-white border-2 border-[var(--black)] text-xs title-font uppercase tracking-[0.08em]">Educational Technology</span>
+            </div>
+          </div>
+        </div>
+        <div class="relative" aria-hidden="true">
+          <div class="w-full h-64 bg-[var(--red)] border-8 border-[var(--black)]"></div>
+          <div class="absolute -top-6 -right-6 w-28 h-28 bg-[var(--blue)]"></div>
+          <div class="absolute bottom-6 left-6 w-24 h-4 bg-[var(--black)]"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t-8 border-[var(--black)] bg-[var(--black)] text-white py-10 mt-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 title-font uppercase tracking-[0.14em] text-sm">
+      <span>(C) 2025 Cuneyt Altinoz. Built with Bauhaus motion.</span>
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 bg-[var(--yellow)]"></div>
+        <div class="w-6 h-6 bg-[var(--blue)]"></div>
+        <div class="w-6 h-6 bg-[var(--red)]"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navDrawer = document.getElementById('nav-drawer');
+    navToggle?.addEventListener('click', () => {
+      navDrawer.classList.toggle('hidden');
+    });
+
+    // GSAP entrance animations
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('[data-animate]').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 80%' },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+
+    // Hero kinetic shapes
+    gsap.to('.shape', {
+      x: () => gsap.utils.random(-20, 20),
+      y: () => gsap.utils.random(-10, 10),
+      rotate: () => gsap.utils.random(-6, 6),
+      duration: 6,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+      stagger: 0.2
+    });
+  </script>
+</body>
+</html>
