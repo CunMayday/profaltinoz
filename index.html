@@ -1,625 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dr. Cuneyt Altinoz - Professor & Supply Chain Expert</title>
-    <meta
-      name="description"
-      content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in supply chain management, business administration, and decision support systems."
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Cuneyt Altinoz - Website Versions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              display: ["Montserrat", "sans-serif"],
-              body: ["Space Grotesk", "sans-serif"],
-              mono: ["Space Mono", "monospace"],
-            },
-            colors: {
-              campusGold: "#C28E0E",
-              athleticGold: "#CEB888",
-              purdueBlack: "#000000",
-              purdueGray: "#9D968D",
-              purdueDark: "#373A36",
-            },
-            boxShadow: {
-              neon: "0 10px 40px rgba(206, 184, 136, 0.5)",
-            },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-10px)" },
-              },
-            },
-            animation: {
-              float: "float 6s ease-in-out infinite",
-            },
-          },
-        },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        scroll-behavior: smooth;
-      }
-      body {
-        min-height: 100vh;
-        background-color: #f5f5f5;
-        background-image:
-          /* Purdue Gold radial glows */
-          radial-gradient(circle at 15% 20%, rgba(194, 142, 14, 0.08), transparent 50%),
-          radial-gradient(circle at 85% 15%, rgba(206, 184, 136, 0.06), transparent 45%),
-          radial-gradient(circle at 50% 85%, rgba(194, 142, 14, 0.05), transparent 55%),
-          /* Grid pattern - horizontal and vertical lines */
-          linear-gradient(0deg, rgba(194, 142, 14, 0.12) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(194, 142, 14, 0.12) 1px, transparent 1px),
-          /* Diagonal subtle lines */
-          linear-gradient(45deg, rgba(206, 184, 136, 0.06) 1px, transparent 1px),
-          linear-gradient(-45deg, rgba(206, 184, 136, 0.06) 1px, transparent 1px),
-          /* Dot pattern layer 1 - larger dots */
-          radial-gradient(circle at 20% 30%, rgba(194, 142, 14, 0.25) 1px, transparent 1px),
-          radial-gradient(circle at 80% 70%, rgba(206, 184, 136, 0.2) 1px, transparent 1px),
-          /* Dot pattern layer 2 - smaller scattered dots */
-          radial-gradient(circle at 40% 60%, rgba(157, 150, 141, 0.18) 0.5px, transparent 0.5px),
-          radial-gradient(circle at 70% 40%, rgba(194, 142, 14, 0.18) 0.5px, transparent 0.5px),
-          /* Base gradient */
-          linear-gradient(135deg, #fafafa 0%, #f0ede8 50%, #fafafa 100%);
-        background-size:
-          100% 100%,
-          100% 100%,
-          100% 100%,
-          80px 80px,
-          80px 80px,
-          120px 120px,
-          120px 120px,
-          60px 60px,
-          60px 60px,
-          40px 40px,
-          40px 40px,
-          100% 100%;
-        background-attachment: fixed;
-        position: relative;
-      }
-
-      /* Animated floating particles */
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image:
-          radial-gradient(circle at 10% 10%, rgba(194, 142, 14, 0.1) 2px, transparent 2px),
-          radial-gradient(circle at 90% 20%, rgba(206, 184, 136, 0.08) 1.5px, transparent 1.5px),
-          radial-gradient(circle at 30% 80%, rgba(194, 142, 14, 0.07) 1px, transparent 1px),
-          radial-gradient(circle at 70% 60%, rgba(206, 184, 136, 0.06) 1px, transparent 1px);
-        background-size: 200px 200px, 150px 150px, 180px 180px, 220px 220px;
-        animation: floatParticles 60s linear infinite;
-        pointer-events: none;
-        opacity: 0.6;
-      }
-
-      @keyframes floatParticles {
-        0% { transform: translate(0, 0); }
-        50% { transform: translate(30px, -30px); }
-        100% { transform: translate(0, 0); }
-      }
-
-      .glass {
-        backdrop-filter: blur(24px) saturate(180%) brightness(0.95);
-        -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(0.95);
-        background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.75) 0%,
-          rgba(250, 250, 250, 0.65) 50%,
-          rgba(255, 255, 255, 0.7) 100%);
-        border: 1px solid rgba(194, 142, 14, 0.4);
-        box-shadow:
-          0 8px 32px 0 rgba(0, 0, 0, 0.08),
-          0 2px 8px 0 rgba(194, 142, 14, 0.12),
-          inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
-          inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        /* Force hardware acceleration and maintain effects during scroll */
-        transform: translateZ(0);
-        will-change: backdrop-filter;
-        -webkit-transform: translateZ(0);
-      }
-
-      .glass:hover {
-        background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.85) 0%,
-          rgba(250, 250, 250, 0.75) 50%,
-          rgba(255, 255, 255, 0.8) 100%);
-        border-color: rgba(194, 142, 14, 0.6);
-        transform: translateY(-2px) translateZ(0);
-        box-shadow:
-          0 12px 48px 0 rgba(0, 0, 0, 0.12),
-          0 4px 12px 0 rgba(194, 142, 14, 0.2),
-          inset 0 1px 1px 0 rgba(255, 255, 255, 1),
-          inset 0 -1px 1px 0 rgba(0, 0, 0, 0.06);
-      }
-
-      .glass-strong {
-        backdrop-filter: blur(28px) saturate(200%) brightness(0.92);
-        -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(0.92);
-        background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.85) 0%,
-          rgba(245, 240, 235, 0.8) 50%,
-          rgba(255, 255, 255, 0.8) 100%);
-        border: 1px solid rgba(194, 142, 14, 0.5);
-        box-shadow:
-          0 12px 40px 0 rgba(0, 0, 0, 0.1),
-          0 4px 12px 0 rgba(194, 142, 14, 0.15),
-          inset 0 2px 2px 0 rgba(255, 255, 255, 0.95),
-          inset 0 -2px 2px 0 rgba(0, 0, 0, 0.06);
-        transition: all 0.3s ease;
-        /* Force hardware acceleration and maintain effects during scroll */
-        transform: translateZ(0);
-        will-change: backdrop-filter;
-        -webkit-transform: translateZ(0);
-      }
-
-      .glass-strong:hover {
-        background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.9) 0%,
-          rgba(245, 240, 235, 0.85) 50%,
-          rgba(255, 255, 255, 0.85) 100%);
-        border-color: rgba(194, 142, 14, 0.7);
-        transform: translateY(-3px) translateZ(0);
-        box-shadow:
-          0 16px 56px 0 rgba(0, 0, 0, 0.14),
-          0 6px 16px 0 rgba(194, 142, 14, 0.25),
-          inset 0 2px 2px 0 rgba(255, 255, 255, 1),
-          inset 0 -2px 2px 0 rgba(0, 0, 0, 0.07);
-      }
-
-      .nav-blur {
-        background: linear-gradient(180deg,
-          rgba(255, 255, 255, 0.9) 0%,
-          rgba(250, 250, 250, 0.85) 100%);
-        backdrop-filter: blur(24px) saturate(180%) brightness(0.98);
-        -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(0.98);
-        border-bottom: 1px solid rgba(194, 142, 14, 0.3);
-        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .fade-up.in-view {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .section-divider {
-        position: relative;
-      }
-
-      .section-divider::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
-        height: 2px;
-        background: linear-gradient(90deg,
-          transparent,
-          rgba(194, 142, 14, 0.8),
-          rgba(206, 184, 136, 0.6),
-          transparent);
-        box-shadow: 0 0 10px rgba(194, 142, 14, 0.5);
-      }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
     </style>
-  </head>
-  <body class="text-purdueBlack font-body">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="w-96 h-96 bg-campusGold/20 blur-[180px] rounded-full absolute -top-40 -left-10"></div>
-      <div class="w-[32rem] h-[32rem] bg-athleticGold/20 blur-[200px] rounded-full absolute top-10 right-0"></div>
-      <div class="w-[28rem] h-[28rem] bg-purdueGray/20 blur-[180px] rounded-full absolute bottom-0 left-20"></div>
-    </div>
-    <header class="fixed top-0 w-full z-40 nav-blur border-b border-white/10">
-      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#hero" class="font-display text-lg tracking-[0.2em]">Professor Altinoz</a>
-        <nav class="hidden md:flex gap-6 text-sm uppercase tracking-[0.2em] font-semibold">
-          <a href="#hero" class="hover:text-campusGold transition">Home</a>
-          <a href="#awards" class="hover:text-campusGold transition">Awards</a>
-          <a href="#focus" class="hover:text-campusGold transition">Focus</a>
-          <a href="#education" class="hover:text-campusGold transition">Education</a>
-          <a href="#experience" class="hover:text-campusGold transition">Experience</a>
-          <a href="#contact" class="hover:text-campusGold transition">Contact</a>
-        </nav>
-        <button id="menu-btn" class="md:hidden flex flex-col gap-1.5">
-          <span class="w-6 h-0.5 bg-white"></span>
-          <span class="w-6 h-0.5 bg-white"></span>
-          <span class="w-6 h-0.5 bg-white"></span>
-        </button>
-      </div>
-      <div id="mobile-nav" class="md:hidden hidden flex-col gap-4 px-6 pb-6 text-sm uppercase tracking-[0.2em]">
-        <a href="#hero" class="hover:text-campusGold transition">Home</a>
-        <a href="#awards" class="hover:text-campusGold transition">Awards</a>
-        <a href="#focus" class="hover:text-campusGold transition">Focus</a>
-        <a href="#education" class="hover:text-campusGold transition">Education</a>
-        <a href="#experience" class="hover:text-campusGold transition">Experience</a>
-        <a href="#contact" class="hover:text-campusGold transition">Contact</a>
-      </div>
-    </header>
+</head>
+<body class="bg-gray-50 min-h-screen py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Dr. Cuneyt Altinoz</h1>
+            <p class="text-xl text-gray-600">Professor at Purdue University Global</p>
+            <p class="text-sm text-gray-500 mt-2 mono">Select a design style below</p>
+        </header>
 
-    <main class="relative z-10">
-      <section id="hero" class="min-h-screen pt-28 pb-20 px-6 flex items-center">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
-          <div class="space-y-10 fade-up">
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Dr. Cuneyt Altinoz</p>
-            <div>
-              <h1 class="font-display text-6xl md:text-8xl leading-tight">
-                <span class="block">CUNEYT</span>
-                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-campusGold via-athleticGold to-white">ALTINOZ</span>
-              </h1>
-              <div class="glass inline-flex px-6 py-3 mt-6 rounded-full text-athleticGold uppercase tracking-[0.4em] text-xs">
-                Professor at Purdue University Global
-              </div>
-            </div>
-            <p class="text-lg text-white/70 max-w-2xl">
-              Award-winning professor, program architect, and AI-in-education visionary delivering transformative learning experiences for global business leaders.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-campusGold to-athleticGold text-black font-semibold shadow-neon">Get in Touch</a>
-              <a href="#awards" class="px-8 py-3 rounded-full border border-white/30 text-white hover:border-athleticGold/80 transition">Learn More</a>
-            </div>
-            <div class="glass rounded-3xl p-6 grid sm:grid-cols-3 gap-6">
-              <div>
-                <p class="text-3xl font-bold text-athleticGold">16+</p>
-                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Years at Purdue</p>
-              </div>
-              <div>
-                <p class="text-3xl font-bold text-athleticGold">3</p>
-                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Advanced Degrees</p>
-              </div>
-              <div>
-                <p class="text-3xl font-bold text-athleticGold">5+</p>
-                <p class="uppercase text-xs tracking-[0.4em] text-white/70">Major Awards</p>
-              </div>
-            </div>
-          </div>
-          <div class="glass-strong rounded-[2.5rem] p-10 relative overflow-hidden fade-up">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold mb-6">Welcome students</p>
-            <h2 class="font-display text-3xl mb-4">You are in good hands!</h2>
-            <p class="text-white/70 mb-10">
-              Bridging business strategy, analytics, and AI with immersive storytelling and meticulously crafted curricula.
-            </p>
-            <div class="space-y-6">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🌟</div>
-                <div>
-                  <p class="font-semibold">Innovator</p>
-                  <p class="text-white/70 text-sm">Custom AI assistants empower graduate scholars.</p>
+        <div class="grid gap-6 md:grid-cols-2">
+            <!-- Card 1 -->
+            <a href="index2.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Glassmorphism</h2>
+                    <span class="text-xs mono bg-blue-100 text-blue-800 px-2 py-1 rounded">v2</span>
                 </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🎓</div>
-                <div>
-                  <p class="font-semibold">Mentor</p>
-                  <p class="text-white/70 text-sm">Guiding DBA cohorts to purposeful research.</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-athleticGold/30 flex items-center justify-center text-2xl">🚀</div>
-                <div>
-                  <p class="font-semibold">Visionary</p>
-                  <p class="text-white/70 text-sm">Leading-edge applications of AI in education.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <p class="text-gray-600">Modern frosted glass design with Purdue gold accents and light background with transparent panels.</p>
+            </a>
 
-      <section id="awards" class="section-divider pt-28 pb-20 px-6">
-        <div class="max-w-6xl mx-auto space-y-16">
-          <div class="text-center space-y-4 fade-up">
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Recognition</p>
-            <h2 class="font-display text-4xl md:text-5xl">Awards & Recognition</h2>
-            <p class="text-white/70 max-w-3xl mx-auto">
-              Honoring excellence in online education, innovative technology integration, and transformational leadership.
-            </p>
-          </div>
-          <div class="grid md:grid-cols-2 gap-6 fade-up">
-            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2025</p>
-                  <h3 class="text-2xl font-display">Innovative Online Use of Technology</h3>
-                  <p class="text-white/70">Purdue University Online</p>
+            <!-- Card 2 -->
+            <a href="indexj.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Animated Gradient</h2>
+                    <span class="text-xs mono bg-purple-100 text-purple-800 px-2 py-1 rounded">AOS</span>
                 </div>
-                <div class="text-3xl">⭐</div>
-              </div>
-              <p class="text-white/80">Recognized for custom AI assistants helping graduate students.</p>
-            </article>
-            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2023</p>
-                  <h3 class="text-2xl font-display">Excellence in Online Course Design and Delivery</h3>
-                  <p class="text-white/70">Purdue University Online</p>
-                </div>
-                <div class="text-3xl">🏆</div>
-              </div>
-              <p class="text-white/80">Student-centric design of GB 513 Business Analytics.</p>
-            </article>
-            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2021</p>
-                  <h3 class="text-2xl font-display">ACBSP Teaching Excellence Award</h3>
-                  <p class="text-white/70">ACBSP</p>
-                </div>
-                <div class="text-3xl">🏆</div>
-              </div>
-              <p class="text-white/80">One of seven winners in the United States.</p>
-            </article>
-            <article class="glass rounded-3xl p-6 border border-athleticGold/20">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2016</p>
-                  <h3 class="text-2xl font-display">School of Business Professor of the Year</h3>
-                  <p class="text-white/70">Purdue University Global</p>
-                </div>
-                <div class="text-3xl">⭐</div>
-              </div>
-              <p class="text-white/80">Celebrating outstanding mentorship and leadership.</p>
-            </article>
-          </div>
-          <div class="glass-strong rounded-[2.5rem] p-10 fade-up">
-            <div class="flex flex-col md:flex-row items-center gap-10">
-              <div class="w-20 h-20 rounded-3xl bg-white/5 flex items-center justify-center text-4xl">👥</div>
-              <div class="space-y-3">
-                <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Leadership Roles</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Program Development</p>
-                    <p class="text-xl font-display">Faculty lead - Doctorate in Business Administration program</p>
-                  </div>
-                  <div>
-                    <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Faculty Advisor</p>
-                    <p class="text-xl font-display">Delta Mu Delta Honor Society</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <p class="text-gray-600">Clean design with animated gradient backgrounds and AOS scroll animations for smooth reveals.</p>
+            </a>
 
-      <section id="focus" class="pt-28 pb-20 px-6">
-        <div class="max-w-6xl mx-auto space-y-12">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 fade-up">
-            <div>
-              <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Current Focus</p>
-              <h2 class="font-display text-4xl md:text-5xl">AI Systems for Education</h2>
-            </div>
-            <p class="text-white/70 md:max-w-xl">
-              Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.
-            </p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-6 fade-up">
-            <article class="glass rounded-3xl p-6 flex flex-col">
-              <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Research Methodology Selector</p>
-              <p class="text-white/80 flex-1">Interactive tool for DBA students to identify appropriate research methodologies.</p>
-              <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="mt-6 inline-flex items-center gap-2 text-athleticGold font-semibold">View Project<span>↗</span></a>
-            </article>
-            <article class="glass rounded-3xl p-6 flex flex-col">
-              <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Analytics Case Study</p>
-              <p class="text-white/80 flex-1">Comprehensive case study example demonstrating business analytics applications.</p>
-              <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="mt-6 inline-flex items-center gap-2 text-athleticGold font-semibold">View Project<span>↗</span></a>
-            </article>
-            <article class="rounded-3xl p-6 flex flex-col" style="background-color: #9D968D; color: #050505;">
-              <p class="uppercase tracking-[0.4em] text-xs mb-4">AI Use Cases Catalog</p>
-              <p class="flex-1 text-black/80">Curated collection of AI applications and use cases in education.</p>
-              <a href="https://usecases.vercel.app/index.html" target="_blank" class="mt-6 inline-flex items-center gap-2 font-semibold text-black">View Project<span>↗</span></a>
-            </article>
-          </div>
-        </div>
-      </section>
+            <!-- Card 3 -->
+            <a href="indexx2.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Neobrutalist</h2>
+                    <span class="text-xs mono bg-yellow-100 text-yellow-800 px-2 py-1 rounded">BOLD</span>
+                </div>
+                <p class="text-gray-600">Bold brutalist design with asymmetric panels, heavy shadows, and striking geometric layouts.</p>
+            </a>
 
-      <section id="education" class="pt-28 pb-20 px-6">
-        <div class="max-w-6xl mx-auto space-y-10">
-          <div class="text-center space-y-4 fade-up">
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Scholarship</p>
-            <h2 class="font-display text-4xl md:text-5xl">Education</h2>
-          </div>
-          <div class="grid md:grid-cols-3 gap-6 fade-up">
-            <article class="glass rounded-3xl p-6">
-              <p class="text-athleticGold font-semibold">1997-2001</p>
-              <h3 class="text-2xl font-display">PhD</h3>
-              <p class="text-white/80">North Carolina State University</p>
-              <p class="text-white/60">Raleigh, NC</p>
-            </article>
-            <article class="glass rounded-3xl p-6">
-              <p class="text-athleticGold font-semibold">1994-1996</p>
-              <h3 class="text-2xl font-display">MBA</h3>
-              <p class="text-white/80">Georgia Institute of Technology</p>
-              <p class="text-white/60">Atlanta, GA</p>
-            </article>
-            <article class="glass rounded-3xl p-6">
-              <p class="text-athleticGold font-semibold">1990-1994</p>
-              <h3 class="text-2xl font-display">BS - Industrial Engineering</h3>
-              <p class="text-white/80">North Carolina State University</p>
-              <p class="text-white/60">Raleigh, NC</p>
-            </article>
-          </div>
-        </div>
-      </section>
+            <!-- Card 4 -->
+            <a href="indexx3.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Bauhaus Redux</h2>
+                    <span class="text-xs mono bg-red-100 text-red-800 px-2 py-1 rounded">GSAP</span>
+                </div>
+                <p class="text-gray-600">Bauhaus-inspired design with geometric shapes, bold colors, and GSAP scroll animations.</p>
+            </a>
 
-      <section id="experience" class="pt-28 pb-24 px-6">
-        <div class="max-w-6xl mx-auto space-y-10">
-          <div class="text-center space-y-4 fade-up">
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Journey</p>
-            <h2 class="font-display text-4xl md:text-5xl">Experience</h2>
-          </div>
-          <div class="space-y-6 fade-up">
-            <article class="glass rounded-3xl p-8">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2009 - Present</p>
-                  <h3 class="text-2xl font-display">Professor — Purdue University Global</h3>
+            <!-- Card 5 -->
+            <a href="indexcc.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Extreme Bauhaus</h2>
+                    <span class="text-xs mono bg-orange-100 text-orange-800 px-2 py-1 rounded">MAX</span>
                 </div>
-                <span class="px-4 py-1 rounded-full bg-white/10 text-xs uppercase tracking-[0.4em]">Faculty Lead</span>
-              </div>
-              <ul class="list-disc list-inside text-white/75 space-y-2">
-                <li>Developing the Doctorate in Business Administration program.</li>
-                <li>Recipient of 2025 Innovative Online Use of Technology award.</li>
-                <li>Recipient of 2023 Excellence in Online Course Design and Delivery.</li>
-                <li>Recipient of 2021 ACBSP Teaching Excellence Award.</li>
-                <li>2016 School of Business Professor of the Year.</li>
-                <li>Faculty advisor for Delta Mu Delta Honor Society.</li>
-              </ul>
-            </article>
-            <article class="glass rounded-3xl p-8">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">2001 - 2003</p>
-                  <h3 class="text-2xl font-display">Post-doctoral Research Fellow — North Carolina State University</h3>
-                </div>
-              </div>
-              <ul class="list-disc list-inside text-white/75 space-y-2">
-                <li>Created fuzzy logic decision support system for supplier selection.</li>
-              </ul>
-            </article>
-            <article class="glass rounded-3xl p-8">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">1997 - 2001</p>
-                  <h3 class="text-2xl font-display">Research Assistant — North Carolina State University</h3>
-                </div>
-              </div>
-              <ul class="list-disc list-inside text-white/75 space-y-2">
-                <li>Research on decision support systems and performance measurement.</li>
-                <li>Simulation and workflow analysis of business processes.</li>
-                <li>Support for business decisions using fuzzy logic.</li>
-                <li>Developed software, enabling patent and business opportunities.</li>
-              </ul>
-            </article>
-            <article class="glass rounded-3xl p-8">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">1995 - 1997</p>
-                  <h3 class="text-2xl font-display">Consultant — CIBA Vision, Atlanta GA</h3>
-                </div>
-              </div>
-              <ul class="list-disc list-inside text-white/75 space-y-2">
-                <li>Advised on inventory control and methodology development.</li>
-                <li>Delivered software tools and target levels.</li>
-                <li>Expanded solutions to additional product lines and logistics.</li>
-              </ul>
-            </article>
-            <article class="glass rounded-3xl p-8">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                <div>
-                  <p class="text-athleticGold font-semibold">1995</p>
-                  <h3 class="text-2xl font-display">Operations Analyst — IBM, Atlanta GA</h3>
-                </div>
-              </div>
-              <ul class="list-disc list-inside text-white/75 space-y-2">
-                <li>Analyzed service operations and developed measurement tools.</li>
-                <li>Built cost analysis tools, forecasts, and data queries.</li>
-                <li>Produced reports and performance forecasts.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
+                <p class="text-gray-600">Maximalist Bauhaus design with heavy geometric elements, rotating shapes, and creative asymmetric layouts.</p>
+            </a>
 
-      <section id="contact" class="pt-28 pb-20 px-6">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
-          <div class="glass-strong rounded-[2.5rem] p-10 space-y-10 fade-up">
-            <div>
-              <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Let's Connect</p>
-              <h2 class="font-display text-4xl">Open to Collaboration & Research Opportunities</h2>
-            </div>
-            <div class="space-y-6">
-              <div>
-                <p class="text-white/70 uppercase tracking-[0.4em] text-xs">Email</p>
-                <a href="mailto:caltinoz@purdueglobal.edu" class="text-2xl font-display text-athleticGold">caltinoz@purdueglobal.edu</a>
-              </div>
-              <div>
-                <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-2">Social</p>
-                <div class="flex gap-4">
-                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">LinkedIn</a>
-                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">Twitter</a>
-                  <a href="#" class="px-4 py-2 rounded-full border border-white/30 text-sm uppercase tracking-[0.3em]">GitHub</a>
+            <!-- Card 6 -->
+            <a href="backgrounds-preview.html" class="block p-6 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:shadow-xl hover:border-gray-400 transition-all transform hover:-translate-y-1">
+                <div class="flex items-start justify-between mb-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Background Preview</h2>
+                    <span class="text-xs mono bg-green-100 text-green-800 px-2 py-1 rounded">DEMO</span>
                 </div>
-              </div>
-              <div>
-                <p class="text-white/70 uppercase tracking-[0.4em] text-xs mb-4">Areas of Expertise</p>
-                <div class="flex flex-wrap gap-3">
-                  <span class="glass px-4 py-2 rounded-full text-sm">Business Administration</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">AI in Education</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">Decision Support Systems</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">Inventory Control</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">Industrial Engineering</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">Online Education</span>
-                  <span class="glass px-4 py-2 rounded-full text-sm">Educational Technology</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="glass rounded-3xl p-8 space-y-6 fade-up">
-            <p class="text-sm uppercase tracking-[0.5em] text-athleticGold">Stay Curious</p>
-            <p class="text-white/80">
-              Reach out for speaking engagements, AI collaborations, or co-designing immersive learning experiences that meet Purdue's standards of excellence.
-            </p>
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">✉️</div>
-                <p class="text-white/70">Response within 2 business days.</p>
-              </div>
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center">🧠</div>
-                <p class="text-white/70">Collaborating with scholars & innovators worldwide.</p>
-              </div>
-            </div>
-          </div>
+                <p class="text-gray-600">Preview page showcasing various background pattern options and visual design experiments.</p>
+            </a>
         </div>
-        <footer class="text-center mt-16 text-white/60 text-sm">
-          © 2025 Cuneyt Altinoz. Built with luminous glassmorphism energy.
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-200">
+            <p class="text-gray-500 text-sm mono">© 2025 Cuneyt Altinoz</p>
         </footer>
-      </section>
-    </main>
-
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileNav = document.getElementById("mobile-nav");
-      menuBtn.addEventListener("click", () => {
-        mobileNav.classList.toggle("hidden");
-      });
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-    </script>
-  </body>
+    </div>
+</body>
 </html>
