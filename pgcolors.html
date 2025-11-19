@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Information -->
+    <title>Dr. Altinoz Website</title>
+    <meta name="description" content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in supply chain management, business administration, and decision support systems.">
+    <meta name="keywords" content="Professor, Purdue University Global, Business Administration, AI in Education, Supply Chain Management, Decision Support Systems, Educational Technology, Online Education, Industrial Engineering">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config for Purdue Brand Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purdue-gold': '#C28E0E',
+                        'purdue-gold-light': '#CEB888',
+                        'purdue-black': '#000000',
+                        'purdue-gray': '#9D968D',
+                        'purdue-gray-dark': '#373A36',
+                        'white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for section heading underlines */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 5rem; /* 80px */
+            height: 4px;
+            background-color: #C28E0E; /* purdue-gold */
+            border-radius: 9999px;
+            margin: 0.75rem auto 0; /* 12px margin-top */
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-purdue-black antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#hero" class="text-xl font-bold text-purdue-gold hover:text-purdue-black transition-colors">
+                Professor Altinoz
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Home</a>
+                <a href="#awards" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Awards</a>
+                <a href="#focus" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Focus</a>
+                <a href="#education" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Education</a>
+                <a href="#experience" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Experience</a>
+                <a href="#contact" class="text-purdue-gray-dark font-medium hover:text-purdue-gold transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-purdue-black focus:outline-none">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl absolute top-full left-0 w-full">
+            <a href="#hero" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Home</a>
+            <a href="#awards" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Awards</a>
+            <a href="#focus" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Focus</a>
+            <a href="#education" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Education</a>
+            <a href="#experience" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Experience</a>
+            <a href="#contact" class="block text-center text-purdue-gray-dark font-medium py-3 hover:bg-gray-50 hover:text-purdue-gold transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Section 1: Hero/Home -->
+        <section id="hero" class="min-h-screen flex items-center bg-gray-50">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-purdue-black mb-4">
+                    CUNEYT ALTINOZ
+                </h1>
+                <div class="inline-block bg-purdue-gold text-white px-6 py-2 rounded-md text-lg font-semibold mb-8 shadow-lg">
+                    Professor at Purdue University Global
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                    <a href="#contact" class="bg-purdue-gold text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-md">
+                        Get in Touch
+                    </a>
+                    <a href="#awards" class="border-2 border-purdue-gold text-purdue-gold px-8 py-3 rounded-md font-semibold text-lg hover:bg-purdue-gold hover:text-white transition-all transform hover:scale-105 shadow-md">
+                        Learn More
+                    </a>
+                </div>
+
+                <!-- Quick Stats Box -->
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg border border-purdue-gray">
+                    <h2 class="text-2xl font-bold text-purdue-gray-dark mb-6">
+                        Welcome students. You are in good hands!
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <p class="text-4xl font-bold text-purdue-gold">16+</p>
+                            <span class="text-base text-purdue-gray-dark">Years at Purdue Global</span>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-purdue-gold">22</p>
+                            <span class="text-base text-purdue-gray-dark">Years Teaching Experience</span>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-purdue-gold">4</p>
+                            <span class="text-base text-purdue-gray-dark">Major Awards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Awards & Recognition -->
+        <section id="awards" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-purdue-black section-title">
+                    Awards & Recognition
+                </h2>
+                
+                <!-- Award Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                    <!-- Award 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <svg class="w-12 h-12 text-purdue-gold mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.31h5.518a.563.563 0 01.32.956l-4.286 3.118a.563.563 0 00-.182.557l1.634 5.701a.563.563 0 01-.812.622l-4.72-3.232a.563.563 0 00-.652 0l-4.72 3.232a.563.563 0 01-.812-.622l1.634-5.701a.563.563 0 00-.182-.557l-4.286-3.118a.563.563 0 01.32-.956h5.518a.563.563 0 00.475-.31l2.125-5.111z" /></svg>
+                        <p class="text-sm text-purdue-gray-dark font-medium mb-1">2025</p>
+                        <h3 class="text-xl font-semibold text-purdue-black mb-2">Innovative Online Use of Technology</h3>
+                        <p class="text-sm font-medium text-purdue-gray-dark mb-3">Purdue University Online</p>
+                        <p class="text-sm text-purdue-gray-dark">Recognized for custom AI assistants helping graduate students.</p>
+                    </div>
+                    <!-- Award 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <svg class="w-12 h-12 text-purdue-gold mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a2.25 2.25 0 00-2.25 2.25v.003c0 .114.114.223.223.223h12.554c.109 0 .223-.109.223-.223V21a2.25 2.25 0 00-2.25-2.25zM16.5 18.75V15m0 3.75V15m0 3.75V15M9 18.75V15m0 3.75V15m0 3.75V15M12 21v-1.5m0 1.5V19.5m0 1.5V19.5M12 15V9.75M12 15V9.75M12 15V9.75M12 9.75L14.25 12M12 9.75L9.75 12M14.25 12L12 15M9.75 12L12 15M12 9.75L14.25 7.5M12 9.75L9.75 7.5M14.25 7.5L12 9.75M9.75 7.5L12 9.75M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z" /></svg>
+                        <p class="text-sm text-purdue-gray-dark font-medium mb-1">2023</p>
+                        <h3 class="text-xl font-semibold text-purdue-black mb-2">Excellence in Online Course Design</h3>
+                        <p class="text-sm font-medium text-purdue-gray-dark mb-3">Purdue University Online</p>
+                        <p class="text-sm text-purdue-gray-dark">Student-centric design of GB 513 Business Analytics.</p>
+                    </div>
+                    <!-- Award 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <svg class="w-12 h-12 text-purdue-gold mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a2.25 2.25 0 00-2.25 2.25v.003c0 .114.114.223.223.223h12.554c.109 0 .223-.109.223-.223V21a2.25 2.25 0 00-2.25-2.25zM16.5 18.75V15m0 3.75V15m0 3.75V15M9 18.75V15m0 3.75V15m0 3.75V15M12 21v-1.5m0 1.5V19.5m0 1.5V19.5M12 15V9.75M12 15V9.75M12 15V9.75M12 9.75L14.25 12M12 9.75L9.75 12M14.25 12L12 15M9.75 12L12 15M12 9.75L14.25 7.5M12 9.75L9.75 7.5M14.25 7.5L12 9.75M9.75 7.5L12 9.75M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z" /></svg>
+                        <p class="text-sm text-purdue-gray-dark font-medium mb-1">2021</p>
+                        <h3 class="text-xl font-semibold text-purdue-black mb-2">ACBSP Teaching Excellence Award</h3>
+                        <p class="text-sm font-medium text-purdue-gray-dark mb-3">ACBSP</p>
+                        <p class="text-sm text-purdue-gray-dark">One of 7 winners in the United States.</p>
+                    </div>
+                    <!-- Award 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <svg class="w-12 h-12 text-purdue-gold mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.31h5.518a.563.563 0 01.32.956l-4.286 3.118a.563.563 0 00-.182.557l1.634 5.701a.563.563 0 01-.812.622l-4.72-3.232a.563.563 0 00-.652 0l-4.72 3.232a.563.563 0 01-.812-.622l1.634-5.701a.563.563 0 00-.182-.557l-4.286-3.118a.563.563 0 01.32-.956h5.518a.563.563 0 00.475-.31l2.125-5.111z" /></svg>
+                        <p class="text-sm text-purdue-gray-dark font-medium mb-1">2016</p>
+                        <h3 class="text-xl font-semibold text-purdue-black mb-2">Professor of the Year</h3>
+                        <p class="text-sm font-medium text-purdue-gray-dark mb-3">Purdue University Global</p>
+                        <p class="text-sm text-purdue-gray-dark">School of Business award.</p>
+                    </div>
+                </div>
+
+                <!-- Leadership Roles -->
+                <h3 class="text-3xl font-bold text-center mb-12 text-purdue-gray-dark">
+                    Leadership Roles
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-purdue-gold shadow-md">
+                        <p class="text-sm font-semibold text-purdue-gold uppercase tracking-wider mb-2">Program Development</p>
+                        <p class="text-lg text-purdue-black">Faculty lead in developing the Doctorate in Business Administration program.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-purdue-gold shadow-md">
+                        <p class="text-sm font-semibold text-purdue-gold uppercase tracking-wider mb-2">Faculty Advisor</p>
+                        <p class="text-lg text-purdue-black">Delta Mu Delta Honor Society.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Current Focus -->
+        <section id="focus" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-purdue-black section-title">
+                    Current Focus
+                </h2>
+
+                <!-- Main Focus Statement -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h3 class="text-3xl font-semibold text-purdue-black mb-3">
+                        AI Systems for Education
+                    </h3>
+                    <p class="text-lg text-purdue-gray-dark">
+                        Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.
+                    </p>
+                </div>
+
+                <!-- Project Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray flex flex-col hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <h4 class="text-xl font-semibold text-purdue-black mb-3">Research Methodology Selector</h4>
+                        <p class="text-purdue-gray-dark mb-6 flex-grow">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+                        <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-purdue-gray-dark text-white px-6 py-2 rounded-md font-semibold hover:bg-purdue-black transition-colors">
+                            View Project
+                        </a>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray flex flex-col hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <h4 class="text-xl font-semibold text-purdue-black mb-3">Analytics Case Study</h4>
+                        <p class="text-purdue-gray-dark mb-6 flex-grow">Comprehensive case study example demonstrating business analytics applications.</p>
+                        <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-purdue-gray-dark text-white px-6 py-2 rounded-md font-semibold hover:bg-purdue-black transition-colors">
+                            View Project
+                        </a>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="bg-purdue-gray p-6 rounded-lg shadow-lg flex flex-col hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+                        <h4 class="text-xl font-semibold text-white mb-3">AI Use Cases Catalog</h4>
+                        <p class="text-gray-200 mb-6 flex-grow">Curated collection of AI applications and use cases in education.</p>
+                        <a href="https://usecases.vercel.app/index.html" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-white text-purdue-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition-colors">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Education -->
+        <section id="education" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-purdue-black section-title">
+                    Education
+                </h2>
+                
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- Degree 1 -->
+                    <div class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex-shrink-0 bg-purdue-gold/10 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-purdue-gold" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375A6.375 6.375 0 1012 5.625 6.375 6.375 0 0012 18.375z" /><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375V5.625" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375z" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375zM12 5.625V18.375" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75z" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75zM3.375 12a8.625 8.625 0 1017.25 0A8.625 8.625 0 003.375 12z" /><path d="M3.375 12h17.25" /><path d="M12 3.375v17.25" /></svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-purdue-gold mb-1">2001</p>
+                            <h3 class="text-xl font-semibold text-purdue-black">PhD</h3>
+                            <p class="text-lg text-purdue-gray-dark">North Carolina State University, Raleigh, NC</p>
+                        </div>
+                    </div>
+                    <!-- Degree 2 -->
+                    <div class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex-shrink-0 bg-purdue-gold/10 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-purdue-gold" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375A6.375 6.375 0 1012 5.625 6.375 6.375 0 0012 18.375z" /><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375V5.625" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375z" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375zM12 5.625V18.375" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75z" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75zM3.375 12a8.625 8.625 0 1017.25 0A8.625 8.625 0 003.375 12z" /><path d="M3.375 12h17.25" /><path d="M12 3.375v17.25" /></svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-purdue-gold mb-1">1996</p>
+                            <h3 class="text-xl font-semibold text-purdue-black">MBA</h3>
+                            <p class="text-lg text-purdue-gray-dark">Georgia Institute of Technology, Atlanta, GA</p>
+                        </div>
+                    </div>
+                    <!-- Degree 3 -->
+                    <div class="flex items-start space-x-6 bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex-shrink-0 bg-purdue-gold/10 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-purdue-gold" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375A6.375 6.375 0 1012 5.625 6.375 6.375 0 0012 18.375z" /><path d="M12 18.375a6.375 6.375 0 100-12.75 6.375 6.375 0 000 12.75zM12 18.375V5.625" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375z" /><path d="M12 18.375c-3.52 0-6.375-2.855-6.375-6.375S8.48 5.625 12 5.625s6.375 2.855 6.375 6.375-2.855 6.375-6.375 6.375zM12 5.625V18.375" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75z" /><path d="M12 5.625a6.375 6.375 0 100 12.75 6.375 6.375 0 000-12.75zM3.375 12a8.625 8.625 0 1017.25 0A8.625 8.625 0 003.375 12z" /><path d="M3.375 12h17.25" /><path d="M12 3.375v17.25" /></svg>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-purdue-gold mb-1">1994</p>
+                            <h3 class="text-xl font-semibold text-purdue-black">BS - Industrial Engineering</h3>
+                            <p class="text-lg text-purdue-gray-dark">North Carolina State University, Raleigh, NC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Experience -->
+        <section id="experience" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-purdue-black section-title">
+                    Experience
+                </h2>
+                
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- Position 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Professor</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">2009 - Present</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">Purdue University Global</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Faculty lead in charge of developing the new Doctorate in Business Administration program.</li>
+                            <li>Course lead for GB 513 Business Statistics, GB 700 Doctoral Studies in Business and GB 701 Business Statistics.</li>
+                        </ul>
+                    </div>
+                    <!-- Position 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Assistant Professor</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">2003 - 2008</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">East Carolina University</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Marketing and Supply Chain Management department, College of Business.</li>
+                            <li>Teaching MBA and undergraduate courses in operations management, business decision modeling, supply chain management.</li>
+                            <li>Research in decision analysis, fuzzy logic, supply chain management.</li>
+                            <li>Took the lead in establishing a new online supply chain program. Developed a new SCM course, then a concentration program which eventually merged with Marketing to become a new department.</li>
+                        </ul>
+                    </div>
+                    <!-- Position 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Post-doctoral Research Fellow</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">2001 - 2003</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">North Carolina State University</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Created fuzzy logic based decision support system for supplier selection.</li>
+                            <li>Filed for 2 patents for building linguistic decision rules.</li>
+                        </ul>
+                    </div>
+                    <!-- Position 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Research Assistant</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">1997 - 2001</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">North Carolina State University</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Conducted research regarding decision support systems.</li>
+                            <li>Performance measurement in and of organizations.</li>
+                            <li>Simulations to analyze coordination.</li>
+                            <li>Workflow analysis of business processes.</li>
+                            <li>Support for business decisions using fuzzy logic.</li>
+                            <li>Developed two software programs.</li>
+                            <li>Research results led to opportunities for patents and business establishment.</li>
+                        </ul>
+                    </div>
+                    <!-- Position 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Consultant</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">1995 - 1997</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">CIBA Vision, Atlanta GA</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Consulted regarding inventory control issues.</li>
+                            <li>Developed and implemented new methodology for effective inventory control.</li>
+                            <li>Deliverables included inventory target levels and software tools.</li>
+                            <li>Expanded work to additional product lines after initial success.</li>
+                            <li>Analyzed shipping warehouse efficiency.</li>
+                        </ul>
+                    </div>
+                    <!-- Position 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-purdue-gray">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <h3 class="text-xl font-semibold text-purdue-black">Operations Analyst</h3>
+                            <p class="text-sm font-medium text-purdue-gold bg-purdue-gold/10 px-3 py-1 rounded-full flex-shrink-0 mt-2 sm:mt-0">1995</p>
+                        </div>
+                        <p class="text-lg text-purdue-gray-dark mb-4">IBM, Atlanta GA</p>
+                        <ul class="list-disc list-inside space-y-2 text-purdue-gray-dark">
+                            <li>Analyzed service operations and developed measurement tools.</li>
+                            <li>Developed cost analysis tools and financial forecasts.</li>
+                            <li>Created new queries for information collection.</li>
+                            <li>Produced analysis reports and performance forecasts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Contact -->
+        <section id="contact" class="py-24 bg-purdue-gray-dark text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                    Let's Connect
+                </h2>
+                
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <!-- Left Column: Contact Info -->
+                    <div class="space-y-8">
+                        <!-- Email -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-purdue-gold-light mb-2 uppercase tracking-wider">Email</h3>
+                            <a href="mailto:caltinoz@purdueglobal.edu" class="text-xl text-white hover:text-purdue-gold-light transition-colors break-all">
+                                caltinoz@purdueglobal.edu
+                            </a>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-purdue-gold-light mb-4 uppercase tracking-wider">Social</h3>
+                            <div class="flex space-x-6">
+                                <!-- LinkedIn -->
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                                </a>
+                                <!-- Twitter (X) -->
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231L18.244 2.25zM17.5 19.5h1.5l-8.02-10.74L5 4.5H3.5l8.007 10.74L17.5 19.5z"/></svg>
+                                </a>
+                                <!-- GitHub -->
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.489.5.09.682-.218.682-.484 0-.238-.009-.868-.013-1.703-2.782.602-3.369-1.34-3.369-1.34-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.03 1.532 1.03.89 1.528 2.336 1.087 2.906.831.091-.646.349-1.087.635-1.338-2.22-.252-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.253-.447-1.27.098-2.645 0 0 .84-.27 2.75 1.025.798-.222 1.647-.333 2.495-.337.848.004 1.697.115 2.495.337 1.91-1.294 2.75-1.025 2.75-1.025.546 1.375.202 2.392.1 2.645.64.698 1.027 1.59 1.027 2.682 0 3.842-2.338 4.687-4.566 4.935.359.309.678.918.678 1.85 0 1.338-.012 2.419-.012 2.746 0 .268.18.578.688.48C19.138 20.16 22 16.413 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Collaboration Notice -->
+                        <div class="bg-purdue-gold/20 text-purdue-gold-light p-6 rounded-md text-center font-semibold text-lg">
+                            Open to Collaboration & Research Opportunities
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Tag Cloud -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-purdue-gold-light mb-4 uppercase tracking-wider">Areas of Expertise</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Business Administration</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">AI in Education</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Decision Support Systems</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Inventory Control</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Industrial Engineering</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Online Education</span>
+                            <span class="bg-purdue-gray text-white px-4 py-2 rounded-full text-sm font-medium">Educational Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 bg-white border-t border-gray-200">
+        <p class="text-sm text-purdue-gray-dark">
+            © 2025 Cuneyt Altinoz. Built with a professional touch.
+        </p>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        // Toggle menu
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIconOpen.classList.toggle('hidden');
+            menuIconClose.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
