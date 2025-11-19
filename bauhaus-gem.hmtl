@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Altinoz | Professor Purdue Global</title>
+    <meta name="description" content="Portfolio of Dr. Cuneyt Altinoz, Professor at Purdue University Global specializing in supply chain management, business administration, and decision support systems.">
+    <meta name="keywords" content="Professor, Purdue University Global, Business Administration, AI in Education, Supply Chain Management">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purdue: {
+                            gold: '#C28E0E',
+                            softGold: '#CEB888',
+                            black: '#000000',
+                            gray: '#9D968D',
+                            darkGray: '#373A36',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'bauhaus': '10px 10px 0px 0px #000000',
+                        'bauhaus-hover': '15px 15px 0px 0px #C28E0E',
+                        'bauhaus-sm': '5px 5px 0px 0px #000000',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Bauhaus Styles */
+        body {
+            background-color: #f4f4f0;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4f4f0;
+            border-left: 2px solid black;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C28E0E;
+            border: 2px solid black;
+        }
+
+        /* Geometric Shapes */
+        .geo-circle {
+            border-radius: 50%;
+        }
+        .geo-triangle {
+            width: 0; 
+            height: 0; 
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid black;
+        }
+
+        /* Text Selection */
+        ::selection {
+            background: #C28E0E;
+            color: white;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Brutalist Grid Lines */
+        .grid-line-x {
+            background-image: linear-gradient(to right, black 50%, transparent 50%);
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
+            height: 1px;
+            width: 100%;
+        }
+        .grid-line-y {
+            background-image: linear-gradient(to bottom, black 50%, transparent 50%);
+            background-size: 1px 20px;
+            background-repeat: repeat-y;
+            width: 1px;
+            height: 100%;
+        }
+
+        /* Nav Menu Transition */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    </style>
+</head>
+<body class="text-purdue-black font-body selection:bg-purdue-gold">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-white/90 backdrop-blur-md border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-6 h-6 bg-purdue-gold rounded-full border-2 border-black"></div>
+                    <a href="#hero" class="font-display font-black text-2xl tracking-tighter uppercase">
+                        Dr. Cuneyt Altinoz
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#awards" class="font-bold hover:text-purdue-gold transition-colors hover:underline decoration-4 underline-offset-4 decoration-purdue-gold">Awards</a>
+                    <a href="#focus" class="font-bold hover:text-purdue-gold transition-colors hover:underline decoration-4 underline-offset-4 decoration-purdue-gold">Focus</a>
+                    <a href="#education" class="font-bold hover:text-purdue-gold transition-colors hover:underline decoration-4 underline-offset-4 decoration-purdue-gold">Education</a>
+                    <a href="#experience" class="font-bold hover:text-purdue-gold transition-colors hover:underline decoration-4 underline-offset-4 decoration-purdue-gold">Experience</a>
+                    <a href="#contact" class="px-6 py-2 bg-purdue-black text-white font-bold border-2 border-transparent hover:bg-white hover:text-black hover:border-black hover:shadow-bauhaus-sm transition-all duration-300">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-black hover:text-purdue-gold focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-purdue-gold z-40 transform translate-x-full flex flex-col justify-center items-center space-y-8 md:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-black p-2 bg-white border-2 border-black">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="#hero" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">HOME</a>
+            <a href="#awards" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">AWARDS</a>
+            <a href="#focus" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">FOCUS</a>
+            <a href="#education" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">EDUCATION</a>
+            <a href="#experience" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">EXPERIENCE</a>
+            <a href="#contact" class="mobile-link text-4xl font-display font-black text-white hover:text-black border-b-4 border-transparent hover:border-black transition-all">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="min-h-screen pt-20 flex items-center relative overflow-hidden">
+        <!-- Decorative Background Grid -->
+        <div class="absolute inset-0 z-0 grid grid-cols-12 h-full opacity-10 pointer-events-none">
+            <div class="col-span-1 border-r border-black h-full"></div>
+            <div class="col-span-1 border-r border-black h-full"></div>
+            <div class="col-span-4 border-r border-black h-full"></div>
+            <div class="col-span-1 border-r border-black h-full"></div>
+            <div class="col-span-3 border-r border-black h-full"></div>
+            <div class="col-span-2 h-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Text Content -->
+                <div class="col-span-1 lg:col-span-8 reveal active">
+                    <div class="bg-purdue-black text-white inline-block px-4 py-2 font-display font-bold tracking-widest mb-6 transform -rotate-1">
+                        PROFESSOR AT PURDUE UNIVERSITY GLOBAL
+                    </div>
+                    <h1 class="font-display font-black text-6xl sm:text-7xl md:text-9xl leading-none tracking-tighter text-purdue-black mb-8">
+                        CUNEYT<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purdue-gold to-purdue-softGold stroke-black stroke-2" style="-webkit-text-stroke: 2px black;">ALTINOZ</span>
+                    </h1>
+                    
+                    <!-- Quick Stats Bar -->
+                    <div class="bg-white border-4 border-black p-6 shadow-bauhaus mb-8 max-w-2xl">
+                        <h3 class="font-bold text-xl mb-4 border-b-2 border-purdue-gray pb-2">Welcome students. You are in good hands!</h3>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <span class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold">16+</span>
+                                <span class="text-xs font-bold uppercase">Years at Purdue</span>
+                            </div>
+                            <div class="border-l-2 border-black">
+                                <span class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold">22</span>
+                                <span class="text-xs font-bold uppercase">Years Teaching</span>
+                            </div>
+                            <div class="border-l-2 border-black">
+                                <span class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold">4</span>
+                                <span class="text-xs font-bold uppercase">Major Awards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-4 bg-purdue-gold text-black font-black text-lg border-4 border-black shadow-bauhaus hover:shadow-bauhaus-hover hover:-translate-y-1 transition-all duration-300 uppercase">
+                            Get in Touch
+                        </a>
+                        <a href="#awards" class="px-8 py-4 bg-white text-black font-black text-lg border-4 border-black shadow-bauhaus hover:bg-black hover:text-white hover:-translate-y-1 transition-all duration-300 uppercase">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Abstract/Visual Side -->
+                <div class="col-span-1 lg:col-span-4 flex justify-center lg:justify-end reveal delay-200">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-purdue-black rounded-full animate-spin-slow opacity-90"></div>
+                        <div class="absolute inset-4 bg-purdue-gold rounded-none rotate-45 border-4 border-white"></div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white border-4 border-black rounded-full flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: AWARDS -->
+    <section id="awards" class="py-20 bg-purdue-black text-white border-t-4 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <h2 class="font-display font-black text-5xl md:text-7xl tracking-tighter uppercase text-white">
+                    Awards &<br><span class="text-purdue-gold">Recog</span>nition
+                </h2>
+                <div class="w-full md:w-32 h-4 bg-purdue-gold mt-4 md:mt-0"></div>
+            </div>
+
+            <!-- Award Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="reveal group relative bg-purdue-darkGray border-4 border-white p-8 hover:bg-purdue-gold hover:text-black transition-colors duration-300">
+                    <div class="absolute -top-5 -right-5 w-12 h-12 bg-white border-4 border-black flex items-center justify-center z-10 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-star text-black"></i>
+                    </div>
+                    <span class="font-mono text-lg font-bold opacity-60">2025</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4">Innovative Online Use of Technology</h3>
+                    <p class="font-medium opacity-90">Purdue University Online</p>
+                    <p class="mt-4 text-sm leading-relaxed">Recognized for custom AI assistants helping graduate students.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal group relative bg-purdue-darkGray border-4 border-white p-8 hover:bg-purdue-gold hover:text-black transition-colors duration-300 delay-100">
+                    <div class="absolute -top-5 -right-5 w-12 h-12 bg-white border-4 border-black flex items-center justify-center z-10 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-trophy text-black"></i>
+                    </div>
+                    <span class="font-mono text-lg font-bold opacity-60">2023</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4">Excellence in Online Course Design</h3>
+                    <p class="font-medium opacity-90">Purdue University Online</p>
+                    <p class="mt-4 text-sm leading-relaxed">Student-centric design of GB 513 Business Analytics.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal group relative bg-purdue-darkGray border-4 border-white p-8 hover:bg-purdue-gold hover:text-black transition-colors duration-300">
+                    <div class="absolute -top-5 -right-5 w-12 h-12 bg-white border-4 border-black flex items-center justify-center z-10 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-award text-black"></i>
+                    </div>
+                    <span class="font-mono text-lg font-bold opacity-60">2021</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4">ACBSP Teaching Excellence Award</h3>
+                    <p class="font-medium opacity-90">ACBSP</p>
+                    <p class="mt-4 text-sm leading-relaxed">One of 7 winners in the United States.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="reveal group relative bg-purdue-darkGray border-4 border-white p-8 hover:bg-purdue-gold hover:text-black transition-colors duration-300 delay-100">
+                    <div class="absolute -top-5 -right-5 w-12 h-12 bg-white border-4 border-black flex items-center justify-center z-10 group-hover:rotate-12 transition-transform">
+                        <i class="fas fa-star text-black"></i>
+                    </div>
+                    <span class="font-mono text-lg font-bold opacity-60">2016</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4">School of Business Professor of the Year</h3>
+                    <p class="font-medium opacity-90">Purdue University Global</p>
+                </div>
+            </div>
+
+            <!-- Leadership Roles -->
+            <div class="mt-16 pt-16 border-t border-white/20 reveal">
+                <h3 class="font-display font-bold text-3xl mb-8 flex items-center gap-4">
+                    <i class="fas fa-users-cog text-purdue-gold"></i> Leadership Roles
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white text-black p-6 border-l-8 border-purdue-gold">
+                        <h4 class="font-bold text-xl">Program Development</h4>
+                        <p class="mt-2">Faculty lead in developing the Doctorate in Business Administration program.</p>
+                    </div>
+                    <div class="bg-white text-black p-6 border-l-8 border-purdue-gold">
+                        <h4 class="font-bold text-xl">Faculty Advisor</h4>
+                        <p class="mt-2">Delta Mu Delta Honor Society.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FOCUS (Asymmetric Layout) -->
+    <section id="focus" class="py-20 bg-white overflow-hidden relative">
+        <!-- Big background circle -->
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-purdue-softGold rounded-full opacity-20 pointer-events-none mix-blend-multiply"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Sidebar Title -->
+                <div class="lg:col-span-3 reveal">
+                    <h2 class="font-display font-black text-6xl lg:text-8xl uppercase text-black leading-none tracking-tighter lg:rotate-90 lg:origin-left lg:translate-x-20 lg:translate-y-20 whitespace-nowrap">
+                        Current Focus
+                    </h2>
+                </div>
+
+                <!-- Content Area -->
+                <div class="lg:col-span-9">
+                    <div class="mb-12 p-8 border-4 border-black bg-purdue-gray/10 reveal">
+                        <h3 class="font-display font-black text-3xl mb-4">AI SYSTEMS FOR EDUCATION</h3>
+                        <p class="text-lg leading-relaxed font-medium">Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.</p>
+                    </div>
+
+                    <!-- Project Cards Staggered -->
+                    <div class="flex flex-col gap-12">
+                        
+                        <!-- Project 1 -->
+                        <div class="reveal flex flex-col md:flex-row gap-0 md:gap-8 items-stretch">
+                            <div class="w-full md:w-1/3 bg-purdue-black text-purdue-gold flex items-center justify-center p-8 font-display font-black text-6xl border-4 border-black shadow-bauhaus">01</div>
+                            <div class="w-full md:w-2/3 bg-white border-4 border-black p-8 shadow-bauhaus flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-2xl mb-2">Research Methodology Selector</h4>
+                                    <p class="text-sm mb-6">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+                                </div>
+                                <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="self-start px-6 py-2 bg-black text-white font-bold hover:bg-purdue-gold hover:text-black transition-colors">View Project &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="reveal md:ml-20 flex flex-col md:flex-row gap-0 md:gap-8 items-stretch">
+                            <div class="w-full md:w-1/3 bg-purdue-gold text-black flex items-center justify-center p-8 font-display font-black text-6xl border-4 border-black shadow-bauhaus order-1 md:order-1">02</div>
+                            <div class="w-full md:w-2/3 bg-white border-4 border-black p-8 shadow-bauhaus flex flex-col justify-between order-2 md:order-2">
+                                <div>
+                                    <h4 class="font-bold text-2xl mb-2">Analytics Case Study</h4>
+                                    <p class="text-sm mb-6">Comprehensive case study example demonstrating business analytics applications.</p>
+                                </div>
+                                <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="self-start px-6 py-2 bg-black text-white font-bold hover:bg-purdue-gold hover:text-black transition-colors">View Project &rarr;</a>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="reveal flex flex-col md:flex-row gap-0 md:gap-8 items-stretch">
+                            <div class="w-full md:w-1/3 bg-purdue-gray text-white flex items-center justify-center p-8 font-display font-black text-6xl border-4 border-black shadow-bauhaus">03</div>
+                            <div class="w-full md:w-2/3 bg-purdue-gray border-4 border-black p-8 shadow-bauhaus flex flex-col justify-between text-white">
+                                <div>
+                                    <h4 class="font-bold text-2xl mb-2">AI Use Cases Catalog</h4>
+                                    <p class="text-sm mb-6 text-white/90">Curated collection of AI applications and use cases in education.</p>
+                                </div>
+                                <a href="https://usecases.vercel.app/index.html" target="_blank" class="self-start px-6 py-2 bg-white text-black font-bold hover:bg-black hover:text-white transition-colors">View Project &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: EDUCATION -->
+    <section id="education" class="py-20 bg-purdue-gold border-t-4 border-b-4 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display font-black text-5xl md:text-7xl text-black mb-16 text-center tracking-tighter reveal">EDUCATION</h2>
+            
+            <!-- Timeline Visualization -->
+            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Horizontal line for desktop -->
+                <div class="absolute top-8 left-0 w-full h-2 bg-black hidden md:block z-0"></div>
+
+                <!-- Degree 1 -->
+                <div class="reveal relative z-10 pt-8 md:pt-16">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-black rounded-full border-4 border-white hidden md:flex items-center justify-center text-white font-bold z-10">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="bg-white border-4 border-black p-6 shadow-bauhaus hover:scale-105 transition-transform text-center">
+                        <div class="inline-block bg-black text-white px-3 py-1 font-mono text-sm mb-3">2001</div>
+                        <h3 class="font-display font-black text-4xl mb-2">PhD</h3>
+                        <p class="font-bold">North Carolina State University</p>
+                        <p class="text-sm text-gray-600">Raleigh, NC</p>
+                    </div>
+                </div>
+
+                <!-- Degree 2 -->
+                <div class="reveal delay-100 relative z-10 pt-8 md:pt-16">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-black rounded-full border-4 border-white hidden md:flex items-center justify-center text-white font-bold z-10">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="bg-white border-4 border-black p-6 shadow-bauhaus hover:scale-105 transition-transform text-center">
+                        <div class="inline-block bg-black text-white px-3 py-1 font-mono text-sm mb-3">1996</div>
+                        <h3 class="font-display font-black text-4xl mb-2">MBA</h3>
+                        <p class="font-bold">Georgia Institute of Technology</p>
+                        <p class="text-sm text-gray-600">Atlanta, GA</p>
+                    </div>
+                </div>
+
+                <!-- Degree 3 -->
+                <div class="reveal delay-200 relative z-10 pt-8 md:pt-16">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-black rounded-full border-4 border-white hidden md:flex items-center justify-center text-white font-bold z-10">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="bg-white border-4 border-black p-6 shadow-bauhaus hover:scale-105 transition-transform text-center">
+                        <div class="inline-block bg-black text-white px-3 py-1 font-mono text-sm mb-3">1994</div>
+                        <h3 class="font-display font-black text-3xl mb-2">BS Ind. Eng.</h3>
+                        <p class="font-bold">North Carolina State University</p>
+                        <p class="text-sm text-gray-600">Raleigh, NC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: EXPERIENCE (Masonry/Grid) -->
+    <section id="experience" class="py-20 bg-white relative">
+        <!-- Background Grid Lines -->
+        <div class="absolute inset-0 grid grid-cols-6 pointer-events-none opacity-10">
+            <div class="border-r border-black h-full"></div>
+            <div class="border-r border-black h-full"></div>
+            <div class="border-r border-black h-full"></div>
+            <div class="border-r border-black h-full"></div>
+            <div class="border-r border-black h-full"></div>
+            <div></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="font-display font-black text-6xl text-black mb-12 border-l-8 border-purdue-gold pl-6 reveal">EXPERIENCE</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Col 1 -->
+                <div class="space-y-8">
+                    <!-- Pos 1 -->
+                    <div class="reveal bg-white border-4 border-black p-8 shadow-bauhaus relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-purdue-gold text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-black">2009-Present</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Professor</h3>
+                        <p class="font-bold text-purdue-gray mb-4">Purdue University Global</p>
+                        <ul class="list-disc list-inside text-sm space-y-2 marker:text-purdue-gold">
+                            <li>Faculty lead for Doctorate in Business Administration program.</li>
+                            <li>Course lead for Business Statistics and Doctoral Studies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pos 3 -->
+                    <div class="reveal bg-purdue-darkGray text-white border-4 border-black p-8 shadow-bauhaus relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-black">2001-2003</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Post-doc Fellow</h3>
+                        <p class="font-bold text-purdue-gold mb-4">NC State University</p>
+                        <ul class="list-disc list-inside text-sm space-y-2 marker:text-purdue-gold text-gray-300">
+                            <li>Created fuzzy logic decision support systems.</li>
+                            <li>Filed 2 patents for linguistic decision rules.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pos 5 -->
+                    <div class="reveal bg-white border-4 border-black p-8 shadow-bauhaus relative overflow-hidden">
+                         <div class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-white">1995-1997</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Consultant</h3>
+                        <p class="font-bold text-purdue-gray mb-4">CIBA Vision</p>
+                        <p class="text-sm">Implemented new methodology for effective inventory control and developed software tools.</p>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-8 lg:mt-12">
+                    <!-- Pos 2 -->
+                    <div class="reveal bg-white border-4 border-black p-8 shadow-bauhaus relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-white">2003-2008</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Assistant Professor</h3>
+                        <p class="font-bold text-purdue-gray mb-4">East Carolina University</p>
+                        <ul class="list-disc list-inside text-sm space-y-2 marker:text-purdue-gold">
+                            <li>Established new online supply chain program.</li>
+                            <li>Taught MBA operations management & decision modeling.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pos 4 -->
+                    <div class="reveal bg-white border-4 border-black p-8 shadow-bauhaus relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-purdue-gold text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-black">1997-2001</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Research Assistant</h3>
+                        <p class="font-bold text-purdue-gray mb-4">NC State University</p>
+                        <ul class="list-disc list-inside text-sm space-y-2 marker:text-purdue-gold">
+                            <li>Performance measurement and simulation analysis.</li>
+                            <li>Developed two software programs for decision support.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Pos 6 -->
+                    <div class="reveal bg-purdue-gold text-black border-4 border-black p-8 shadow-bauhaus relative overflow-hidden">
+                         <div class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-2 py-1 border-l-2 border-b-2 border-white">1995</div>
+                        <h3 class="font-display font-black text-2xl mb-1">Operations Analyst</h3>
+                        <p class="font-bold text-white mb-4">IBM, Atlanta</p>
+                        <p class="text-sm font-bold">Analyzed service operations, developed measurement tools and financial forecasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT -->
+    <section id="contact" class="py-20 bg-purdue-black text-white border-t-4 border-black relative overflow-hidden">
+        <!-- Decorative Circles -->
+        <div class="absolute left-0 bottom-0 w-40 h-40 bg-purdue-gold rounded-tr-full opacity-80"></div>
+        <div class="absolute right-0 top-0 w-32 h-32 bg-white rounded-bl-full opacity-20"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-display font-black text-5xl md:text-8xl mb-8 reveal">LET'S CONNECT</h2>
+            
+            <div class="reveal delay-100">
+                <a href="mailto:caltinoz@purdueglobal.edu" class="inline-block text-2xl md:text-4xl font-bold border-b-4 border-purdue-gold hover:bg-purdue-gold hover:text-black transition-all p-2 break-all">
+                    caltinoz@purdueglobal.edu
+                </a>
+            </div>
+
+            <div class="mt-12 flex justify-center space-x-8 reveal delay-200">
+                <a href="#" class="w-16 h-16 border-2 border-white flex items-center justify-center rounded-full hover:bg-purdue-gold hover:border-purdue-gold hover:text-black transition-all text-2xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-16 h-16 border-2 border-white flex items-center justify-center rounded-full hover:bg-purdue-gold hover:border-purdue-gold hover:text-black transition-all text-2xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="w-16 h-16 border-2 border-white flex items-center justify-center rounded-full hover:bg-purdue-gold hover:border-purdue-gold hover:text-black transition-all text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="mt-16 flex flex-wrap justify-center gap-3 opacity-70 reveal delay-300 font-mono text-sm">
+                <span class="border border-white/30 px-3 py-1 rounded-full">#BusinessAdmin</span>
+                <span class="border border-white/30 px-3 py-1 rounded-full">#AIinEducation</span>
+                <span class="border border-white/30 px-3 py-1 rounded-full">#InventoryControl</span>
+                <span class="border border-white/30 px-3 py-1 rounded-full">#EdTech</span>
+                <span class="border border-white/30 px-3 py-1 rounded-full">#PurdueGlobal</span>
+            </div>
+            
+            <div class="mt-8 bg-white/10 p-4 inline-block rounded-lg backdrop-blur-sm">
+                <p class="font-bold text-purdue-gold">Open to Collaboration & Research Opportunities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-8 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 text-center font-mono text-xs">
+            <p>&copy; 2025 Cuneyt Altinoz. Built with Purdue Bauhaus vibes.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Custom Cursor (Simple follow)
+        // Note: Disabled for touch devices for performance, can add if requested.
+    </script>
+</body>
+</html>
