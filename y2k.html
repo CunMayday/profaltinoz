@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Cuneyt Altinoz | Y2K EXPERIENCE</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: VT323 for that terminal look, Press Start 2P for headers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-black': '#050505',
+                        'cyber-green': '#00FF41',
+                        'cyber-pink': '#FF00FF',
+                        'cyber-blue': '#00FFFF',
+                        'cyber-yellow': '#FFFF00',
+                        'win-gray': '#C0C0C0',
+                        'win-blue': '#000080',
+                        'purdue-gray-light': '#9D968D', // Added for one card
+                    },
+                    fontFamily: {
+                        'pixel': ['"Press Start 2P"', 'cursive'],
+                        'term': ['"VT323"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Cursor */
+        body {
+            cursor: crosshair;
+            overflow-x: hidden;
+            background-color: #050505;
+        }
+
+        a, button {
+            cursor: pointer;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00FF41;
+            border: 2px solid #FF00FF;
+        }
+
+        /* CRT Scanline Effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 40;
+            pointer-events: none;
+            animation: scrollScanlines 10s linear infinite;
+        }
+        
+        @keyframes scrollScanlines {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        /* Glitch Animation */
+        .glitch-text {
+            position: relative;
+        }
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 #FF00FF;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 #00FFFF;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(12px, 9999px, 42px, 0); }
+            20% { clip: rect(85px, 9999px, 10px, 0); }
+            40% { clip: rect(2px, 9999px, 90px, 0); }
+            60% { clip: rect(42px, 9999px, 22px, 0); }
+            80% { clip: rect(10px, 9999px, 12px, 0); }
+            100% { clip: rect(65px, 9999px, 52px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(12px, 9999px, 5px, 0); }
+            40% { clip: rect(45px, 9999px, 12px, 0); }
+            60% { clip: rect(82px, 9999px, 2px, 0); }
+            80% { clip: rect(5px, 9999px, 10px, 0); }
+            100% { clip: rect(2px, 9999px, 45px, 0); }
+        }
+
+        /* Utility: Blinking Text */
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        /* 3D Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Loading Overlay */
+        #loader {
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-cyber-black text-cyber-green font-term overflow-x-hidden selection:bg-cyber-pink selection:text-white">
+
+    <!-- AUDIO ELEMENT (Hidden) -->
+    <audio id="bg-music" loop>
+        <!-- Placeholder for audio interaction -->
+    </audio>
+
+    <!-- THREE.JS CANVAS -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- SCANLINE OVERLAY -->
+    <div class="scanlines"></div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center text-cyber-green">
+        <div class="w-64 border-2 border-cyber-green p-1 mb-4">
+            <div id="progress-bar" class="h-6 bg-cyber-green w-0 transition-all duration-1000"></div>
+        </div>
+        <p class="font-pixel text-xs animate-pulse">INITIALIZING CYBER-NET...</p>
+        <p id="loading-text" class="mt-2 font-term text-xl">Loading assets...</p>
+    </div>
+
+    <!-- TOP MARQUEE -->
+    <div class="fixed top-0 left-0 w-full bg-cyber-blue text-black z-40 border-b-2 border-cyber-pink overflow-hidden whitespace-nowrap py-1 font-bold">
+        <div class="inline-block animate-[marquee_20s_linear_infinite]">
+            +++ [ DR. CUNEYT ALTINOZ ] +++ [ PURDUE UNIVERSITY GLOBAL ] +++ [ 22+ YEARS TEACHING ] +++ [ AI IN EDUCATION ] +++ [ ACBSP TEACHING EXCELLENCE AWARD ] +++ [ Y2K COMPLIANT ] +++
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div id="content" class="relative z-10 pt-16 pb-12 opacity-0 transition-opacity duration-1000 container mx-auto px-4 max-w-5xl">
+
+        <!-- HEADER SECTION -->
+        <header id="hero" class="mb-16 text-center relative group perspective-1000">
+            <div class="inline-block border-4 border-double border-cyber-pink p-6 bg-black/80 transform transition-transform group-hover:rotate-y-12 group-hover:scale-105 duration-500 shadow-[8px_8px_0px_0px_rgba(255,0,255,1)]">
+                <h1 class="text-4xl md:text-7xl font-pixel text-transparent bg-clip-text bg-gradient-to-r from-cyber-pink via-cyber-blue to-cyber-green glitch-text" data-text="CUNEYT ALTINOZ">
+                    CUNEYT ALTINOZ
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-cyber-blue font-bold tracking-widest uppercase border-t-2 border-cyber-green pt-2">
+                    Professor at Purdue University Global
+                </p>
+            </div>
+            <!-- CTA Buttons -->
+            <div class="mt-12 flex flex-wrap justify-center gap-4">
+                <button onclick="scrollToSection('contact')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-pink transition-colors shadow-lg">
+                    [ Get in Touch ]
+                </button>
+                <button onclick="scrollToSection('awards')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-blue transition-colors shadow-lg">
+                    [ Learn More ]
+                </button>
+            </div>
+        </header>
+
+        <!-- NAVIGATION BAR (WIN98 STYLE) -->
+        <nav class="mb-12 flex flex-wrap justify-center gap-4">
+            <button onclick="scrollToSection('awards')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-pink transition-colors shadow-lg">
+                [ AWARDS ]
+            </button>
+            <button onclick="scrollToSection('focus')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-blue transition-colors shadow-lg">
+                [ FOCUS ]
+            </button>
+            <button onclick="scrollToSection('education')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-green transition-colors shadow-lg">
+                [ EDUCATION ]
+            </button>
+             <button onclick="scrollToSection('experience')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-yellow transition-colors shadow-lg">
+                [ EXPERIENCE ]
+            </button>
+            <button onclick="scrollToSection('contact')" class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black text-black px-6 py-2 font-bold active:border-t-black active:border-l-black active:border-b-white active:border-r-white active:bg-gray-400 font-pixel text-xs md:text-sm hover:text-cyber-pink transition-colors shadow-lg">
+                [ CONTACT ]
+            </button>
+        </nav>
+
+        <!-- GRID LAYOUT FOR CONTENT -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT SIDEBAR (WIDGETS) -->
+            <aside class="lg:col-span-4 space-y-8">
+                
+                <!-- QUICK STATS CARD -->
+                <div class="bg-black/90 border-2 border-cyber-green p-1 shadow-[4px_4px_0px_0px_#00FF41]">
+                    <div class="bg-cyber-green text-black px-2 py-1 font-bold flex justify-between items-center">
+                        <span>STATS.EXE</span>
+                        <span class="cursor-pointer hover:text-white">X</span>
+                    </div>
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold text-white mb-4 font-pixel">Welcome students. You are in good hands!</h2>
+                        <div class="text-left text-lg space-y-2 font-term text-gray-300">
+                            <p><span class="text-cyber-green">></span> 16+ Years at Purdue Global</p>
+                            <p><span class="text-cyber-green">></span> 22 Years Teaching Experience</p>
+                            <p><span class="text-cyber-green">></span> 4 Major Awards</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MUSIC PLAYER WIDGET (Kept for style) -->
+                <div class="bg-win-gray border-t-2 border-l-2 border-white border-b-2 border-r-2 border-black p-1">
+                    <div class="bg-win-blue text-white px-2 py-1 font-bold text-xs flex justify-between items-center font-sans mb-1">
+                        <span>WinAmp 2.0</span>
+                        <span>_ □ X</span>
+                    </div>
+                    <div class="bg-black border-2 border-gray-600 p-2 mb-2">
+                        <p class="text-cyber-green font-pixel text-[10px] truncate animate-pulse" id="song-title">NO TRACK PLAYING...</p>
+                        <div class="flex justify-between text-cyber-green font-mono text-xs mt-1">
+                            <span>00:00</span>
+                            <span>128kbps</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between gap-1">
+                        <button onclick="playMusic('prev')" class="flex-1 bg-win-gray border border-black text-black text-xs font-bold hover:bg-white">&lt;&lt;</button>
+                        <button onclick="playMusic('play')" class="flex-1 bg-win-gray border border-black text-black text-xs font-bold hover:bg-white">►</button>
+                        <button onclick="playMusic('stop')" class="flex-1 bg-win-gray border border-black text-black text-xs font-bold hover:bg-white">■</button>
+                        <button onclick="playMusic('next')" class="flex-1 bg-win-gray border border-black text-black text-xs font-bold hover:bg-white">&gt;&gt;</button>
+                    </div>
+                    <!-- Visualizer Mockup -->
+                    <div class="mt-2 flex gap-px h-8 items-end justify-center bg-black p-1">
+                        <div class="w-1 bg-cyber-green h-2 animate-[bounce_0.5s_infinite]"></div>
+                        <div class="w-1 bg-cyber-green h-4 animate-[bounce_0.7s_infinite]"></div>
+                        <div class="w-1 bg-cyber-green h-6 animate-[bounce_0.4s_infinite]"></div>
+                        <div class="w-1 bg-cyber-green h-3 animate-[bounce_0.6s_infinite]"></div>
+                        <div class="w-1 bg-cyber-green h-5 animate-[bounce_0.8s_infinite]"></div>
+                        <div class="w-1 bg-cyber-yellow h-4 animate-[bounce_0.5s_infinite]"></div>
+                        <div class="w-1 bg-cyber-yellow h-7 animate-[bounce_0.3s_infinite]"></div>
+                        <div class="w-1 bg-cyber-red h-2 animate-[bounce_0.6s_infinite]"></div>
+                    </div>
+                </div>
+
+                <!-- WEB RINGS (Kept for style) -->
+                <div class="text-center border border-cyber-blue p-4 bg-black/50 backdrop-blur-sm">
+                    <p class="font-pixel text-xs text-cyber-blue mb-2">MEMBER OF</p>
+                    <div class="flex justify-center gap-2">
+                        <div class="w-8 h-8 bg-cyber-pink rounded-full animate-bounce delay-100"></div>
+                        <div class="w-8 h-8 bg-cyber-yellow rounded-full animate-bounce delay-200"></div>
+                        <div class="w-8 h-8 bg-cyber-green rounded-full animate-bounce delay-300"></div>
+                    </div>
+                    <p class="mt-2 text-xs font-mono">THE ACADEMIC WEBRING</p>
+                    <div class="mt-2 text-[10px] flex justify-between px-4">
+                        <a href="#" class="hover:text-white">[ PREV ]</a>
+                        <a href="#" class="hover:text-white">[ NEXT ]</a>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main class="lg:col-span-8 space-y-12">
+                
+                <!-- Section 2: Awards & Recognition -->
+                <section id="awards" class="relative bg-black/80 p-6 border-l-4 border-cyber-pink">
+                    <h2 class="text-3xl font-pixel text-white mb-6 flex items-center">
+                        <span class="text-cyber-pink mr-2">></span> AWARDS.TXT
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Award 1 -->
+                        <div class="group bg-black border-2 border-cyber-green p-4">
+                            <span class="font-pixel text-lg text-cyber-yellow">[STAR] 2025</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyber-green font-pixel my-2">Innovative Online Use of Technology</h3>
+                            <p class="text-sm text-gray-400 mb-2 font-mono">ORG: Purdue University Online</p>
+                            <p class="text-sm text-gray-300 font-mono">Recognized for custom AI assistants helping graduate students.</p>
+                        </div>
+                        <!-- Award 2 -->
+                        <div class="group bg-black border-2 border-cyber-blue p-4">
+                            <span class="font-pixel text-lg text-cyber-yellow">[TROPHY] 2023</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyber-blue font-pixel my-2">Excellence in Online Course Design</h3>
+                            <p class="text-sm text-gray-400 mb-2 font-mono">ORG: Purdue University Online</p>
+                            <p class="text-sm text-gray-300 font-mono">Student-centric design of GB 513 Business Analytics.</p>
+                        </div>
+                        <!-- Award 3 -->
+                        <div class="group bg-black border-2 border-cyber-blue p-4">
+                            <span class="font-pixel text-lg text-cyber-yellow">[TROPHY] 2021</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyber-blue font-pixel my-2">ACBSP Teaching Excellence Award</h3>
+                            <p class="text-sm text-gray-400 mb-2 font-mono">ORG: ACBSP</p>
+                            <p class="text-sm text-gray-300 font-mono">One of 7 winners in the United States.</p>
+                        </div>
+                        <!-- Award 4 -->
+                        <div class="group bg-black border-2 border-cyber-green p-4">
+                            <span class="font-pixel text-lg text-cyber-yellow">[STAR] 2016</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyber-green font-pixel my-2">Professor of the Year</h3>
+                            <p class="text-sm text-gray-400 mb-2 font-mono">ORG: Purdue University Global</p>
+                            <p class="text-sm text-gray-300 font-mono">School of Business award.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-pixel text-white mt-8 mb-4">Leadership Roles</h3>
+                    <div class="font-term text-xl md:text-2xl leading-relaxed text-gray-300 space-y-4">
+                        <div>
+                            <p class="text-cyber-green">CATEGORY: Program Development</p>
+                            <p class="ml-4">Faculty lead in developing the Doctorate in Business Administration program.</p>
+                        </div>
+                        <div>
+                            <p class="text-cyber-green">CATEGORY: Faculty Advisor</p>
+                            <p class="ml-4">Delta Mu Delta Honor Society.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Current Focus -->
+                <section id="focus">
+                    <div class="bg-cyber-blue text-black px-4 py-2 font-bold font-pixel text-sm mb-4 inline-block transform -skew-x-12">
+                        CURRENT_FOCUS A:\
+                    </div>
+                    
+                    <div class="bg-black/80 p-6 border-l-4 border-cyber-blue mb-6">
+                        <h3 class="text-2xl font-pixel text-white mb-2">AI Systems for Education</h3>
+                        <p class="font-term text-xl text-gray-300">Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Project 1 -->
+                        <div class="group relative bg-black border-2 border-cyber-green p-4 hover:bg-cyber-green/10 transition-all overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-cyber-green font-pixel mb-2">Research Methodology Selector</h3>
+                                <p class="text-sm text-gray-400 mb-4 font-mono">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+                            </div>
+                            <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" rel="noopener" class="block w-full border border-cyber-green text-cyber-green text-sm py-1 hover:bg-cyber-green hover:text-black transition-colors font-bold text-center">
+                                [ View Project ]
+                            </a>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="group relative bg-black border-2 border-cyber-blue p-4 hover:bg-cyber-blue/10 transition-all flex flex-col justify-between">
+                             <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-cyber-blue font-pixel mb-2">Analytics Case Study</h3>
+                                <p class="text-sm text-gray-400 mb-4 font-mono">Comprehensive case study example demonstrating business analytics applications.</p>
+                            </div>
+                            <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" rel="noopener" class="block w-full border border-cyber-blue text-cyber-blue text-sm py-1 hover:bg-cyber-blue hover:text-black transition-colors font-bold text-center">
+                                [ View Project ]
+                            </a>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="group relative bg-purdue-gray-light border-2 border-cyber-pink p-4 hover:bg-cyber-pink/10 transition-all flex flex-col justify-between">
+                             <div>
+                                <h3 class="text-xl font-bold text-black group-hover:text-cyber-pink font-pixel mb-2">AI Use Cases Catalog</h3>
+                                <p class="text-sm text-cyber-black mb-4 font-mono">Curated collection of AI applications and use cases in education.</p>
+                            </div>
+                            <a href="https://usecases.vercel.app/index.html" target="_blank" rel="noopener" class="block w-full border border-cyber-pink text-cyber-pink text-sm py-1 hover:bg-cyber-pink hover:text-black transition-colors font-bold text-center">
+                                [ View Project ]
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Education -->
+                <section id="education" class="relative bg-black/80 p-6 border-l-4 border-cyber-green">
+                    <h2 class="text-3xl font-pixel text-white mb-6 flex items-center">
+                        <span class="text-cyber-green mr-2">></span> EDUCATION.DAT
+                    </h2>
+                    <div class="font-term text-xl md:text-2xl leading-relaxed text-gray-300 space-y-6">
+                        <div>
+                            <p class="text-cyber-yellow font-bold text-2xl">>> 2001: PhD</p>
+                            <p class="text-gray-300 ml-4">North Carolina State University, Raleigh, NC</p>
+                            <p class="text-gray-400 ml-4 text-lg">(1997-2001)</p>
+                        </div>
+                         <div>
+                            <p class="text-cyber-yellow font-bold text-2xl">>> 1996: MBA</p>
+                            <p class="text-gray-300 ml-4">Georgia Institute of Technology, Atlanta, GA</p>
+                            <p class="text-gray-400 ml-4 text-lg">(1994-1996)</p>
+                        </div>
+                         <div>
+                            <p class="text-cyber-yellow font-bold text-2xl">>> 1994: BS - Industrial Engineering</p>
+                            <p class="text-gray-300 ml-4">North Carolina State University, Raleigh, NC</p>
+                            <p class="text-gray-400 ml-4 text-lg">(1990-1994)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Experience -->
+                <section id="experience" class="relative bg-black/80 p-6 border-l-4 border-cyber-yellow">
+                    <h2 class="text-3xl font-pixel text-white mb-6 flex items-center">
+                        <span class="text-cyber-yellow mr-2">></span> EXPERIENCE.LOG
+                    </h2>
+                    <div class="font-term text-xl leading-relaxed text-gray-300 space-y-6">
+                        
+                        <!-- Position 1 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Professor <span class="text-cyber-green font-mono text-lg">[2009 - Present]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">Purdue University Global</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Faculty lead in charge of developing the new Doctorate in Business Administration program.</li>
+                                <li>Course lead for GB 513 Business Statistics, GB 700 Doctoral Studies in Business and GB 701 Business Statistics.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Position 2 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Assistant Professor <span class="text-cyber-green font-mono text-lg">[2003 - 2008]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">East Carolina University</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Marketing and Supply Chain Management department, College of Business.</li>
+                                <li>Teaching MBA and undergraduate courses in operations management, business decision modeling, supply chain management.</li>
+                                <li>Research in decision analysis, fuzzy logic, supply chain management.</li>
+                                <li>Took the lead in establishing a new online supply chain program. Developed a new SCM course, then a concentration program.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Position 3 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Post-doctoral Research Fellow <span class="text-cyber-green font-mono text-lg">[2001 - 2003]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">North Carolina State University</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Created fuzzy logic based decision support system for supplier selection.</li>
+                                <li>Filed for 2 patents for building linguistic decision rules.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Position 4 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Research Assistant <span class="text-cyber-green font-mono text-lg">[1997 - 2001]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">North Carolina State University</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Conducted research regarding decision support systems.</li>
+                                <li>Performance measurement in and of organizations.</li>
+                                <li>Support for business decisions using fuzzy logic.</li>
+                                <li>Developed two software programs.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Position 5 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Consultant <span class="text-cyber-green font-mono text-lg">[1995 - 1997]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">CIBA Vision, Atlanta GA</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Consulted regarding inventory control issues.</li>
+                                <li>Developed and implemented new methodology for effective inventory control.</li>
+                                <li>Deliverables included inventory target levels and software tools.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Position 6 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Operations Analyst <span class="text-cyber-green font-mono text-lg">[1995]</span></h3>
+                            <p class="text-lg text-cyber-yellow mb-2">IBM, Atlanta GA</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 text-lg pl-4">
+                                <li>Analyzed service operations and developed measurement tools.</li>
+                                <li>Developed cost analysis tools and financial forecasts.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- Section 6: Contact -->
+                <section id="contact" class="bg-win-gray p-1 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)]">
+                    <div class="border-2 border-white border-r-gray-500 border-b-gray-500 p-4">
+                        <h2 class="text-black font-pixel text-lg mb-4 text-center underline decoration-wavy decoration-cyber-pink">
+                            LET'S CONNECT
+                        </h2>
+                        
+                        <div class="space-y-4 font-mono text-sm text-black">
+                            <div class="text-center">
+                                <label class="font-bold">EMAIL:</label>
+                                <a href="mailto:caltinoz@purdueglobal.edu" class="text-blue-800 hover:underline">caltinoz@purdueglobal.edu</a>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <label class="font-bold">SOCIAL:</label>
+                                <div class="flex justify-center gap-4 mt-1">
+                                    <a href="#" class="text-blue-800 hover:underline">[ LinkedIn ]</a>
+                                    <a href="#" class="text-blue-800 hover:underline">[ Twitter ]</a>
+                                    <a href="#" class="text-blue-800 hover:underline">[ GitHub ]</a>
+                                </div>
+                            </div>
+
+                            <div class="border-t-2 border-gray-400 mt-6 pt-4">
+                                <p class="text-black font-bold mb-2 text-center">AREAS OF EXPERTISE:</p>
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">Business Administration</span>
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">AI in Education</span>
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">Decision Support Systems</span>
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">Inventory Control</span>
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">Industrial Engineering</span>
+                                    <span class="bg-gray-300 border border-gray-500 px-2 py-1 text-xs">Online Education</span>
+                                </div>
+                            </div>
+                           
+                            <div class="mt-6 border-t-2 border-gray-400 pt-4 text-center">
+                                <p class="font-bold text-lg text-purple-800">"Open to Collaboration & Research Opportunities"</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-20 text-center pb-20">
+            <div class="inline-block animate-spin mb-4 text-4xl">💾</div>
+            <p class="font-pixel text-xs text-gray-500">
+                &copy; 2025 CUNEYT ALTINOZ.<br>
+                ALL RIGHTS RESERVED.<br>
+                <span class="text-cyber-pink">BEST VIEWED ON A CRT MONITOR</span>
+            </p>
+            <div class="mt-4 font-mono text-xs text-gray-600">
+                VISITOR COUNT: <span class="text-red-500 bg-black px-1 font-digital border border-gray-700">034821</span>
+            </div>
+            <br>
+            <a href="#hero" class="text-xs text-cyber-blue hover:underline">[ BACK TO TOP ]</a>
+        </footer>
+
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        // --- INITIALIZATION & LOADER ---
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const bar = document.getElementById('progress-bar');
+            const text = document.getElementById('loading-text');
+            const content = document.getElementById('content');
+
+            // Fake Loading Sequence
+            let width = 0;
+            const interval = setInterval(() => {
+                width += Math.random() * 15;
+                if(width > 100) width = 100;
+                bar.style.width = width + '%';
+                
+                // Random loading text
+                const messages = ["Reticulating splines...", "Dialing up...", "Downloading RAM...", "Bypassing firewall...", "Compiling pixels..."];
+                if (Math.random() > 0.7) {
+                    text.innerText = messages[Math.floor(Math.random() * messages.length)];
+                }
+
+                if(width === 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                            content.style.opacity = '1';
+                            initMusicPlayer();
+                        }, 500);
+                    }, 500);
+                }
+            }, 200);
+
+            // Start 3D Background
+            initThreeJS();
+        });
+
+        // --- SCROLL FUNCTION ---
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // --- MUSIC PLAYER LOGIC ---
+        let isPlaying = false;
+        const songTitle = document.getElementById('song-title');
+        
+        function playMusic(action) {
+            const titles = ["SANDSTORM.MP3", "DIAL_UP_NOISE.WAV", "HACKER_THEME.MID", "TECHNO_TRANCE_001.MP3"];
+            
+            if (action === 'play' || action === 'next' || action === 'prev') {
+                isPlaying = true;
+                songTitle.innerText = titles[Math.floor(Math.random() * titles.length)] + " [PLAYING]";
+                songTitle.classList.add('text-cyber-green');
+                songTitle.classList.remove('text-gray-500');
+            } else if (action === 'stop') {
+                isPlaying = false;
+                songTitle.innerText = "STOPPED";
+                songTitle.classList.remove('text-cyber-green');
+                songTitle.classList.add('text-gray-500');
+            }
+        }
+
+        function initMusicPlayer() {
+            // Optional auto-play logic (usually blocked by browsers, so we leave it manual)
+        }
+
+        // --- THREE.JS BACKGROUND ---
+        function initThreeJS() {
+            const canvas = document.getElementById('bg-canvas');
+            const scene = new THREE.Scene();
+            
+            // Fog for depth fading
+            scene.fog = new THREE.FogExp2(0x000000, 0.03);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // CREATE RETRO GRID (Floor)
+            const gridHelper = new THREE.GridHelper(100, 40, 0xff00ff, 0x00ff41);
+            gridHelper.position.y = -2;
+            scene.add(gridHelper);
+
+            // CREATE RETRO GRID (Ceiling)
+            const gridHelperTop = new THREE.GridHelper(100, 40, 0x00ffff, 0x333333);
+            gridHelperTop.position.y = 5;
+            scene.add(gridHelperTop);
+
+            // MOVING PARTICLES
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for ( let i = 0; i < 500; i ++ ) {
+                vertices.push( 
+                    (Math.random() - 0.5) * 100, // x
+                    (Math.random() - 0.5) * 50,  // y
+                    (Math.random() - 0.5) * 100  // z
+                );
+            }
+            geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+            const material = new THREE.PointsMaterial( { color: 0x00ff41, size: 0.2 } );
+            const particles = new THREE.Points( geometry, material );
+            scene.add( particles );
+
+            // CREATE A ROTATING WIREFRAME OBJECT
+            const geomShape = new THREE.IcosahedronGeometry(1, 1);
+            const matShape = new THREE.MeshBasicMaterial({ color: 0xff00ff, wireframe: true });
+            const shape = new THREE.Mesh(geomShape, matShape);
+            shape.position.z = -5;
+            shape.position.y = 0;
+            scene.add(shape);
+
+            camera.position.z = 5;
+
+            // ANIMATION LOOP
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Move Grids to simulate forward movement
+                gridHelper.position.z = (Date.now() * 0.005) % 2.5;
+                gridHelperTop.position.z = (Date.now() * 0.005) % 2.5;
+
+                // Rotate Shape
+                shape.rotation.x += 0.01;
+                shape.rotation.y += 0.02;
+                
+                // Pulse Shape Scale
+                const scale = 1 + Math.sin(Date.now() * 0.002) * 0.2;
+                shape.scale.set(scale, scale, scale);
+
+                // Move particles
+                particles.rotation.y += 0.001;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // HANDLE RESIZE
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+            // MOUSE PARALLAX
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+                
+                camera.position.x += (mouseX - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 0.5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+            });
+        }
+    </script>
+    
+    <style>
+        /* Tailwind Custom Animations definitions added via arbitrary values in class names, 
+           but specific keyframes needed for Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</body>
+</html>
