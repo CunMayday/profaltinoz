@@ -11,7 +11,13 @@
       "Bash(done)",
       "Bash(index.html)",
       "Bash(index2.html)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(echo:*)",
+      "Bash(gh auth login:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": [],
     "ask": []
