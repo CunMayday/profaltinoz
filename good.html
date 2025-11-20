@@ -154,6 +154,41 @@
             background: #000;
             color: #C28E0E;
         }
+
+        /* --- GEOMETRIC SHAPE ANIMATIONS --- */
+        @keyframes float-rotate {
+            0% {
+                transform: translate(0, 0) rotate(12deg);
+            }
+            33% {
+                transform: translate(20px, -15px) rotate(25deg);
+            }
+            66% {
+                transform: translate(-15px, 10px) rotate(-5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(12deg);
+            }
+        }
+
+        @keyframes pulse-scale {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+        }
+
+        .animate-float-rotate {
+            animation: float-rotate 8s ease-in-out infinite;
+        }
+
+        .animate-pulse-scale {
+            animation: pulse-scale 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="text-purdue-black font-body">
@@ -231,11 +266,11 @@
                         <h3 class="font-bold text-xl mb-4 border-b-2 border-purdue-gray pb-2">Welcome students. You are in good hands!</h3>
                         <div class="grid grid-cols-3 gap-4 text-center">
                             <div class="group">
-                                <span class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold group-hover:scale-110 transition-transform">16+</span>
+                                <span id="years-at-purdue" class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold group-hover:scale-110 transition-transform">16+</span>
                                 <span class="text-xs font-bold uppercase">Years at Purdue</span>
                             </div>
                             <div class="border-l-2 border-black group">
-                                <span class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold group-hover:scale-110 transition-transform">22</span>
+                                <span id="years-teaching" class="block font-display font-black text-3xl sm:text-4xl text-purdue-gold group-hover:scale-110 transition-transform">22</span>
                                 <span class="text-xs font-bold uppercase">Years Teaching</span>
                             </div>
                             <div class="border-l-2 border-black group">
@@ -255,10 +290,10 @@
                     </div>
                 </div>
 
-                <!-- Geometric Accent (Static) -->
+                <!-- Geometric Accent (Animated) -->
                 <div class="hidden lg:block col-span-4 relative h-full">
-                    <div class="anim-item reveal-right delay-300 absolute top-0 right-0 w-64 h-64 border-8 border-black rounded-full opacity-20 animate-pulse"></div>
-                    <div class="anim-item reveal-right delay-500 absolute top-20 right-20 w-40 h-40 bg-purdue-gold opacity-20 mix-blend-multiply transform rotate-12"></div>
+                    <div class="anim-item reveal-right delay-300 absolute top-0 right-0 w-64 h-64 border-8 border-black rounded-full animate-pulse-scale"></div>
+                    <div class="anim-item reveal-right delay-500 absolute top-20 right-20 w-40 h-40 bg-purdue-gold opacity-20 mix-blend-multiply animate-float-rotate"></div>
                 </div>
             </div>
         </div>
@@ -545,6 +580,19 @@
     </footer>
 
     <script>
+        // --- DYNAMIC YEAR CALCULATION ---
+        function calculateYears() {
+            const currentYear = new Date().getFullYear();
+            const yearsAtPurdue = currentYear - 2009;
+            const yearsTeaching = currentYear - 2003;
+
+            document.getElementById('years-at-purdue').textContent = yearsAtPurdue + '+';
+            document.getElementById('years-teaching').textContent = yearsTeaching;
+        }
+
+        // Calculate years on page load
+        calculateYears();
+
         // --- CUSTOM CURSOR PHYSICS ---
         const cursor = document.getElementById('cursor');
         let cursorX = 0, cursorY = 0;
