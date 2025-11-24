@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Cuneyt Altinoz | Neumorphic Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cloud: '#e7ebf3',
+            ink: '#202431',
+            gold: '#c9a447',
+            mist: '#f6f8fc',
+          },
+          boxShadow: {
+            neu: '14px 14px 28px #c8ccd6, -14px -14px 28px #ffffff',
+            'neu-sm': '8px 8px 16px #c8ccd6, -8px -8px 16px #ffffff',
+            'neu-inner': 'inset 10px 10px 20px #c8ccd6, inset -10px -10px 20px #ffffff',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 20%, #f8fbff, #e7ebf3 45%, #e0e5ef);
+      color: #202431;
+    }
+    .neu-card {
+      border-radius: 24px;
+      box-shadow: 14px 14px 28px #c8ccd6, -14px -14px 28px #ffffff;
+      background: linear-gradient(145deg, #f9fbff, #e6eaf3);
+      transition: transform 250ms ease, box-shadow 250ms ease;
+    }
+    .neu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 18px 18px 30px #c1c6d0, -18px -18px 30px #ffffff;
+    }
+    .neu-pill {
+      box-shadow: inset 6px 6px 12px #c8ccd6, inset -6px -6px 12px #ffffff;
+      border-radius: 9999px;
+    }
+    .glow-ring::after {
+      content: '';
+      position: absolute;
+      inset: -30px;
+      border-radius: 32px;
+      background: radial-gradient(circle, rgba(201,164,71,0.18), transparent 55%);
+      filter: blur(22px);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="font-sans text-ink">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8">
+    <header class="pt-10 pb-12 flex flex-col gap-10">
+      <nav class="flex items-center justify-between bg-mist/70 backdrop-blur-md neu-card px-6 py-4">
+        <div class="font-black text-xl tracking-tight">Dr. Cuneyt Altinoz</div>
+        <div class="hidden md:flex gap-4 text-sm font-semibold">
+          <a href="#hero" class="px-3 py-2 neu-pill bg-mist">Home</a>
+          <a href="#awards" class="px-3 py-2 neu-pill bg-mist">Awards</a>
+          <a href="#focus" class="px-3 py-2 neu-pill bg-mist">Focus</a>
+          <a href="#education" class="px-3 py-2 neu-pill bg-mist">Education</a>
+          <a href="#experience" class="px-3 py-2 neu-pill bg-mist">Experience</a>
+          <a href="#contact" class="px-3 py-2 neu-pill bg-mist">Contact</a>
+        </div>
+      </nav>
+
+      <section id="hero" class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3 neu-pill bg-mist px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-ink/70">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            Professor at Purdue University Global
+          </div>
+          <div class="relative p-8 neu-card glow-ring">
+            <p class="text-sm uppercase tracking-[0.4em] text-ink/60 mb-3">Welcome students</p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-4">Cuneyt Altinoz</h1>
+            <p class="text-lg text-ink/80 leading-relaxed">You are in good hands. I design future-ready learning experiences that blend analytics, AI systems, and human-centered teaching.</p>
+            <div class="grid grid-cols-3 gap-4 mt-8 text-center text-sm font-semibold text-ink/70">
+              <div class="neu-card py-4">
+                <div id="years-at-purdue" class="text-3xl font-black text-ink">16+</div>
+                <div class="mt-1 uppercase text-[11px] tracking-wide">Years at Purdue</div>
+              </div>
+              <div class="neu-card py-4">
+                <div id="years-teaching" class="text-3xl font-black text-ink">22</div>
+                <div class="mt-1 uppercase text-[11px] tracking-wide">Years Teaching</div>
+              </div>
+              <div class="neu-card py-4">
+                <div class="text-3xl font-black text-ink">4</div>
+                <div class="mt-1 uppercase text-[11px] tracking-wide">Major Awards</div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-8">
+              <a href="#contact" class="px-6 py-3 neu-pill bg-gold text-ink font-bold shadow-neu-sm">Get in touch</a>
+              <a href="#awards" class="px-6 py-3 neu-pill bg-mist text-ink font-bold shadow-neu-sm">Learn more</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 blur-3xl opacity-70 bg-gradient-to-br from-gold/40 via-white to-cloud"></div>
+          <div class="relative neu-card p-8 flex flex-col gap-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-ink/60">Current Rhythm</p>
+            <h2 class="text-3xl font-black leading-tight">Building compassionate AI for education.</h2>
+            <p class="text-ink/70 leading-relaxed">From fuzzy logic decision systems to modern GPT-powered assistants, I explore technology that makes learning deeply human and beautifully efficient.</p>
+            <div class="grid grid-cols-2 gap-4 text-sm font-semibold text-ink/70">
+              <div class="neu-card p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink/50">Specialties</p>
+                <p class="mt-2">Business Analytics, AI in Education, Research Methods</p>
+              </div>
+              <div class="neu-card p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink/50">Collaboration</p>
+                <p class="mt-2">Open to research, speaking, and industry partnerships.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="space-y-24 pb-20">
+      <section id="awards" class="space-y-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Awards & Recognition</h2>
+          <div class="h-px flex-1 ml-6 bg-gradient-to-r from-gold to-transparent"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2025 · Purdue University Online</div>
+            <h3 class="text-2xl font-black mt-3">Innovative Online Use of Technology</h3>
+            <p class="text-ink/70 mt-3 leading-relaxed">Recognized for custom AI assistants helping graduate students.</p>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2023 · Purdue University Online</div>
+            <h3 class="text-2xl font-black mt-3">Excellence in Online Course Design</h3>
+            <p class="text-ink/70 mt-3 leading-relaxed">Student-centric design of GB 513 Business Analytics.</p>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2021 · ACBSP</div>
+            <h3 class="text-2xl font-black mt-3">ACBSP Teaching Excellence Award</h3>
+            <p class="text-ink/70 mt-3 leading-relaxed">One of seven winners in the United States.</p>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2016 · Purdue University Global</div>
+            <h3 class="text-2xl font-black mt-3">School of Business Professor of the Year</h3>
+            <p class="text-ink/70 mt-3 leading-relaxed">Honored for elevating online learning experiences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="focus" class="space-y-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Current Focus</h2>
+          <div class="h-px flex-1 ml-6 bg-gradient-to-r from-gold to-transparent"></div>
+        </div>
+        <div class="neu-card p-6">
+          <h3 class="text-2xl font-black mb-2">AI Systems for Education</h3>
+          <p class="text-ink/70 leading-relaxed">Evaluation of developing AI systems for education—use of Gems, GPTs, and webapps coded with AI assistance.</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <article class="neu-card p-6 flex flex-col gap-3">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">01</div>
+            <h4 class="text-xl font-black">Research Methodology Selector</h4>
+            <p class="text-ink/70 text-sm">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+            <a href="https://cunmayday.github.io/webtests/methods.html" class="text-gold font-semibold text-sm">View Project →</a>
+          </article>
+          <article class="neu-card p-6 flex flex-col gap-3">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">02</div>
+            <h4 class="text-xl font-black">Analytics Case Study</h4>
+            <p class="text-ink/70 text-sm">Comprehensive case study example demonstrating business analytics applications.</p>
+            <a href="https://cunmayday.github.io/webtests/caseada.html" class="text-gold font-semibold text-sm">View Project →</a>
+          </article>
+          <article class="neu-card p-6 flex flex-col gap-3">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">03</div>
+            <h4 class="text-xl font-black">AI Use Cases Catalog</h4>
+            <p class="text-ink/70 text-sm">Curated collection of AI applications and use cases in education.</p>
+            <a href="https://usecases.vercel.app/index.html" class="text-gold font-semibold text-sm">View Project →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" class="space-y-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Education</h2>
+          <div class="h-px flex-1 ml-6 bg-gradient-to-r from-gold to-transparent"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="neu-card p-6 text-center">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2001</div>
+            <h3 class="text-2xl font-black mt-2">PhD</h3>
+            <p class="font-semibold">North Carolina State University</p>
+            <p class="text-ink/60 text-sm">Raleigh, NC</p>
+          </article>
+          <article class="neu-card p-6 text-center">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">1996</div>
+            <h3 class="text-2xl font-black mt-2">MBA</h3>
+            <p class="font-semibold">Georgia Institute of Technology</p>
+            <p class="text-ink/60 text-sm">Atlanta, GA</p>
+          </article>
+          <article class="neu-card p-6 text-center">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">1994</div>
+            <h3 class="text-2xl font-black mt-2">BS Industrial Engineering</h3>
+            <p class="font-semibold">North Carolina State University</p>
+            <p class="text-ink/60 text-sm">Raleigh, NC</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="space-y-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Experience</h2>
+          <div class="h-px flex-1 ml-6 bg-gradient-to-r from-gold to-transparent"></div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-6">
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2009–Present</div>
+            <h3 class="text-2xl font-black mt-2">Professor</h3>
+            <p class="font-semibold text-ink/70">Purdue University Global</p>
+            <ul class="list-disc list-inside text-sm text-ink/70 mt-3 space-y-1">
+              <li>Faculty lead for Doctorate in Business Administration program.</li>
+              <li>Course lead for Business Statistics and Doctoral Studies.</li>
+            </ul>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2003–2008</div>
+            <h3 class="text-2xl font-black mt-2">Assistant Professor</h3>
+            <p class="font-semibold text-ink/70">East Carolina University</p>
+            <ul class="list-disc list-inside text-sm text-ink/70 mt-3 space-y-1">
+              <li>Established new online supply chain program.</li>
+              <li>Taught MBA operations management & decision modeling.</li>
+            </ul>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">2001–2003</div>
+            <h3 class="text-2xl font-black mt-2">Post-doctoral Fellow</h3>
+            <p class="font-semibold text-ink/70">NC State University</p>
+            <ul class="list-disc list-inside text-sm text-ink/70 mt-3 space-y-1">
+              <li>Created fuzzy logic decision support systems.</li>
+              <li>Filed two patents for linguistic decision rules.</li>
+            </ul>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">1997–2001</div>
+            <h3 class="text-2xl font-black mt-2">Research Assistant</h3>
+            <p class="font-semibold text-ink/70">NC State University</p>
+            <ul class="list-disc list-inside text-sm text-ink/70 mt-3 space-y-1">
+              <li>Performance measurement and simulation analysis.</li>
+              <li>Developed two software programs for decision support.</li>
+            </ul>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">1995–1997</div>
+            <h3 class="text-2xl font-black mt-2">Consultant</h3>
+            <p class="font-semibold text-ink/70">CIBA Vision</p>
+            <p class="text-sm text-ink/70 mt-3">Implemented new methodology for effective inventory control and developed software tools.</p>
+          </article>
+          <article class="neu-card p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.3em] text-ink/50">1995</div>
+            <h3 class="text-2xl font-black mt-2">Operations Analyst</h3>
+            <p class="font-semibold text-ink/70">IBM, Atlanta</p>
+            <p class="text-sm text-ink/70 mt-3">Analyzed service operations, developed measurement tools, and financial forecasts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="space-y-6">
+        <div class="flex items-center justify-between">
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Let's Connect</h2>
+          <div class="h-px flex-1 ml-6 bg-gradient-to-r from-gold to-transparent"></div>
+        </div>
+        <div class="neu-card p-6 text-center space-y-6">
+          <a href="mailto:caltinoz@purdueglobal.edu" class="inline-block px-6 py-3 neu-pill bg-gold text-ink font-black shadow-neu-sm">caltinoz@purdueglobal.edu</a>
+          <div class="flex justify-center gap-4 text-sm font-semibold text-ink/60 flex-wrap">
+            <span class="px-3 py-1 neu-pill bg-mist">#BusinessAdmin</span>
+            <span class="px-3 py-1 neu-pill bg-mist">#AIinEducation</span>
+            <span class="px-3 py-1 neu-pill bg-mist">#EdTech</span>
+          </div>
+          <p class="text-ink/70 font-semibold">Open to collaboration & research opportunities.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="text-center text-xs text-ink/60 py-10">© 2025 Cuneyt Altinoz. Crafted in a soft glow.</footer>
+
+  <script>
+    const yearsAtPurdue = document.getElementById('years-at-purdue');
+    const yearsTeaching = document.getElementById('years-teaching');
+    const currentYear = new Date().getFullYear();
+    yearsAtPurdue.textContent = `${currentYear - 2009}+`;
+    yearsTeaching.textContent = `${currentYear - 2003}`;
+  </script>
+</body>
+</html>
