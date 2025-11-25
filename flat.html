@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Altinoz | Flat Design</title>
+    <meta name="description" content="Portfolio of Dr. Cuneyt Altinoz - Flat Design Edition">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        flat: {
+                            purple: '#9B59B6',
+                            blue: '#3498DB',
+                            teal: '#1ABC9C',
+                            green: '#2ECC71',
+                            yellow: '#F1C40F',
+                            orange: '#E67E22',
+                            red: '#E74C3C',
+                            dark: '#2C3E50',
+                            darker: '#1A252F',
+                            gray: '#95A5A6',
+                            lightGray: '#ECF0F1',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Archivo Black', 'sans-serif'],
+                        heading: ['Bebas Neue', 'sans-serif'],
+                        body: ['Work Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ECF0F1;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Remove all shadows and 3D effects - pure flat */
+        * {
+            box-shadow: none !important;
+        }
+
+        /* Animation for elements entering viewport */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Flat hover effects - just color changes */
+        .flat-hover {
+            transition: all 0.3s ease;
+        }
+
+        .flat-hover:hover {
+            transform: scale(1.02);
+        }
+
+        /* Custom text stroke for hero */
+        .text-outline {
+            -webkit-text-stroke: 3px #2C3E50;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-flat-dark font-body">
+
+    <!-- Navigation - Asymmetric positioning -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-flat-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo - Bold Typography -->
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="font-display text-2xl text-white uppercase tracking-tight">
+                        Cuneyt<span class="text-flat-teal">.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-1 items-center">
+                    <a href="#awards" class="px-5 py-2 font-body font-semibold text-white hover:bg-flat-purple hover:text-white transition-all">Awards</a>
+                    <a href="#focus" class="px-5 py-2 font-body font-semibold text-white hover:bg-flat-blue hover:text-white transition-all">Focus</a>
+                    <a href="#education" class="px-5 py-2 font-body font-semibold text-white hover:bg-flat-teal hover:text-white transition-all">Education</a>
+                    <a href="#experience" class="px-5 py-2 font-body font-semibold text-white hover:bg-flat-orange hover:text-white transition-all">Experience</a>
+                    <a href="#contact" class="ml-4 px-8 py-3 bg-flat-red text-white font-bold uppercase text-sm hover:bg-flat-orange transition-all">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-flat-darker">
+            <div class="px-6 pt-2 pb-6 space-y-1">
+                <a href="#awards" class="block px-4 py-3 font-semibold text-white bg-flat-purple mb-2">Awards</a>
+                <a href="#focus" class="block px-4 py-3 font-semibold text-white bg-flat-blue mb-2">Focus</a>
+                <a href="#education" class="block px-4 py-3 font-semibold text-white bg-flat-teal mb-2">Education</a>
+                <a href="#experience" class="block px-4 py-3 font-semibold text-white bg-flat-orange mb-2">Experience</a>
+                <a href="#contact" class="block px-4 py-3 font-semibold text-white bg-flat-red">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - Asymmetric Layout -->
+    <section id="hero" class="min-h-screen pt-20 flex items-center bg-white">
+        <div class="w-full">
+            <!-- Asymmetric grid layout -->
+            <div class="grid grid-cols-12 min-h-screen">
+                <!-- Left side - Large color block -->
+                <div class="col-span-12 lg:col-span-5 bg-flat-teal flex items-center justify-center p-8 lg:p-16">
+                    <div class="text-center lg:text-left">
+                        <div class="inline-block bg-flat-dark text-white px-6 py-3 font-bold uppercase text-sm mb-6 rotate-3">
+                            Professor at Purdue
+                        </div>
+                        <h1 class="font-display text-7xl sm:text-8xl lg:text-9xl text-white uppercase leading-none mb-8">
+                            CUNEYT
+                        </h1>
+                        <div class="w-full h-4 bg-flat-yellow mb-4"></div>
+                        <div class="w-3/4 h-4 bg-flat-orange"></div>
+                    </div>
+                </div>
+
+                <!-- Right side - Content -->
+                <div class="col-span-12 lg:col-span-7 bg-white flex items-center p-8 lg:p-16">
+                    <div>
+                        <h2 class="font-heading text-8xl lg:text-9xl text-flat-dark uppercase mb-8 text-outline">
+                            ALTINOZ
+                        </h2>
+
+                        <p class="text-2xl font-semibold text-flat-dark mb-8 max-w-2xl">
+                            Welcome students. You are in good hands!
+                        </p>
+
+                        <!-- Stats - Bold flat design -->
+                        <div class="grid grid-cols-3 gap-4 mb-12 max-w-2xl">
+                            <div class="bg-flat-purple p-6 text-center">
+                                <div id="years-at-purdue" class="font-display text-5xl text-white mb-2">16+</div>
+                                <div class="text-white font-bold text-xs uppercase">Years at Purdue</div>
+                            </div>
+                            <div class="bg-flat-blue p-6 text-center">
+                                <div id="years-teaching" class="font-display text-5xl text-white mb-2">22</div>
+                                <div class="text-white font-bold text-xs uppercase">Years Teaching</div>
+                            </div>
+                            <div class="bg-flat-red p-6 text-center">
+                                <div class="font-display text-5xl text-white mb-2">4</div>
+                                <div class="text-white font-bold text-xs uppercase">Major Awards</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="flat-hover px-10 py-5 bg-flat-red text-white font-bold text-lg uppercase">
+                                Get in Touch
+                            </a>
+                            <a href="#awards" class="flat-hover px-10 py-5 bg-flat-yellow text-flat-dark font-bold text-lg uppercase">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWARDS SECTION - Colorful Grid -->
+    <section id="awards" class="py-24 bg-flat-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Section Header - Asymmetric -->
+            <div class="mb-16 fade-in">
+                <div class="flex items-end gap-8">
+                    <div class="w-3 h-32 bg-flat-yellow"></div>
+                    <h2 class="font-heading text-7xl lg:text-9xl text-white uppercase leading-none">
+                        Awards &<br>Recognition
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Award Cards - Different colored blocks -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Award 1 -->
+                <div class="fade-in flat-hover bg-flat-purple p-10 text-white cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center">
+                            <i class="fas fa-star text-flat-purple text-3xl"></i>
+                        </div>
+                        <span class="font-heading text-5xl">2025</span>
+                    </div>
+                    <h3 class="font-bold text-3xl mb-3">Innovative Online Use of Technology</h3>
+                    <p class="font-semibold text-xl mb-2">Purdue University Online</p>
+                    <p class="opacity-90">Recognized for custom AI assistants helping graduate students.</p>
+                </div>
+
+                <!-- Award 2 -->
+                <div class="fade-in flat-hover bg-flat-blue p-10 text-white cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center">
+                            <i class="fas fa-trophy text-flat-blue text-3xl"></i>
+                        </div>
+                        <span class="font-heading text-5xl">2023</span>
+                    </div>
+                    <h3 class="font-bold text-3xl mb-3">Excellence in Online Course Design</h3>
+                    <p class="font-semibold text-xl mb-2">Purdue University Online</p>
+                    <p class="opacity-90">Student-centric design of GB 513 Business Analytics.</p>
+                </div>
+
+                <!-- Award 3 -->
+                <div class="fade-in flat-hover bg-flat-teal p-10 text-white cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center">
+                            <i class="fas fa-award text-flat-teal text-3xl"></i>
+                        </div>
+                        <span class="font-heading text-5xl">2021</span>
+                    </div>
+                    <h3 class="font-bold text-3xl mb-3">ACBSP Teaching Excellence Award</h3>
+                    <p class="font-semibold text-xl mb-2">ACBSP</p>
+                    <p class="opacity-90">One of 7 winners in the United States.</p>
+                </div>
+
+                <!-- Award 4 -->
+                <div class="fade-in flat-hover bg-flat-orange p-10 text-white cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center">
+                            <i class="fas fa-star text-flat-orange text-3xl"></i>
+                        </div>
+                        <span class="font-heading text-5xl">2016</span>
+                    </div>
+                    <h3 class="font-bold text-3xl mb-3">School of Business Professor of the Year</h3>
+                    <p class="font-semibold text-xl mb-2">Purdue University Global</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOCUS SECTION - Asymmetric Project Cards -->
+    <section id="focus" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Header -->
+            <div class="mb-16 fade-in">
+                <h2 class="font-heading text-7xl lg:text-9xl text-flat-dark uppercase mb-4">Current Focus</h2>
+                <div class="w-full lg:w-1/2 h-2 bg-flat-teal"></div>
+                <p class="text-3xl font-bold text-flat-dark mt-8 max-w-3xl">
+                    AI SYSTEMS FOR EDUCATION
+                </p>
+                <p class="text-xl text-flat-gray mt-4 max-w-2xl">
+                    Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.
+                </p>
+            </div>
+
+            <!-- Project Cards - Staggered Layout -->
+            <div class="space-y-8">
+                <!-- Project 1 - Full Width -->
+                <div class="fade-in grid grid-cols-1 lg:grid-cols-5 overflow-hidden">
+                    <div class="lg:col-span-2 bg-flat-purple p-12 flex items-center justify-center">
+                        <div class="font-heading text-9xl text-white">01</div>
+                    </div>
+                    <div class="lg:col-span-3 bg-flat-yellow p-12 flex flex-col justify-center">
+                        <h4 class="font-bold text-4xl text-flat-dark mb-4">Research Methodology Selector</h4>
+                        <p class="text-lg text-flat-dark mb-6">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+                        <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="inline-flex items-center gap-3 text-flat-dark font-bold text-xl flat-hover">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Offset -->
+                <div class="fade-in grid grid-cols-1 lg:grid-cols-5 lg:ml-24 overflow-hidden">
+                    <div class="lg:col-span-3 bg-flat-red p-12 flex flex-col justify-center order-2 lg:order-1">
+                        <h4 class="font-bold text-4xl text-white mb-4">Analytics Case Study</h4>
+                        <p class="text-lg text-white mb-6 opacity-90">Comprehensive case study example demonstrating business analytics applications.</p>
+                        <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="inline-flex items-center gap-3 text-white font-bold text-xl flat-hover">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="lg:col-span-2 bg-flat-blue p-12 flex items-center justify-center order-1 lg:order-2">
+                        <div class="font-heading text-9xl text-white">02</div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Full Width -->
+                <div class="fade-in grid grid-cols-1 lg:grid-cols-5 overflow-hidden">
+                    <div class="lg:col-span-2 bg-flat-teal p-12 flex items-center justify-center">
+                        <div class="font-heading text-9xl text-white">03</div>
+                    </div>
+                    <div class="lg:col-span-3 bg-flat-dark p-12 flex flex-col justify-center">
+                        <h4 class="font-bold text-4xl text-white mb-4">AI Use Cases Catalog</h4>
+                        <p class="text-lg text-white mb-6 opacity-90">Curated collection of AI applications and use cases in education.</p>
+                        <a href="https://usecases.vercel.app/index.html" target="_blank" class="inline-flex items-center gap-3 text-flat-teal font-bold text-xl flat-hover">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION - Color Blocks -->
+    <section id="education" class="py-24 bg-flat-lightGray">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-heading text-8xl lg:text-9xl text-flat-dark uppercase">Education</h2>
+            </div>
+
+            <!-- Education Cards - Horizontal Strips -->
+            <div class="space-y-6">
+                <!-- PhD -->
+                <div class="fade-in grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+                    <div class="md:col-span-2 bg-flat-purple p-8 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-5xl"></i>
+                    </div>
+                    <div class="md:col-span-2 bg-flat-dark p-8 flex items-center justify-center">
+                        <span class="font-heading text-4xl text-white">2001</span>
+                    </div>
+                    <div class="md:col-span-8 bg-white p-8 flex items-center">
+                        <div class="w-full">
+                            <h3 class="font-display text-5xl text-flat-dark mb-2">PhD</h3>
+                            <p class="font-bold text-xl text-flat-dark">North Carolina State University</p>
+                            <p class="text-flat-gray">Raleigh, NC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MBA -->
+                <div class="fade-in grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+                    <div class="md:col-span-2 bg-flat-blue p-8 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-5xl"></i>
+                    </div>
+                    <div class="md:col-span-2 bg-flat-dark p-8 flex items-center justify-center">
+                        <span class="font-heading text-4xl text-white">1996</span>
+                    </div>
+                    <div class="md:col-span-8 bg-white p-8 flex items-center">
+                        <div class="w-full">
+                            <h3 class="font-display text-5xl text-flat-dark mb-2">MBA</h3>
+                            <p class="font-bold text-xl text-flat-dark">Georgia Institute of Technology</p>
+                            <p class="text-flat-gray">Atlanta, GA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BS -->
+                <div class="fade-in grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+                    <div class="md:col-span-2 bg-flat-teal p-8 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-5xl"></i>
+                    </div>
+                    <div class="md:col-span-2 bg-flat-dark p-8 flex items-center justify-center">
+                        <span class="font-heading text-4xl text-white">1994</span>
+                    </div>
+                    <div class="md:col-span-8 bg-white p-8 flex items-center">
+                        <div class="w-full">
+                            <h3 class="font-display text-5xl text-flat-dark mb-2">BS Ind. Eng.</h3>
+                            <p class="font-bold text-xl text-flat-dark">North Carolina State University</p>
+                            <p class="text-flat-gray">Raleigh, NC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION - Masonry-style Layout -->
+    <section id="experience" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <!-- Header with color bar -->
+            <div class="mb-16 fade-in">
+                <div class="flex items-center gap-6 mb-8">
+                    <div class="w-2 h-24 bg-flat-red"></div>
+                    <h2 class="font-heading text-8xl lg:text-9xl text-flat-dark uppercase">Experience</h2>
+                </div>
+            </div>
+
+            <!-- Experience Grid - Alternating colors -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Position 1 -->
+                <div class="fade-in flat-hover bg-flat-teal p-8 text-white cursor-pointer">
+                    <span class="font-heading text-3xl mb-4 block">2009 - Present</span>
+                    <h3 class="font-bold text-3xl mb-2">Professor</h3>
+                    <p class="font-semibold text-xl mb-4">Purdue University Global</p>
+                    <ul class="space-y-2 text-lg">
+                        <li>• Faculty lead for Doctorate in Business Administration program</li>
+                        <li>• Course lead for Business Statistics and Doctoral Studies</li>
+                    </ul>
+                </div>
+
+                <!-- Position 2 -->
+                <div class="fade-in flat-hover bg-flat-blue p-8 text-white cursor-pointer lg:mt-12">
+                    <span class="font-heading text-3xl mb-4 block">2003 - 2008</span>
+                    <h3 class="font-bold text-3xl mb-2">Assistant Professor</h3>
+                    <p class="font-semibold text-xl mb-4">East Carolina University</p>
+                    <ul class="space-y-2 text-lg">
+                        <li>• Established new online supply chain program</li>
+                        <li>• Taught MBA operations management & decision modeling</li>
+                    </ul>
+                </div>
+
+                <!-- Position 3 -->
+                <div class="fade-in flat-hover bg-flat-purple p-8 text-white cursor-pointer">
+                    <span class="font-heading text-3xl mb-4 block">2001 - 2003</span>
+                    <h3 class="font-bold text-3xl mb-2">Post-doc Fellow</h3>
+                    <p class="font-semibold text-xl mb-4">NC State University</p>
+                    <ul class="space-y-2 text-lg">
+                        <li>• Created fuzzy logic decision support systems</li>
+                        <li>• Filed 2 patents for linguistic decision rules</li>
+                    </ul>
+                </div>
+
+                <!-- Position 4 -->
+                <div class="fade-in flat-hover bg-flat-orange p-8 text-white cursor-pointer lg:mt-12">
+                    <span class="font-heading text-3xl mb-4 block">1997 - 2001</span>
+                    <h3 class="font-bold text-3xl mb-2">Research Assistant</h3>
+                    <p class="font-semibold text-xl mb-4">NC State University</p>
+                    <ul class="space-y-2 text-lg">
+                        <li>• Performance measurement and simulation analysis</li>
+                        <li>• Developed two software programs for decision support</li>
+                    </ul>
+                </div>
+
+                <!-- Position 5 -->
+                <div class="fade-in flat-hover bg-flat-yellow p-8 text-flat-dark cursor-pointer">
+                    <span class="font-heading text-3xl mb-4 block">1995 - 1997</span>
+                    <h3 class="font-bold text-3xl mb-2">Consultant</h3>
+                    <p class="font-semibold text-xl mb-4">CIBA Vision</p>
+                    <p class="text-lg">Implemented new methodology for effective inventory control and developed software tools.</p>
+                </div>
+
+                <!-- Position 6 -->
+                <div class="fade-in flat-hover bg-flat-red p-8 text-white cursor-pointer lg:mt-12">
+                    <span class="font-heading text-3xl mb-4 block">1995</span>
+                    <h3 class="font-bold text-3xl mb-2">Operations Analyst</h3>
+                    <p class="font-semibold text-xl mb-4">IBM, Atlanta</p>
+                    <p class="text-lg">Analyzed service operations, developed measurement tools and financial forecasts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION - Bold Split Design -->
+    <section id="contact" class="min-h-screen">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+            <!-- Left - Solid Color Block -->
+            <div class="bg-flat-red flex items-center justify-center p-12 lg:p-24">
+                <div class="text-center">
+                    <h2 class="font-heading text-8xl lg:text-9xl text-white uppercase mb-8 leading-none">
+                        Let's<br>Connect
+                    </h2>
+                    <div class="w-32 h-2 bg-white mx-auto"></div>
+                </div>
+            </div>
+
+            <!-- Right - Contact Info -->
+            <div class="bg-flat-dark flex items-center justify-center p-12 lg:p-24">
+                <div class="w-full max-w-xl">
+                    <a href="mailto:caltinoz@purdueglobal.edu" class="block flat-hover bg-white text-flat-dark p-8 mb-8 text-center font-bold text-2xl lg:text-3xl break-all">
+                        caltinoz@purdueglobal.edu
+                    </a>
+
+                    <!-- Social Links -->
+                    <div class="flex justify-center gap-6 mb-12">
+                        <a href="#" class="flat-hover w-20 h-20 bg-flat-blue flex items-center justify-center text-white text-3xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="flat-hover w-20 h-20 bg-flat-teal flex items-center justify-center text-white text-3xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="flat-hover w-20 h-20 bg-flat-purple flex items-center justify-center text-white text-3xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-3 justify-center mb-8">
+                        <span class="bg-flat-yellow text-flat-dark px-6 py-3 font-bold text-sm uppercase">#BusinessAdmin</span>
+                        <span class="bg-flat-orange text-white px-6 py-3 font-bold text-sm uppercase">#AIinEducation</span>
+                        <span class="bg-flat-teal text-white px-6 py-3 font-bold text-sm uppercase">#EdTech</span>
+                    </div>
+
+                    <div class="text-center bg-flat-yellow p-6">
+                        <p class="font-bold text-flat-dark text-xl">Open to Collaboration & Research Opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-flat-darker text-white py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="font-body text-sm">&copy; 2025 Cuneyt Altinoz. Flat Design Edition.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic year calculation
+        function calculateYears() {
+            const currentYear = new Date().getFullYear();
+            const yearsAtPurdue = currentYear - 2009;
+            const yearsTeaching = currentYear - 2003;
+
+            const purdueElement = document.getElementById('years-at-purdue');
+            const teachingElement = document.getElementById('years-teaching');
+
+            if (purdueElement) purdueElement.textContent = yearsAtPurdue + '+';
+            if (teachingElement) teachingElement.textContent = yearsTeaching;
+        }
+        calculateYears();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
