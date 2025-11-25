@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Altinoz | Neumorphic Edition</title>
+    <meta name="description" content="Portfolio of Dr. Cuneyt Altinoz - Neumorphic Design">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neuro: {
+                            bg: '#e8ecf0',
+                            light: '#ffffff',
+                            dark: '#c5cbd3',
+                            gold: '#d4a574',
+                            goldLight: '#e6c9a3',
+                            goldDark: '#b88c5a',
+                            text: '#4a5568',
+                            textDark: '#2d3748',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neuro': '12px 12px 24px #c5cbd3, -12px -12px 24px #ffffff',
+                        'neuro-sm': '6px 6px 12px #c5cbd3, -6px -6px 12px #ffffff',
+                        'neuro-inset': 'inset 8px 8px 16px #c5cbd3, inset -8px -8px 16px #ffffff',
+                        'neuro-hover': '16px 16px 32px #c5cbd3, -16px -16px 32px #ffffff',
+                        'neuro-gold': '10px 10px 20px #b88c5a, -10px -10px 20px #e6c9a3',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- BASE STYLES --- */
+        body {
+            background: linear-gradient(135deg, #e8ecf0 0%, #dfe4ea 100%);
+            overflow-x: hidden;
+        }
+
+        /* --- NEUMORPHIC UTILITIES --- */
+        .neuro-card {
+            background: linear-gradient(145deg, #f0f4f8, #dfe4ea);
+            box-shadow: 12px 12px 24px #c5cbd3, -12px -12px 24px #ffffff;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .neuro-card:hover {
+            box-shadow: 16px 16px 32px #c5cbd3, -16px -16px 32px #ffffff;
+            transform: translateY(-4px);
+        }
+
+        .neuro-inset {
+            background: linear-gradient(145deg, #dfe4ea, #f0f4f8);
+            box-shadow: inset 8px 8px 16px #c5cbd3, inset -8px -8px 16px #ffffff;
+            border-radius: 20px;
+        }
+
+        .neuro-button {
+            background: linear-gradient(145deg, #f0f4f8, #dfe4ea);
+            box-shadow: 8px 8px 16px #c5cbd3, -8px -8px 16px #ffffff;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .neuro-button:hover {
+            box-shadow: 12px 12px 24px #c5cbd3, -12px -12px 24px #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .neuro-button:active {
+            box-shadow: inset 6px 6px 12px #c5cbd3, inset -6px -6px 12px #ffffff;
+            transform: translateY(0);
+        }
+
+        .neuro-gold {
+            background: linear-gradient(145deg, #e6c9a3, #d4a574);
+            box-shadow: 10px 10px 20px #b88c5a, -10px -10px 20px #e6c9a3;
+        }
+
+        .neuro-gold:hover {
+            box-shadow: 14px 14px 28px #b88c5a, -14px -14px 28px #e6c9a3;
+        }
+
+        /* --- ADVANCED ANIMATIONS --- */
+        .anim-item {
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+                        transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+            opacity: 0;
+        }
+
+        .reveal-fade { opacity: 0; }
+        .reveal-up { transform: translateY(60px); }
+        .reveal-down { transform: translateY(-60px); }
+        .reveal-left { transform: translateX(-60px); }
+        .reveal-right { transform: translateX(60px); }
+        .reveal-scale { transform: scale(0.9); }
+
+        .anim-item.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+
+        /* --- FLOATING SHAPES --- */
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .animate-float-gentle {
+            animation: float-gentle 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-soft {
+            animation: pulse-soft 4s ease-in-out infinite;
+        }
+
+        /* Text Selection */
+        ::selection {
+            background: #d4a574;
+            color: white;
+        }
+
+        /* --- GRADIENT TEXT --- */
+        .gradient-text {
+            background: linear-gradient(135deg, #d4a574 0%, #b88c5a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* --- PROGRESS BAR --- */
+        .progress-line {
+            height: 4px;
+            background: linear-gradient(145deg, #f0f4f8, #dfe4ea);
+            box-shadow: inset 3px 3px 6px #c5cbd3, inset -3px -3px 6px #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4a574, #e6c9a3);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Icon glow effect */
+        .icon-glow {
+            transition: all 0.3s ease;
+        }
+
+        .neuro-card:hover .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+            transform: scale(1.1);
+        }
+
+        /* Smooth nav blur */
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(232, 236, 240, 0.85);
+        }
+    </style>
+</head>
+<body class="text-neuro-text font-body">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3 anim-item reveal-left">
+                    <div class="w-10 h-10 rounded-full neuro-gold flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">CA</span>
+                    </div>
+                    <a href="#hero" class="font-display font-bold text-xl tracking-tight text-neuro-textDark">
+                        Dr. Cuneyt Altinoz
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-6 items-center anim-item reveal-right delay-200">
+                    <a href="#awards" class="font-semibold hover:text-neuro-gold transition-colors px-4 py-2 rounded-xl hover:shadow-neuro-sm">Awards</a>
+                    <a href="#focus" class="font-semibold hover:text-neuro-gold transition-colors px-4 py-2 rounded-xl hover:shadow-neuro-sm">Focus</a>
+                    <a href="#education" class="font-semibold hover:text-neuro-gold transition-colors px-4 py-2 rounded-xl hover:shadow-neuro-sm">Education</a>
+                    <a href="#experience" class="font-semibold hover:text-neuro-gold transition-colors px-4 py-2 rounded-xl hover:shadow-neuro-sm">Experience</a>
+                    <a href="#contact" class="neuro-gold px-6 py-3 font-bold text-white rounded-xl hover:scale-105 transition-transform">
+                        Contact
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="neuro-button p-3 text-neuro-textDark">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-neuro-bg z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center space-y-8 md:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 neuro-button p-4 text-neuro-textDark">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="#hero" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">HOME</a>
+            <a href="#awards" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">AWARDS</a>
+            <a href="#focus" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">FOCUS</a>
+            <a href="#education" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">EDUCATION</a>
+            <a href="#experience" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">EXPERIENCE</a>
+            <a href="#contact" class="mobile-link text-3xl font-display font-bold text-neuro-textDark hover:text-neuro-gold transition-all">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="min-h-screen pt-20 flex items-center relative overflow-hidden">
+        <!-- Floating decorative shapes -->
+        <div class="absolute right-20 top-40 w-64 h-64 rounded-full neuro-card opacity-30 animate-float-gentle"></div>
+        <div class="absolute left-20 bottom-40 w-48 h-48 rounded-full neuro-gold opacity-20 animate-pulse-soft" style="animation-delay: 1s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <div class="space-y-8">
+                    <div class="anim-item reveal-left neuro-gold inline-block px-6 py-3 font-display font-semibold tracking-wide text-white rounded-2xl">
+                        PROFESSOR AT PURDUE UNIVERSITY GLOBAL
+                    </div>
+
+                    <h1 class="anim-item reveal-left delay-100 font-display font-extrabold text-6xl sm:text-7xl md:text-8xl leading-none text-neuro-textDark">
+                        CUNEYT<br>
+                        <span class="gradient-text">ALTINOZ</span>
+                    </h1>
+
+                    <div class="anim-item reveal-up delay-200 neuro-card p-8 max-w-2xl">
+                        <h3 class="font-bold text-xl mb-6 text-neuro-textDark">Welcome students. You are in good hands!</h3>
+                        <div class="grid grid-cols-3 gap-6 text-center">
+                            <div class="group">
+                                <span id="years-at-purdue" class="block font-display font-extrabold text-4xl sm:text-5xl gradient-text group-hover:scale-110 transition-transform">16+</span>
+                                <span class="text-xs font-semibold uppercase text-neuro-text mt-2 block">Years at Purdue</span>
+                            </div>
+                            <div class="group">
+                                <span id="years-teaching" class="block font-display font-extrabold text-4xl sm:text-5xl gradient-text group-hover:scale-110 transition-transform">22</span>
+                                <span class="text-xs font-semibold uppercase text-neuro-text mt-2 block">Years Teaching</span>
+                            </div>
+                            <div class="group">
+                                <span class="block font-display font-extrabold text-4xl sm:text-5xl gradient-text group-hover:scale-110 transition-transform">4</span>
+                                <span class="text-xs font-semibold uppercase text-neuro-text mt-2 block">Major Awards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="anim-item reveal-up delay-300 neuro-gold px-8 py-4 text-white font-bold text-lg rounded-2xl hover:scale-105 transition-all uppercase">
+                            Get in Touch
+                        </a>
+                        <a href="#awards" class="anim-item reveal-up delay-300 neuro-button px-8 py-4 text-neuro-textDark font-bold text-lg hover:scale-105 transition-all uppercase">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Geometric Accent -->
+                <div class="hidden lg:block relative h-96">
+                    <div class="anim-item reveal-right delay-300 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 neuro-card rounded-full flex items-center justify-center">
+                        <div class="w-64 h-64 neuro-inset rounded-full flex items-center justify-center">
+                            <div class="w-48 h-48 neuro-gold rounded-full opacity-80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: AWARDS -->
+    <section id="awards" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 anim-item reveal-up">
+                <h2 class="font-display font-extrabold text-5xl md:text-7xl tracking-tight text-neuro-textDark">
+                    Awards &<br><span class="gradient-text">Recognition</span>
+                </h2>
+                <div class="mt-4 md:mt-0">
+                    <div class="progress-line w-32 md:w-64">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Award Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="neuro-card anim-item reveal-left p-8 relative group">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 neuro-gold rounded-full flex items-center justify-center z-10 icon-glow">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <span class="font-mono text-sm font-bold text-neuro-gold mb-3 block">2025</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Innovative Online Use of Technology</h3>
+                    <p class="font-semibold text-neuro-text">Purdue University Online</p>
+                    <p class="mt-4 text-sm leading-relaxed text-neuro-text">Recognized for custom AI assistants helping graduate students.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="neuro-card anim-item reveal-right delay-100 p-8 relative group">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 neuro-gold rounded-full flex items-center justify-center z-10 icon-glow">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <span class="font-mono text-sm font-bold text-neuro-gold mb-3 block">2023</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Excellence in Online Course Design</h3>
+                    <p class="font-semibold text-neuro-text">Purdue University Online</p>
+                    <p class="mt-4 text-sm leading-relaxed text-neuro-text">Student-centric design of GB 513 Business Analytics.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="neuro-card anim-item reveal-left delay-200 p-8 relative group">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 neuro-gold rounded-full flex items-center justify-center z-10 icon-glow">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <span class="font-mono text-sm font-bold text-neuro-gold mb-3 block">2021</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4 text-neuro-textDark group-hover:text-neuro-gold transition-colors">ACBSP Teaching Excellence Award</h3>
+                    <p class="font-semibold text-neuro-text">ACBSP</p>
+                    <p class="mt-4 text-sm leading-relaxed text-neuro-text">One of 7 winners in the United States.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="neuro-card anim-item reveal-right delay-300 p-8 relative group">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 neuro-gold rounded-full flex items-center justify-center z-10 icon-glow">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <span class="font-mono text-sm font-bold text-neuro-gold mb-3 block">2016</span>
+                    <h3 class="font-display font-bold text-2xl mt-2 mb-4 text-neuro-textDark group-hover:text-neuro-gold transition-colors">School of Business Professor of the Year</h3>
+                    <p class="font-semibold text-neuro-text">Purdue University Global</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FOCUS -->
+    <section id="focus" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-16 anim-item reveal-up">
+                <h2 class="font-display font-extrabold text-5xl md:text-7xl text-neuro-textDark mb-6">
+                    Current <span class="gradient-text">Focus</span>
+                </h2>
+                <div class="progress-line max-w-xs">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="mb-12 neuro-card p-10 anim-item reveal-up delay-100">
+                <h3 class="font-display font-bold text-3xl mb-4 text-neuro-textDark">AI SYSTEMS FOR EDUCATION</h3>
+                <p class="text-lg leading-relaxed font-medium text-neuro-text">Evaluation of developing AI systems for education - use of Gems, GPTs and webapps coded with AI assistance.</p>
+            </div>
+
+            <!-- Project Cards -->
+            <div class="space-y-8">
+                <!-- Project 1 -->
+                <div class="neuro-card anim-item reveal-right flex flex-col md:flex-row gap-0 overflow-hidden group">
+                    <div class="w-full md:w-1/3 neuro-gold text-white flex items-center justify-center p-12 font-display font-extrabold text-6xl transition-all">
+                        01
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 flex flex-col justify-between bg-gradient-to-br from-white/50 to-transparent">
+                        <div>
+                            <h4 class="font-bold text-2xl mb-3 text-neuro-textDark">Research Methodology Selector</h4>
+                            <p class="text-sm mb-6 text-neuro-text leading-relaxed">Interactive tool for DBA students to identify appropriate research methodologies.</p>
+                        </div>
+                        <a href="https://cunmayday.github.io/webtests/methods.html" target="_blank" class="self-start font-bold flex items-center gap-2 text-neuro-gold hover:gap-4 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="neuro-card anim-item reveal-left delay-100 flex flex-col md:flex-row gap-0 overflow-hidden group">
+                    <div class="w-full md:w-1/3 neuro-gold text-white flex items-center justify-center p-12 font-display font-extrabold text-6xl order-1 md:order-2 transition-all">
+                        02
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 flex flex-col justify-between order-2 md:order-1 bg-gradient-to-br from-white/50 to-transparent">
+                        <div>
+                            <h4 class="font-bold text-2xl mb-3 text-neuro-textDark">Analytics Case Study</h4>
+                            <p class="text-sm mb-6 text-neuro-text leading-relaxed">Comprehensive case study example demonstrating business analytics applications.</p>
+                        </div>
+                        <a href="https://cunmayday.github.io/webtests/caseada.html" target="_blank" class="self-start font-bold flex items-center gap-2 text-neuro-gold hover:gap-4 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="neuro-card anim-item reveal-right delay-200 flex flex-col md:flex-row gap-0 overflow-hidden group">
+                    <div class="w-full md:w-1/3 neuro-gold text-white flex items-center justify-center p-12 font-display font-extrabold text-6xl transition-all">
+                        03
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 flex flex-col justify-between bg-gradient-to-br from-white/50 to-transparent">
+                        <div>
+                            <h4 class="font-bold text-2xl mb-3 text-neuro-textDark">AI Use Cases Catalog</h4>
+                            <p class="text-sm mb-6 text-neuro-text leading-relaxed">Curated collection of AI applications and use cases in education.</p>
+                        </div>
+                        <a href="https://usecases.vercel.app/index.html" target="_blank" class="self-start font-bold flex items-center gap-2 text-neuro-gold hover:gap-4 transition-all">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: EDUCATION -->
+    <section id="education" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display font-extrabold text-5xl md:text-7xl text-neuro-textDark mb-16 text-center tracking-tight anim-item reveal-scale">
+                EDUCATION
+            </h2>
+
+            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Connecting line -->
+                <div class="absolute top-12 left-0 w-full hidden md:block z-0" style="height: 4px;">
+                    <div class="progress-line w-full">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- Degree 1 -->
+                <div class="neuro-card anim-item reveal-left relative z-10 p-8 text-center">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 neuro-gold rounded-full hidden md:flex items-center justify-center text-white font-bold z-10 icon-glow">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div class="pt-8 md:pt-12">
+                        <div class="inline-block neuro-inset px-4 py-2 font-mono text-sm mb-4 rounded-xl font-bold text-neuro-gold">2001</div>
+                        <h3 class="font-display font-extrabold text-5xl mb-3 gradient-text">PhD</h3>
+                        <p class="font-bold text-neuro-textDark mb-1">North Carolina State University</p>
+                        <p class="text-sm text-neuro-text">Raleigh, NC</p>
+                    </div>
+                </div>
+
+                <!-- Degree 2 -->
+                <div class="neuro-card anim-item reveal-up delay-100 relative z-10 p-8 text-center">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 neuro-gold rounded-full hidden md:flex items-center justify-center text-white font-bold z-10 icon-glow">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div class="pt-8 md:pt-12">
+                        <div class="inline-block neuro-inset px-4 py-2 font-mono text-sm mb-4 rounded-xl font-bold text-neuro-gold">1996</div>
+                        <h3 class="font-display font-extrabold text-5xl mb-3 gradient-text">MBA</h3>
+                        <p class="font-bold text-neuro-textDark mb-1">Georgia Institute of Technology</p>
+                        <p class="text-sm text-neuro-text">Atlanta, GA</p>
+                    </div>
+                </div>
+
+                <!-- Degree 3 -->
+                <div class="neuro-card anim-item reveal-right delay-200 relative z-10 p-8 text-center">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 neuro-gold rounded-full hidden md:flex items-center justify-center text-white font-bold z-10 icon-glow">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div class="pt-8 md:pt-12">
+                        <div class="inline-block neuro-inset px-4 py-2 font-mono text-sm mb-4 rounded-xl font-bold text-neuro-gold">1994</div>
+                        <h3 class="font-display font-extrabold text-4xl mb-3 gradient-text">BS Ind. Eng.</h3>
+                        <p class="font-bold text-neuro-textDark mb-1">North Carolina State University</p>
+                        <p class="text-sm text-neuro-text">Raleigh, NC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: EXPERIENCE -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-12 anim-item reveal-left flex items-center gap-6">
+                <div class="w-2 h-24 neuro-gold rounded-full"></div>
+                <h2 class="font-display font-extrabold text-6xl text-neuro-textDark">EXPERIENCE</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Col 1 -->
+                <div class="space-y-8">
+                    <div class="neuro-card anim-item reveal-left p-8 relative overflow-hidden group">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-gold">2009-Present</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Professor</h3>
+                        <p class="font-semibold text-neuro-text mb-4">Purdue University Global</p>
+                        <ul class="space-y-2 text-sm text-neuro-text">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Faculty lead for Doctorate in Business Administration program.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Course lead for Business Statistics and Doctoral Studies.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="neuro-card anim-item reveal-left delay-100 p-8 relative overflow-hidden group">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-gold">2001-2003</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Post-doc Fellow</h3>
+                        <p class="font-semibold text-neuro-text mb-4">NC State University</p>
+                        <ul class="space-y-2 text-sm text-neuro-text">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Created fuzzy logic decision support systems.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Filed 2 patents for linguistic decision rules.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="neuro-card anim-item reveal-left delay-200 p-8 relative overflow-hidden group">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-gold">1995-1997</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Consultant</h3>
+                        <p class="font-semibold text-neuro-text mb-4">CIBA Vision</p>
+                        <p class="text-sm text-neuro-text">Implemented new methodology for effective inventory control and developed software tools.</p>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-8 lg:mt-12">
+                    <div class="neuro-card anim-item reveal-right delay-100 p-8 relative overflow-hidden group">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-gold">2003-2008</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Assistant Professor</h3>
+                        <p class="font-semibold text-neuro-text mb-4">East Carolina University</p>
+                        <ul class="space-y-2 text-sm text-neuro-text">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Established new online supply chain program.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Taught MBA operations management & decision modeling.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="neuro-card anim-item reveal-right delay-200 p-8 relative overflow-hidden group">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-gold">1997-2001</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-neuro-textDark group-hover:text-neuro-gold transition-colors">Research Assistant</h3>
+                        <p class="font-semibold text-neuro-text mb-4">NC State University</p>
+                        <ul class="space-y-2 text-sm text-neuro-text">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Performance measurement and simulation analysis.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-circle text-neuro-gold mt-1.5" style="font-size: 6px;"></i>
+                                <span>Developed two software programs for decision support.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="neuro-gold anim-item reveal-right delay-300 p-8 relative overflow-hidden group rounded-3xl">
+                        <div class="absolute top-4 right-4 neuro-inset text-xs font-bold px-3 py-2 rounded-xl text-neuro-goldDark">1995</div>
+                        <h3 class="font-display font-bold text-2xl mb-2 text-white group-hover:scale-105 transition-transform">Operations Analyst</h3>
+                        <p class="font-semibold text-white/90 mb-4">IBM, Atlanta</p>
+                        <p class="text-sm font-medium text-white/80">Analyzed service operations, developed measurement tools and financial forecasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-display font-extrabold text-5xl md:text-8xl mb-12 text-neuro-textDark anim-item reveal-up">
+                LET'S <span class="gradient-text">CONNECT</span>
+            </h2>
+
+            <div class="anim-item reveal-up delay-100 mb-12">
+                <a href="mailto:caltinoz@purdueglobal.edu" class="neuro-card inline-block text-xl md:text-3xl font-bold text-neuro-gold hover:text-neuro-goldDark transition-all p-6 md:p-8 break-all hover:scale-105">
+                    caltinoz@purdueglobal.edu
+                </a>
+            </div>
+
+            <div class="flex justify-center space-x-6 anim-item reveal-up delay-200 mb-12">
+                <a href="#" class="neuro-button w-16 h-16 flex items-center justify-center rounded-full text-neuro-gold hover:scale-110 transition-all text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="neuro-button w-16 h-16 flex items-center justify-center rounded-full text-neuro-gold hover:scale-110 transition-all text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="neuro-button w-16 h-16 flex items-center justify-center rounded-full text-neuro-gold hover:scale-110 transition-all text-xl">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 anim-item reveal-up delay-300 font-mono text-sm mb-8">
+                <span class="neuro-inset px-4 py-2 rounded-full text-neuro-text">#BusinessAdmin</span>
+                <span class="neuro-inset px-4 py-2 rounded-full text-neuro-text">#AIinEducation</span>
+                <span class="neuro-inset px-4 py-2 rounded-full text-neuro-text">#EdTech</span>
+            </div>
+
+            <div class="neuro-gold p-6 inline-block rounded-3xl">
+                <p class="font-bold text-white text-lg">Open to Collaboration & Research Opportunities</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 neuro-inset py-4 rounded-2xl inline-block">
+            <p class="font-mono text-xs text-neuro-text">&copy; 2025 Cuneyt Altinoz. Designed with neumorphic aesthetics.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- DYNAMIC YEAR CALCULATION ---
+        function calculateYears() {
+            const currentYear = new Date().getFullYear();
+            const yearsAtPurdue = currentYear - 2009;
+            const yearsTeaching = currentYear - 2003;
+
+            document.getElementById('years-at-purdue').textContent = yearsAtPurdue + '+';
+            document.getElementById('years-teaching').textContent = yearsTeaching;
+        }
+
+        calculateYears();
+
+        // --- MENU & SCROLL ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // --- SCROLL ANIMATIONS ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.anim-item').forEach(el => observer.observe(el));
+        });
+
+        // --- SMOOTH SCROLL ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
